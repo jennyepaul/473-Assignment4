@@ -29,21 +29,21 @@ namespace JennyCasey_Assign4
         /// </summary>
         private void InitializeComponent()
         {
-            this.graph1 = new System.Windows.Forms.PictureBox();
+            this.linearGraph = new System.Windows.Forms.PictureBox();
             this.equation1 = new System.Windows.Forms.Label();
             this.equation1_mx = new System.Windows.Forms.Label();
             this.equation1_mxVal = new System.Windows.Forms.TextBox();
             this.equation1_bVal = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.graph1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linearGraph)).BeginInit();
             this.SuspendLayout();
             // 
-            // graph1
+            // linearGraph
             // 
-            this.graph1.Location = new System.Drawing.Point(3, 65);
-            this.graph1.Name = "graph1";
-            this.graph1.Size = new System.Drawing.Size(544, 306);
-            this.graph1.TabIndex = 0;
-            this.graph1.TabStop = false;
+            this.linearGraph.Location = new System.Drawing.Point(3, 65);
+            this.linearGraph.Name = "linearGraph";
+            this.linearGraph.Size = new System.Drawing.Size(544, 306);
+            this.linearGraph.TabIndex = 0;
+            this.linearGraph.TabStop = false;
             // 
             // equation1
             // 
@@ -86,10 +86,10 @@ namespace JennyCasey_Assign4
             this.Controls.Add(this.equation1_mxVal);
             this.Controls.Add(this.equation1_mx);
             this.Controls.Add(this.equation1);
-            this.Controls.Add(this.graph1);
+            this.Controls.Add(this.linearGraph);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.graph1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linearGraph)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,7 +97,7 @@ namespace JennyCasey_Assign4
 
         #endregion
 
-        private System.Windows.Forms.PictureBox graph1;
+        private System.Windows.Forms.PictureBox linearGraph;
         private System.Windows.Forms.Label equation1;
         private System.Windows.Forms.Label equation1_mx;
         private System.Windows.Forms.TextBox equation1_mxVal;
