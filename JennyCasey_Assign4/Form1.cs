@@ -20,12 +20,12 @@ namespace JennyCasey_Assign4
 
         //variable to check if the mouse is down when they click the "Graph" button
         private bool isDown;
-        private static int xMin;    // -- the lowest x-coordinate value
+       /* private static int xMin;    // -- the lowest x-coordinate value
         private static int xMax;        // -- the highest x-coordinate value
         private static int xInternval;  // -- the distance between ticks on the x-axis
         private static int yMin;        
         private static int yMax;
-        private static int yInterval;
+        private static int yInterval;*/
 
         //linear equation points
         /*
@@ -39,11 +39,26 @@ namespace JennyCasey_Assign4
         {
             InitializeComponent();
 
+            
+
         }
 
         private void graph_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
+
+            using (Pen myPen = new Pen(Color.BurlyWood))
+            {
+               
+                for (int i = 0; i < 10; i++)
+                {
+                    graphics.DrawLine(myPen, i*(graph.Width)/10, (graph.Height / 2) - 10, 
+                        i * (graph.Width) / 10, (graph.Height / 2) + 10);
+                }
+                
+
+                graphics.DrawLine(myPen, 0, graph.Height / 2, graph.Width, graph.Height / 2);
+            }
 
             //need to find a few points from the slope and then draw that
 
@@ -98,6 +113,37 @@ namespace JennyCasey_Assign4
                     }
 
                 }
+            }
+
+            //QUADRADTIC EQUATION GRAPHING 
+            if (Quad_Avalue.Text.Length != 0 && Quad_Bvalue.Text.Length != 0 && Quad_Cvalue.Text.Length !=0)
+            {
+                double A_Value = double.Parse(Quad_Avalue.Text);
+                double B_Value = double.Parse(Quad_Bvalue.Text);
+                double C_Value = double.Parse(Quad_Cvalue.Text);
+
+                double H_Value = (-1 * B_Value) / (2 * A_Value);
+                double K_Value = (A_Value * (H_Value * H_Value)) + (B_Value * H_Value) + C_Value;
+
+                testOutput.AppendText("H value is " + H_Value + "K value is " + K_Value + "\n");
+
+                //double Y_Value = (A_Value * (i * i)) + (B_Value * i) + C_Value; //find y value 
+
+
+                // Point point1 = new Point(H_Value, K_Value); // represents the vertex
+
+
+                Point point2 = new Point(graph.Width/2, graph.Height/2);
+                Point point3 = new Point(graph.Width / 3, graph.Height / 3); //(0,2)
+                Point point4 = new Point(10, 10); //(-2,2)
+                //Point point5 = new Point(0,0);
+               // Point point6 = new Point(0,0);
+               // Point point7 = new Point(0,0);
+                Point[] curvePoints = {point2, point3, point4 };
+
+                Pen redPen = new Pen(Color.Red, 3);
+                e.Graphics.DrawCurve(redPen, curvePoints, 1);
+
             }
         }
 

@@ -56,8 +56,8 @@ namespace JennyCasey_Assign4
             this.testOutput = new System.Windows.Forms.RichTextBox();
             this.quadraticEquation = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.Quad_Bvalue = new System.Windows.Forms.TextBox();
+            this.Quad_Avalue = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.circleEquation = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -87,6 +87,8 @@ namespace JennyCasey_Assign4
             this.yMinLabel = new System.Windows.Forms.Label();
             this.yMaxLabel = new System.Windows.Forms.Label();
             this.yIntervalLabel = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.Quad_Cvalue = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.graph)).BeginInit();
             this.linearEquation.SuspendLayout();
             this.cubicEquation.SuspendLayout();
@@ -359,9 +361,11 @@ namespace JennyCasey_Assign4
             // 
             // quadraticEquation
             // 
+            this.quadraticEquation.Controls.Add(this.Quad_Cvalue);
+            this.quadraticEquation.Controls.Add(this.label10);
             this.quadraticEquation.Controls.Add(this.label3);
-            this.quadraticEquation.Controls.Add(this.textBox3);
-            this.quadraticEquation.Controls.Add(this.textBox4);
+            this.quadraticEquation.Controls.Add(this.Quad_Bvalue);
+            this.quadraticEquation.Controls.Add(this.Quad_Avalue);
             this.quadraticEquation.Controls.Add(this.label4);
             this.quadraticEquation.Location = new System.Drawing.Point(771, 255);
             this.quadraticEquation.Name = "quadraticEquation";
@@ -373,34 +377,34 @@ namespace JennyCasey_Assign4
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 46);
+            this.label3.Location = new System.Drawing.Point(3, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 17);
             this.label3.TabIndex = 1;
             this.label3.Text = "y = ";
             // 
-            // textBox3
+            // Quad_Bvalue
             // 
-            this.textBox3.Location = new System.Drawing.Point(109, 41);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(25, 22);
-            this.textBox3.TabIndex = 4;
+            this.Quad_Bvalue.Location = new System.Drawing.Point(109, 39);
+            this.Quad_Bvalue.Name = "Quad_Bvalue";
+            this.Quad_Bvalue.Size = new System.Drawing.Size(25, 22);
+            this.Quad_Bvalue.TabIndex = 4;
             // 
-            // textBox4
+            // Quad_Avalue
             // 
-            this.textBox4.Location = new System.Drawing.Point(46, 41);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(25, 22);
-            this.textBox4.TabIndex = 3;
+            this.Quad_Avalue.Location = new System.Drawing.Point(33, 39);
+            this.Quad_Avalue.Name = "Quad_Avalue";
+            this.Quad_Avalue.Size = new System.Drawing.Size(25, 22);
+            this.Quad_Avalue.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(77, 44);
+            this.label4.Location = new System.Drawing.Point(64, 44);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 17);
+            this.label4.Size = new System.Drawing.Size(45, 17);
             this.label4.TabIndex = 2;
-            this.label4.Text = "x +";
+            this.label4.Text = "x^2  +";
             // 
             // circleEquation
             // 
@@ -667,6 +671,22 @@ namespace JennyCasey_Assign4
             this.yIntervalLabel.TabIndex = 27;
             this.yIntervalLabel.Text = "yInterval";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(140, 44);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(26, 17);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "x +";
+            // 
+            // Quad_Cvalue
+            // 
+            this.Quad_Cvalue.Location = new System.Drawing.Point(166, 39);
+            this.Quad_Cvalue.Name = "Quad_Cvalue";
+            this.Quad_Cvalue.Size = new System.Drawing.Size(25, 22);
+            this.Quad_Cvalue.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -757,8 +777,8 @@ namespace JennyCasey_Assign4
         private System.Windows.Forms.RichTextBox testOutput;
         private System.Windows.Forms.GroupBox quadraticEquation;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox Quad_Bvalue;
+        private System.Windows.Forms.TextBox Quad_Avalue;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox circleEquation;
         private System.Windows.Forms.Label label5;
@@ -788,6 +808,8 @@ namespace JennyCasey_Assign4
         private System.Windows.Forms.Label yMinLabel;
         private System.Windows.Forms.Label yMaxLabel;
         private System.Windows.Forms.Label yIntervalLabel;
+        private System.Windows.Forms.TextBox Quad_Cvalue;
+        private System.Windows.Forms.Label label10;
     }
 }
 
