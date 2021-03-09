@@ -33,8 +33,11 @@ namespace JennyCasey_Assign4
             this.equation1 = new System.Windows.Forms.Label();
             this.equation1_mx = new System.Windows.Forms.Label();
             this.linear_riseValue = new System.Windows.Forms.TextBox();
-            this.linear_yValue = new System.Windows.Forms.TextBox();
+            this.linear_yPointVal = new System.Windows.Forms.TextBox();
             this.linearEquation = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.linear_xPointVal = new System.Windows.Forms.TextBox();
+            this.linear_runValue = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.graphButton = new System.Windows.Forms.Button();
             this.cubicEquation = new System.Windows.Forms.GroupBox();
@@ -92,7 +95,6 @@ namespace JennyCasey_Assign4
             this.yLabelMax = new System.Windows.Forms.Label();
             this.xLabelMin = new System.Windows.Forms.Label();
             this.yLabelMin = new System.Windows.Forms.Label();
-            this.linear_runValue = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.graph)).BeginInit();
             this.linearEquation.SuspendLayout();
             this.cubicEquation.SuspendLayout();
@@ -144,19 +146,21 @@ namespace JennyCasey_Assign4
             this.linear_riseValue.Size = new System.Drawing.Size(25, 22);
             this.linear_riseValue.TabIndex = 3;
             // 
-            // linear_yValue
+            // linear_yPointVal
             // 
-            this.linear_yValue.Location = new System.Drawing.Point(109, 41);
-            this.linear_yValue.Name = "linear_yValue";
-            this.linear_yValue.Size = new System.Drawing.Size(25, 22);
-            this.linear_yValue.TabIndex = 4;
+            this.linear_yPointVal.Location = new System.Drawing.Point(109, 22);
+            this.linear_yPointVal.Name = "linear_yPointVal";
+            this.linear_yPointVal.Size = new System.Drawing.Size(25, 22);
+            this.linear_yPointVal.TabIndex = 4;
             // 
             // linearEquation
             // 
+            this.linearEquation.Controls.Add(this.label11);
+            this.linearEquation.Controls.Add(this.linear_xPointVal);
             this.linearEquation.Controls.Add(this.linear_runValue);
             this.linearEquation.Controls.Add(this.label10);
             this.linearEquation.Controls.Add(this.equation1);
-            this.linearEquation.Controls.Add(this.linear_yValue);
+            this.linearEquation.Controls.Add(this.linear_yPointVal);
             this.linearEquation.Controls.Add(this.linear_riseValue);
             this.linearEquation.Controls.Add(this.equation1_mx);
             this.linearEquation.Location = new System.Drawing.Point(771, 65);
@@ -165,6 +169,29 @@ namespace JennyCasey_Assign4
             this.linearEquation.TabIndex = 5;
             this.linearEquation.TabStop = false;
             this.linearEquation.Text = "Linear Equation";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(106, 46);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(33, 17);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "-----";
+            // 
+            // linear_xPointVal
+            // 
+            this.linear_xPointVal.Location = new System.Drawing.Point(109, 63);
+            this.linear_xPointVal.Name = "linear_xPointVal";
+            this.linear_xPointVal.Size = new System.Drawing.Size(25, 22);
+            this.linear_xPointVal.TabIndex = 7;
+            // 
+            // linear_runValue
+            // 
+            this.linear_runValue.Location = new System.Drawing.Point(50, 58);
+            this.linear_runValue.Name = "linear_runValue";
+            this.linear_runValue.Size = new System.Drawing.Size(25, 22);
+            this.linear_runValue.TabIndex = 6;
             // 
             // label10
             // 
@@ -774,13 +801,6 @@ namespace JennyCasey_Assign4
             this.yLabelMin.TabIndex = 31;
             this.yLabelMin.Text = "NULL";
             // 
-            // linear_runValue
-            // 
-            this.linear_runValue.Location = new System.Drawing.Point(50, 58);
-            this.linear_runValue.Name = "linear_runValue";
-            this.linear_runValue.Size = new System.Drawing.Size(25, 22);
-            this.linear_runValue.TabIndex = 6;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -852,7 +872,7 @@ namespace JennyCasey_Assign4
         private System.Windows.Forms.Label equation1;
         private System.Windows.Forms.Label equation1_mx;
         private System.Windows.Forms.TextBox linear_riseValue;
-        private System.Windows.Forms.TextBox linear_yValue;
+        private System.Windows.Forms.TextBox linear_yPointVal;
         private System.Windows.Forms.GroupBox linearEquation;
         private System.Windows.Forms.Button graphButton;
         private System.Windows.Forms.GroupBox cubicEquation;
@@ -912,6 +932,8 @@ namespace JennyCasey_Assign4
         private System.Windows.Forms.Label yLabelMin;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox linear_runValue;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox linear_xPointVal;
     }
 }
 

@@ -91,13 +91,14 @@ namespace JennyCasey_Assign4
             //need to find a few points from the slope and then draw that
 
             //LINEAR EQUATION GRAPHING
-            if (linear_riseValue.Text.Length != 0 && linear_yValue.Text.Length != 0)
+            if (linear_riseValue.TextLength != 0 && linear_runValue.TextLength != 0 && linear_yPointVal.TextLength != 0 && linear_xPointVal.TextLength != 0)
             {
                 //grab the info entered for the equation 
-                int yIntercept = int.Parse(linear_yValue.Text);
-                int slope = int.Parse(linear_riseValue.Text);
+                int rise = int.Parse(linear_riseValue.Text);
+                int run = int.Parse(linear_runValue.Text);
+                int yPoint = int.Parse(linear_yPointVal.Text);
+                int xPoint = int.Parse(linear_xPointVal.Text);
 
-                testOutput.AppendText("y intercept is " + yIntercept + " and slope value is " + slope);
                 if (isDown == true)
                 {
                     //depending on what color choice/radio button was clicked that is the color we will draw in
@@ -106,9 +107,10 @@ namespace JennyCasey_Assign4
                         using (Pen linearPen = new Pen(Color.Red))
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
-                            graphics.DrawLine(linearPen, 0, yIntercept, 100, 100);
+                            graphics.DrawLine(linearPen, xPoint, yPoint, xPoint+run, yPoint+rise);
                         }
                     }
+                    /*
                     if (blueColorRadioButton_Linear.Checked)
                     {
                         using (Pen linearPen = new Pen(Color.Blue))
@@ -133,6 +135,7 @@ namespace JennyCasey_Assign4
                             graphics.DrawLine(linearPen, 0, yIntercept, 100, 100);
                         }
                     }
+                    */
                     //if user didn't choose a color then let them know they need to
                     if(!blackColorRadioButton_Linear.Checked && !blueColorRadioButton_Linear.Checked
                         && !redColorRadioButton_Linear.Checked && !greenColorRadioButton_Linear.Checked)
