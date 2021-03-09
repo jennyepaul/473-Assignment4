@@ -737,7 +737,7 @@ namespace JennyCasey_Assign4
             // yLabelMax
             // 
             this.yLabelMax.AutoSize = true;
-            this.yLabelMax.Location = new System.Drawing.Point(372, 25);
+            this.yLabelMax.Location = new System.Drawing.Point(338, 25);
             this.yLabelMax.Name = "yLabelMax";
             this.yLabelMax.Size = new System.Drawing.Size(44, 17);
             this.yLabelMax.TabIndex = 29;
@@ -755,7 +755,7 @@ namespace JennyCasey_Assign4
             // yLabelMin
             // 
             this.yLabelMin.AutoSize = true;
-            this.yLabelMin.Location = new System.Drawing.Point(372, 698);
+            this.yLabelMin.Location = new System.Drawing.Point(338, 695);
             this.yLabelMin.Name = "yLabelMin";
             this.yLabelMin.Size = new System.Drawing.Size(44, 17);
             this.yLabelMin.TabIndex = 31;

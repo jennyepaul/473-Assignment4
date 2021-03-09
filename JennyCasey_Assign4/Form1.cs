@@ -73,17 +73,17 @@ namespace JennyCasey_Assign4
                 graphics.DrawLine(graphPen, graph.Width/2, 0, graph.Width/2, graph.Height);
                 graphics.DrawLine(graphPen, 0, graph.Height / 2, graph.Width, graph.Height/2);
 
-                for(int i = 0; i < numberOfXTicks; i++)
+                for(int i = 0; i <= numberOfXTicks; i++)
                 {
                     graphics.DrawLine(graphPen, i * (graph.Width) / numberOfXTicks, (graph.Height / 2) - numberOfXTicks,
                                                 i * (graph.Width) / numberOfXTicks, (graph.Height / 2) + numberOfXTicks);
 
                     
                 }
-                for(int i = 0; i < numberOfYTicks; i++)
+                for(int i = 0; i <= numberOfYTicks; i++)
                 {
-                    graphics.DrawLine(graphPen, i * (graph.Width / 2) - numberOfYTicks, (graph.Height) / numberOfYTicks,
-                                               i * (graph.Width / 2) + numberOfYTicks, (graph.Height) / numberOfYTicks);
+                    graphics.DrawLine(graphPen, (graph.Width / 2) + numberOfYTicks, i * (graph.Height) / numberOfYTicks,
+                                               (graph.Width / 2) - numberOfYTicks, i * (graph.Height) / numberOfYTicks);
                 }
                
                 graph.Refresh();
