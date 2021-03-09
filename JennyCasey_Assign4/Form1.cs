@@ -20,9 +20,9 @@ namespace JennyCasey_Assign4
 
         //variable to check if the mouse is down when they click the "Graph" button
         private bool isDown;
-        private static int xMin;    // -- the lowest x-coordinate value
+        private static int xMin;        // -- the lowest x-coordinate value
         private static int xMax;        // -- the highest x-coordinate value
-        private static int xInternval;  // -- the distance between ticks on the x-axis
+        private static int xInterval;  // -- the distance between ticks on the x-axis
         private static int yMin;        
         private static int yMax;
         private static int yInterval;
@@ -45,6 +45,20 @@ namespace JennyCasey_Assign4
         {
             Graphics graphics = e.Graphics;
 
+            xMin = (int)xMinValue.Value;
+            xMax = (int)xMaxValue.Value;
+
+            yMin = (int)yMinValue.Value;
+            yMax = (int)yMaxValue.Value;
+
+            using (Pen graphPen = new Pen(Color.Black))
+            {
+                //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
+                //draw the x & y lines of the graph
+                graphics.DrawLine(graphPen, graph.Width/2, 0, graph.Width/2, graph.Height);
+                graphics.DrawLine(graphPen, 0, graph.Height / 2, graph.Width, graph.Height/2);
+                graph.Refresh();
+            }
             //need to find a few points from the slope and then draw that
 
             //LINEAR EQUATION GRAPHING
@@ -114,6 +128,34 @@ namespace JennyCasey_Assign4
         { 
             isDown = false;
             //graph.Refresh();
+        }
+
+        //changes the x minimum value on the graph depending what user enters
+        private void xMinValue_ValueChanged(object sender, EventArgs e)
+        {
+            string xMin = xMinValue.Value.ToString();
+            xLabelMin.Text = xMin;
+        }
+
+        //changes the x max value on the graph depending what user enters
+        private void xMaxValue_ValueChanged(object sender, EventArgs e)
+        {
+            string xMax = xMaxValue.Value.ToString();
+            xLabelMax.Text = xMax;
+
+        }
+
+        //changes y min value on the graph depending what user enteres
+        private void yMinValue_ValueChanged(object sender, EventArgs e)
+        {
+            string yMin = yMinValue.Value.ToString();
+            yLabelMin.Text = yMin;
+        }
+        //changes y max value on the graph depending what user enters
+        private void yMaxValue_ValueChanged(object sender, EventArgs e)
+        {
+            string yMax = yMaxValue.Value.ToString();
+            yLabelMax.Text = yMax;
         }
     }
 }
