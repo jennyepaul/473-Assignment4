@@ -91,11 +91,11 @@ namespace JennyCasey_Assign4
             //need to find a few points from the slope and then draw that
 
             //LINEAR EQUATION GRAPHING
-            if (linear_slopeValue.Text.Length != 0 && linear_yValue.Text.Length != 0)
+            if (linear_riseValue.Text.Length != 0 && linear_yValue.Text.Length != 0)
             {
                 //grab the info entered for the equation 
                 int yIntercept = int.Parse(linear_yValue.Text);
-                int slope = int.Parse(linear_slopeValue.Text);
+                int slope = int.Parse(linear_riseValue.Text);
 
                 testOutput.AppendText("y intercept is " + yIntercept + " and slope value is " + slope);
                 if (isDown == true)

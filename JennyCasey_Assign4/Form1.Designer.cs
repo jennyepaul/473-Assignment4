@@ -32,9 +32,10 @@ namespace JennyCasey_Assign4
             this.graph = new System.Windows.Forms.PictureBox();
             this.equation1 = new System.Windows.Forms.Label();
             this.equation1_mx = new System.Windows.Forms.Label();
-            this.linear_slopeValue = new System.Windows.Forms.TextBox();
+            this.linear_riseValue = new System.Windows.Forms.TextBox();
             this.linear_yValue = new System.Windows.Forms.TextBox();
             this.linearEquation = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.graphButton = new System.Windows.Forms.Button();
             this.cubicEquation = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -91,6 +92,7 @@ namespace JennyCasey_Assign4
             this.yLabelMax = new System.Windows.Forms.Label();
             this.xLabelMin = new System.Windows.Forms.Label();
             this.yLabelMin = new System.Windows.Forms.Label();
+            this.linear_runValue = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.graph)).BeginInit();
             this.linearEquation.SuspendLayout();
             this.cubicEquation.SuspendLayout();
@@ -135,12 +137,12 @@ namespace JennyCasey_Assign4
             this.equation1_mx.TabIndex = 2;
             this.equation1_mx.Text = "x +";
             // 
-            // linear_slopeValue
+            // linear_riseValue
             // 
-            this.linear_slopeValue.Location = new System.Drawing.Point(46, 41);
-            this.linear_slopeValue.Name = "linear_slopeValue";
-            this.linear_slopeValue.Size = new System.Drawing.Size(25, 22);
-            this.linear_slopeValue.TabIndex = 3;
+            this.linear_riseValue.Location = new System.Drawing.Point(50, 22);
+            this.linear_riseValue.Name = "linear_riseValue";
+            this.linear_riseValue.Size = new System.Drawing.Size(25, 22);
+            this.linear_riseValue.TabIndex = 3;
             // 
             // linear_yValue
             // 
@@ -151,16 +153,27 @@ namespace JennyCasey_Assign4
             // 
             // linearEquation
             // 
+            this.linearEquation.Controls.Add(this.linear_runValue);
+            this.linearEquation.Controls.Add(this.label10);
             this.linearEquation.Controls.Add(this.equation1);
             this.linearEquation.Controls.Add(this.linear_yValue);
-            this.linearEquation.Controls.Add(this.linear_slopeValue);
+            this.linearEquation.Controls.Add(this.linear_riseValue);
             this.linearEquation.Controls.Add(this.equation1_mx);
             this.linearEquation.Location = new System.Drawing.Point(771, 65);
             this.linearEquation.Name = "linearEquation";
-            this.linearEquation.Size = new System.Drawing.Size(200, 80);
+            this.linearEquation.Size = new System.Drawing.Size(200, 91);
             this.linearEquation.TabIndex = 5;
             this.linearEquation.TabStop = false;
             this.linearEquation.Text = "Linear Equation";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(47, 44);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(33, 17);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "-----";
             // 
             // graphButton
             // 
@@ -761,6 +774,13 @@ namespace JennyCasey_Assign4
             this.yLabelMin.TabIndex = 31;
             this.yLabelMin.Text = "NULL";
             // 
+            // linear_runValue
+            // 
+            this.linear_runValue.Location = new System.Drawing.Point(50, 58);
+            this.linear_runValue.Name = "linear_runValue";
+            this.linear_runValue.Size = new System.Drawing.Size(25, 22);
+            this.linear_runValue.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -831,7 +851,7 @@ namespace JennyCasey_Assign4
         private System.Windows.Forms.PictureBox graph;
         private System.Windows.Forms.Label equation1;
         private System.Windows.Forms.Label equation1_mx;
-        private System.Windows.Forms.TextBox linear_slopeValue;
+        private System.Windows.Forms.TextBox linear_riseValue;
         private System.Windows.Forms.TextBox linear_yValue;
         private System.Windows.Forms.GroupBox linearEquation;
         private System.Windows.Forms.Button graphButton;
@@ -890,6 +910,8 @@ namespace JennyCasey_Assign4
         private System.Windows.Forms.Label yLabelMax;
         private System.Windows.Forms.Label xLabelMin;
         private System.Windows.Forms.Label yLabelMin;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox linear_runValue;
     }
 }
 
