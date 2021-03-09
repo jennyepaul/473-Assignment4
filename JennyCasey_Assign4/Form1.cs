@@ -45,11 +45,26 @@ namespace JennyCasey_Assign4
         {
             Graphics graphics = e.Graphics;
 
+            //need to do a check in here to ensure we have values for everything
+
             xMin = (int)xMinValue.Value;
             xMax = (int)xMaxValue.Value;
 
             yMin = (int)yMinValue.Value;
             yMax = (int)yMaxValue.Value;
+
+            xInterval = (int)xIntervalValue.Value;
+            yInterval = (int)yIntervalValue.Value;
+
+            //find the distance between the y points
+            int yDistance = Math.Abs(yMin) + Math.Abs(yMax);
+            int numberOfYTicks = yDistance / yInterval;
+
+            //find the distance between the x points
+            int xDistance = Math.Abs(xMin) + Math.Abs(xMax);
+            int numberOfXTicks = xDistance / xInterval;
+
+
 
             using (Pen graphPen = new Pen(Color.Black))
             {
@@ -57,6 +72,20 @@ namespace JennyCasey_Assign4
                 //draw the x & y lines of the graph
                 graphics.DrawLine(graphPen, graph.Width/2, 0, graph.Width/2, graph.Height);
                 graphics.DrawLine(graphPen, 0, graph.Height / 2, graph.Width, graph.Height/2);
+
+                for(int i = 0; i < numberOfXTicks; i++)
+                {
+                    graphics.DrawLine(graphPen, i * (graph.Width) / numberOfXTicks, (graph.Height / 2) - numberOfXTicks,
+                                                i * (graph.Width) / numberOfXTicks, (graph.Height / 2) + numberOfXTicks);
+
+                    
+                }
+                for(int i = 0; i < numberOfYTicks; i++)
+                {
+                    graphics.DrawLine(graphPen, i * (graph.Width / 2) - numberOfYTicks, (graph.Height) / numberOfYTicks,
+                                               i * (graph.Width / 2) + numberOfYTicks, (graph.Height) / numberOfYTicks);
+                }
+               
                 graph.Refresh();
             }
             //need to find a few points from the slope and then draw that
