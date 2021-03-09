@@ -26,6 +26,7 @@ namespace JennyCasey_Assign4
         private static int yMin;        
         private static int yMax;
         private static int yInterval;
+        private static Point origin;
 
         //linear equation points
         /*
@@ -44,7 +45,7 @@ namespace JennyCasey_Assign4
         private void graph_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
-
+ 
             //need to do a check in here to ensure we have values for everything
 
             xMin = (int)xMinValue.Value;
@@ -86,7 +87,7 @@ namespace JennyCasey_Assign4
                                                (graph.Width / 2) - numberOfYTicks, i * (graph.Height) / numberOfYTicks);
                 }
                
-                graph.Refresh();
+                //graph.Refresh();
             }
             //need to find a few points from the slope and then draw that
 
@@ -98,7 +99,8 @@ namespace JennyCasey_Assign4
                 int run = int.Parse(linear_runValue.Text);
                 int yPoint = int.Parse(linear_yPointVal.Text);
                 int xPoint = int.Parse(linear_xPointVal.Text);
-
+                int xOrigin = graph.Width / 2;
+                int yOrigin = graph.Height / 2;
                 if (isDown == true)
                 {
                     //depending on what color choice/radio button was clicked that is the color we will draw in
@@ -107,16 +109,20 @@ namespace JennyCasey_Assign4
                         using (Pen linearPen = new Pen(Color.Red))
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
-                            graphics.DrawLine(linearPen, xPoint, yPoint, xPoint+run, yPoint+rise);
+
+                            //graphics.DrawLine(linearPen, xPoint, yPoint, xPoint+run, yPoint+rise);
+                            graphics.DrawLine(linearPen, xOrigin + xPoint, yOrigin + yPoint, xPoint + run, yPoint + rise);
+
                         }
                     }
-                    /*
+                    
                     if (blueColorRadioButton_Linear.Checked)
                     {
                         using (Pen linearPen = new Pen(Color.Blue))
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
-                            graphics.DrawLine(linearPen, 0, yIntercept, 100, 100);
+                            graphics.DrawLine(linearPen, xOrigin + xPoint, yOrigin + yPoint, xPoint + run, yPoint + rise);
+
                         }
                     }
                     if (greenColorRadioButton_Linear.Checked)
@@ -124,7 +130,8 @@ namespace JennyCasey_Assign4
                         using (Pen linearPen = new Pen(Color.Green))
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
-                            graphics.DrawLine(linearPen, 0, yIntercept, 100, 100);
+                            graphics.DrawLine(linearPen, xOrigin + xPoint, yOrigin + yPoint, xPoint + run, yPoint + rise);
+
                         }
                     }
                     if (blackColorRadioButton_Linear.Checked)
@@ -132,10 +139,11 @@ namespace JennyCasey_Assign4
                         using (Pen linearPen = new Pen(Color.Black))
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
-                            graphics.DrawLine(linearPen, 0, yIntercept, 100, 100);
+                            graphics.DrawLine(linearPen, xOrigin + xPoint, yOrigin + yPoint, xPoint + run, yPoint + rise);
+
                         }
                     }
-                    */
+                    
                     //if user didn't choose a color then let them know they need to
                     if(!blackColorRadioButton_Linear.Checked && !blueColorRadioButton_Linear.Checked
                         && !redColorRadioButton_Linear.Checked && !greenColorRadioButton_Linear.Checked)
