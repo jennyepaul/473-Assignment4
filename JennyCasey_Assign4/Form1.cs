@@ -87,7 +87,7 @@ namespace JennyCasey_Assign4
                                                (graph.Width / 2) - numberOfYTicks, i * (graph.Height) / numberOfYTicks);
                 }
                
-                //graph.Refresh();
+               // graph.Refresh();
             }
             //need to find a few points from the slope and then draw that
 
@@ -101,6 +101,30 @@ namespace JennyCasey_Assign4
                 int xPoint = int.Parse(linear_xPointVal.Text);
                 int xOrigin = graph.Width / 2;
                 int yOrigin = graph.Height / 2;
+
+                run = (graph.Width / xInterval) * run;
+                rise = (graph.Height / yInterval) * rise;
+
+                int xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
+                int yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
+
+
+                //first xpoint is going to be xOrigin + (graphWidth / xinterval)xPoint)
+                //first ypoiint is going to be yOrigin + (yHeight / yInterval)yPoint)
+                Point yIntercept = new Point(xValue, yValue);
+                Point point1 = new Point(xValue + run, yValue - rise);
+
+                ///find a way to extend the linear line more
+                /*
+                xValue = xValue + run;
+                yValue = yValue - rise;
+                Point point3 = new Point(xValue + run, yValue - rise);
+                xValue = xValue + run;
+                yValue = yValue - rise;
+                Point point4 = new Point(xValue + run, yValue - rise);
+                */
+
+
                 if (isDown == true)
                 {
                     //depending on what color choice/radio button was clicked that is the color we will draw in
@@ -109,9 +133,12 @@ namespace JennyCasey_Assign4
                         using (Pen linearPen = new Pen(Color.Red))
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
+                            //graphics.DrawRectangle(linearPen, new Rectangle(xValue, yValue, 5, 5));
+                            testOutput.AppendText("y intercept is: " + yIntercept + " and second point is: " + point1);
 
-                            //graphics.DrawLine(linearPen, xPoint, yPoint, xPoint+run, yPoint+rise);
-                            graphics.DrawLine(linearPen, xOrigin + xPoint, yOrigin + yPoint, xPoint + run, yPoint + rise);
+                            graphics.DrawLine(linearPen, yIntercept, point1);
+                            //graphics.DrawLine(linearPen, point3, point4);
+
 
                         }
                     }
@@ -121,7 +148,6 @@ namespace JennyCasey_Assign4
                         using (Pen linearPen = new Pen(Color.Blue))
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
-                            graphics.DrawLine(linearPen, xOrigin + xPoint, yOrigin + yPoint, xPoint + run, yPoint + rise);
 
                         }
                     }
@@ -130,7 +156,6 @@ namespace JennyCasey_Assign4
                         using (Pen linearPen = new Pen(Color.Green))
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
-                            graphics.DrawLine(linearPen, xOrigin + xPoint, yOrigin + yPoint, xPoint + run, yPoint + rise);
 
                         }
                     }
@@ -139,7 +164,6 @@ namespace JennyCasey_Assign4
                         using (Pen linearPen = new Pen(Color.Black))
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
-                            graphics.DrawLine(linearPen, xOrigin + xPoint, yOrigin + yPoint, xPoint + run, yPoint + rise);
 
                         }
                     }

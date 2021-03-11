@@ -114,9 +114,9 @@ namespace JennyCasey_Assign4
             // 
             // graph
             // 
-            this.graph.Location = new System.Drawing.Point(10, 25);
+            this.graph.Location = new System.Drawing.Point(10, 12);
             this.graph.Name = "graph";
-            this.graph.Size = new System.Drawing.Size(751, 687);
+            this.graph.Size = new System.Drawing.Size(750, 700);
             this.graph.TabIndex = 0;
             this.graph.TabStop = false;
             this.graph.Paint += new System.Windows.Forms.PaintEventHandler(this.graph_Paint);
