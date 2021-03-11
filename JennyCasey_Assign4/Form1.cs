@@ -117,8 +117,6 @@ namespace JennyCasey_Assign4
                 ///find a way to extend the linear line more
 
 
-
-
                 if (isDown == true)
                 {
                     //depending on what color choice/radio button was clicked that is the color we will draw in
@@ -194,13 +192,15 @@ namespace JennyCasey_Assign4
 
 
 
-                //y Point
+                //yIntercept Point
                 Point yPoint = new Point(0, y);
 
-                //xPoint
+                //xIntercept Point
                 Point xPoint = new Point(x, 0);
 
-                Point[] cubicPoints = { xPoint, yPoint };
+                Point point3 = new Point(0, 0);
+
+                Point[] cubicPoints = { xPoint, yPoint, point3 };
                 if (isDown == true)
                 {
                     //depending on what color choice/radio button was clicked that is the color we will draw in
@@ -264,6 +264,7 @@ namespace JennyCasey_Assign4
         static double findXIntercept(double a, double b, double c, double d)
         {
             double xIntercept;
+            double xValue; 
 
             //get cubed root of value a
             double cubedRoot  = (Math.Pow(a,(1.0 / 3.0)));
@@ -271,7 +272,10 @@ namespace JennyCasey_Assign4
             //get square root of value b
             double squareRoot = (Math.Pow(b, (1.0 / 2.0)));
 
-            xIntercept = cubedRoot + squareRoot + c + d;
+            xValue = cubedRoot + squareRoot + c;
+
+            xIntercept = (-1 * d) / xValue;
+
             return xIntercept;
         }
     }
