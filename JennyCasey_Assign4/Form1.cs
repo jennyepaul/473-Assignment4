@@ -198,7 +198,7 @@ namespace JennyCasey_Assign4
                 //xIntercept Point
                 Point xPoint = new Point(x, 0);
 
-                Point point3 = new Point(0, 0);
+                Point point3 = new Point(graph.Width / 2, graph.Height / 2);
 
                 Point[] cubicPoints = { xPoint, yPoint, point3 };
                 if (isDown == true)
