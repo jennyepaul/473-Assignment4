@@ -32,14 +32,22 @@ namespace JennyCasey_Assign4
             this.graph = new System.Windows.Forms.PictureBox();
             this.equation1 = new System.Windows.Forms.Label();
             this.equation1_mx = new System.Windows.Forms.Label();
-            this.linear_slopeValue = new System.Windows.Forms.TextBox();
-            this.linear_yValue = new System.Windows.Forms.TextBox();
+            this.linear_riseValue = new System.Windows.Forms.TextBox();
+            this.linear_yPointVal = new System.Windows.Forms.TextBox();
             this.linearEquation = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.linear_xPointVal = new System.Windows.Forms.TextBox();
+            this.linear_runValue = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.graphButton = new System.Windows.Forms.Button();
             this.cubicEquation = new System.Windows.Forms.GroupBox();
+            this.cubic_Alabel = new System.Windows.Forms.Label();
+            this.cubic_Blabel = new System.Windows.Forms.Label();
+            this.cubic_DValue = new System.Windows.Forms.TextBox();
+            this.cubic_CValue = new System.Windows.Forms.TextBox();
+            this.cubic_BValue = new System.Windows.Forms.TextBox();
+            this.cubic_AValue = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.colorBox_Linear = new System.Windows.Forms.GroupBox();
             this.blackColorRadioButton_Linear = new System.Windows.Forms.RadioButton();
@@ -110,9 +118,9 @@ namespace JennyCasey_Assign4
             // 
             // graph
             // 
-            this.graph.Location = new System.Drawing.Point(10, 25);
+            this.graph.Location = new System.Drawing.Point(10, 12);
             this.graph.Name = "graph";
-            this.graph.Size = new System.Drawing.Size(751, 687);
+            this.graph.Size = new System.Drawing.Size(750, 700);
             this.graph.TabIndex = 0;
             this.graph.TabStop = false;
             this.graph.Paint += new System.Windows.Forms.PaintEventHandler(this.graph_Paint);
@@ -135,32 +143,68 @@ namespace JennyCasey_Assign4
             this.equation1_mx.TabIndex = 2;
             this.equation1_mx.Text = "x +";
             // 
-            // linear_slopeValue
+            // linear_riseValue
             // 
-            this.linear_slopeValue.Location = new System.Drawing.Point(46, 41);
-            this.linear_slopeValue.Name = "linear_slopeValue";
-            this.linear_slopeValue.Size = new System.Drawing.Size(25, 22);
-            this.linear_slopeValue.TabIndex = 3;
+            this.linear_riseValue.Location = new System.Drawing.Point(50, 22);
+            this.linear_riseValue.Name = "linear_riseValue";
+            this.linear_riseValue.Size = new System.Drawing.Size(25, 22);
+            this.linear_riseValue.TabIndex = 3;
             // 
-            // linear_yValue
+            // linear_yPointVal
             // 
-            this.linear_yValue.Location = new System.Drawing.Point(109, 41);
-            this.linear_yValue.Name = "linear_yValue";
-            this.linear_yValue.Size = new System.Drawing.Size(25, 22);
-            this.linear_yValue.TabIndex = 4;
+            this.linear_yPointVal.Location = new System.Drawing.Point(109, 22);
+            this.linear_yPointVal.Name = "linear_yPointVal";
+            this.linear_yPointVal.Size = new System.Drawing.Size(25, 22);
+            this.linear_yPointVal.TabIndex = 4;
             // 
             // linearEquation
             // 
+            this.linearEquation.Controls.Add(this.label11);
+            this.linearEquation.Controls.Add(this.linear_xPointVal);
+            this.linearEquation.Controls.Add(this.linear_runValue);
+            this.linearEquation.Controls.Add(this.label10);
             this.linearEquation.Controls.Add(this.equation1);
-            this.linearEquation.Controls.Add(this.linear_yValue);
-            this.linearEquation.Controls.Add(this.linear_slopeValue);
+            this.linearEquation.Controls.Add(this.linear_yPointVal);
+            this.linearEquation.Controls.Add(this.linear_riseValue);
             this.linearEquation.Controls.Add(this.equation1_mx);
             this.linearEquation.Location = new System.Drawing.Point(771, 65);
             this.linearEquation.Name = "linearEquation";
-            this.linearEquation.Size = new System.Drawing.Size(200, 80);
+            this.linearEquation.Size = new System.Drawing.Size(200, 91);
             this.linearEquation.TabIndex = 5;
             this.linearEquation.TabStop = false;
             this.linearEquation.Text = "Linear Equation";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(106, 46);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(33, 17);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "-----";
+            // 
+            // linear_xPointVal
+            // 
+            this.linear_xPointVal.Location = new System.Drawing.Point(109, 63);
+            this.linear_xPointVal.Name = "linear_xPointVal";
+            this.linear_xPointVal.Size = new System.Drawing.Size(25, 22);
+            this.linear_xPointVal.TabIndex = 7;
+            // 
+            // linear_runValue
+            // 
+            this.linear_runValue.Location = new System.Drawing.Point(50, 58);
+            this.linear_runValue.Name = "linear_runValue";
+            this.linear_runValue.Size = new System.Drawing.Size(25, 22);
+            this.linear_runValue.TabIndex = 6;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(47, 44);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(33, 17);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "-----";
             // 
             // graphButton
             // 
@@ -176,44 +220,78 @@ namespace JennyCasey_Assign4
             // 
             // cubicEquation
             // 
+            this.cubicEquation.Controls.Add(this.cubic_Alabel);
+            this.cubicEquation.Controls.Add(this.cubic_Blabel);
+            this.cubicEquation.Controls.Add(this.cubic_DValue);
+            this.cubicEquation.Controls.Add(this.cubic_CValue);
+            this.cubicEquation.Controls.Add(this.cubic_BValue);
+            this.cubicEquation.Controls.Add(this.cubic_AValue);
             this.cubicEquation.Controls.Add(this.label1);
-            this.cubicEquation.Controls.Add(this.textBox1);
-            this.cubicEquation.Controls.Add(this.textBox2);
             this.cubicEquation.Controls.Add(this.label2);
             this.cubicEquation.Location = new System.Drawing.Point(771, 162);
             this.cubicEquation.Name = "cubicEquation";
-            this.cubicEquation.Size = new System.Drawing.Size(200, 78);
+            this.cubicEquation.Size = new System.Drawing.Size(243, 78);
             this.cubicEquation.TabIndex = 7;
             this.cubicEquation.TabStop = false;
             this.cubicEquation.Text = "Cubic Equation";
             // 
+            // cubic_Alabel
+            // 
+            this.cubic_Alabel.AutoSize = true;
+            this.cubic_Alabel.Location = new System.Drawing.Point(54, 46);
+            this.cubic_Alabel.Name = "cubic_Alabel";
+            this.cubic_Alabel.Size = new System.Drawing.Size(0, 17);
+            this.cubic_Alabel.TabIndex = 12;
+            // 
+            // cubic_Blabel
+            // 
+            this.cubic_Blabel.AutoSize = true;
+            this.cubic_Blabel.Location = new System.Drawing.Point(120, 46);
+            this.cubic_Blabel.Name = "cubic_Blabel";
+            this.cubic_Blabel.Size = new System.Drawing.Size(0, 17);
+            this.cubic_Blabel.TabIndex = 11;
+            // 
+            // cubic_DValue
+            // 
+            this.cubic_DValue.Location = new System.Drawing.Point(212, 41);
+            this.cubic_DValue.Name = "cubic_DValue";
+            this.cubic_DValue.Size = new System.Drawing.Size(25, 22);
+            this.cubic_DValue.TabIndex = 10;
+            // 
+            // cubic_CValue
+            // 
+            this.cubic_CValue.Location = new System.Drawing.Point(156, 41);
+            this.cubic_CValue.Name = "cubic_CValue";
+            this.cubic_CValue.Size = new System.Drawing.Size(25, 22);
+            this.cubic_CValue.TabIndex = 9;
+            // 
+            // cubic_BValue
+            // 
+            this.cubic_BValue.Location = new System.Drawing.Point(89, 41);
+            this.cubic_BValue.Name = "cubic_BValue";
+            this.cubic_BValue.Size = new System.Drawing.Size(25, 22);
+            this.cubic_BValue.TabIndex = 8;
+            // 
+            // cubic_AValue
+            // 
+            this.cubic_AValue.Location = new System.Drawing.Point(23, 41);
+            this.cubic_AValue.Name = "cubic_AValue";
+            this.cubic_AValue.Size = new System.Drawing.Size(25, 22);
+            this.cubic_AValue.TabIndex = 7;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 46);
+            this.label1.Location = new System.Drawing.Point(-3, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "y = ";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(109, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(25, 22);
-            this.textBox1.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(46, 41);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(25, 22);
-            this.textBox2.TabIndex = 3;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(77, 44);
+            this.label2.Location = new System.Drawing.Point(180, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 17);
             this.label2.TabIndex = 2;
@@ -831,14 +909,12 @@ namespace JennyCasey_Assign4
         private System.Windows.Forms.PictureBox graph;
         private System.Windows.Forms.Label equation1;
         private System.Windows.Forms.Label equation1_mx;
-        private System.Windows.Forms.TextBox linear_slopeValue;
-        private System.Windows.Forms.TextBox linear_yValue;
+        private System.Windows.Forms.TextBox linear_riseValue;
+        private System.Windows.Forms.TextBox linear_yPointVal;
         private System.Windows.Forms.GroupBox linearEquation;
         private System.Windows.Forms.Button graphButton;
         private System.Windows.Forms.GroupBox cubicEquation;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox colorBox_Linear;
         private System.Windows.Forms.RadioButton blackColorRadioButton_Linear;
@@ -890,6 +966,16 @@ namespace JennyCasey_Assign4
         private System.Windows.Forms.Label yLabelMax;
         private System.Windows.Forms.Label xLabelMin;
         private System.Windows.Forms.Label yLabelMin;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox linear_runValue;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox linear_xPointVal;
+        private System.Windows.Forms.TextBox cubic_DValue;
+        private System.Windows.Forms.TextBox cubic_CValue;
+        private System.Windows.Forms.TextBox cubic_BValue;
+        private System.Windows.Forms.TextBox cubic_AValue;
+        private System.Windows.Forms.Label cubic_Alabel;
+        private System.Windows.Forms.Label cubic_Blabel;
     }
 }
 

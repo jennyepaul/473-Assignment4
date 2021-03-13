@@ -26,6 +26,7 @@ namespace JennyCasey_Assign4
         private static int yMin;        
         private static int yMax;
         private static int yInterval;
+        private static Point origin;
 
         //linear equation points
         /*
@@ -38,6 +39,8 @@ namespace JennyCasey_Assign4
         public Form1()
         {
             InitializeComponent();
+            cubic_Alabel.Text = "x\x00B3 +";
+            cubic_Blabel.Text = "x\x00B2 +";
 
         }
 
@@ -70,34 +73,52 @@ namespace JennyCasey_Assign4
             {
                 //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
                 //draw the x & y lines of the graph
-                graphics.DrawLine(graphPen, graph.Width/2, 0, graph.Width/2, graph.Height);
-                graphics.DrawLine(graphPen, 0, graph.Height / 2, graph.Width, graph.Height/2);
+                graphics.DrawLine(graphPen, graph.Width / 2, 0, graph.Width / 2, graph.Height);
+                graphics.DrawLine(graphPen, 0, graph.Height / 2, graph.Width, graph.Height / 2);
 
-                for(int i = 0; i <= numberOfXTicks; i++)
+                for (int i = 0; i <= numberOfXTicks; i++)
                 {
                     graphics.DrawLine(graphPen, i * (graph.Width) / numberOfXTicks, (graph.Height / 2) - numberOfXTicks,
                                                 i * (graph.Width) / numberOfXTicks, (graph.Height / 2) + numberOfXTicks);
 
-                    
+
                 }
-                for(int i = 0; i <= numberOfYTicks; i++)
+                for (int i = 0; i <= numberOfYTicks; i++)
                 {
                     graphics.DrawLine(graphPen, (graph.Width / 2) + numberOfYTicks, i * (graph.Height) / numberOfYTicks,
                                                (graph.Width / 2) - numberOfYTicks, i * (graph.Height) / numberOfYTicks);
                 }
-               
-                graph.Refresh();
-            }
-            //need to find a few points from the slope and then draw that
 
+                // graph.Refresh();
+            }
             //LINEAR EQUATION GRAPHING
-            if (linear_slopeValue.Text.Length != 0 && linear_yValue.Text.Length != 0)
+            if (linear_riseValue.TextLength != 0 && linear_runValue.TextLength != 0 && linear_yPointVal.TextLength != 0 && linear_xPointVal.TextLength != 0)
             {
                 //grab the info entered for the equation 
-                int yIntercept = int.Parse(linear_yValue.Text);
-                int slope = int.Parse(linear_slopeValue.Text);
+                int rise = int.Parse(linear_riseValue.Text);
+                int run = int.Parse(linear_runValue.Text);
+                int yPoint = int.Parse(linear_yPointVal.Text);
+                int xPoint = int.Parse(linear_xPointVal.Text);
+                int xOrigin = graph.Width / 2;
+                int yOrigin = graph.Height / 2;
 
-                testOutput.AppendText("y intercept is " + yIntercept + " and slope value is " + slope);
+                run = (graph.Width / xInterval) * run;
+                rise = (graph.Height / yInterval) * rise;
+
+                int xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
+                int yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
+
+
+                //first xpoint is going to be xOrigin + (graphWidth / xinterval)xPoint)
+                //first ypoiint is going to be yOrigin + (yHeight / yInterval)yPoint)
+                Point yIntercept = new Point(xValue, yValue);
+                Point point1 = new Point(xValue + run, yValue - rise);
+
+                ///find a way to extend the linear line more
+
+
+
+
                 if (isDown == true)
                 {
                     //depending on what color choice/radio button was clicked that is the color we will draw in
@@ -106,15 +127,20 @@ namespace JennyCasey_Assign4
                         using (Pen linearPen = new Pen(Color.Red))
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
-                            graphics.DrawLine(linearPen, 0, yIntercept, 100, 100);
+                            graphics.DrawLine(linearPen, yIntercept, point1);
+
+
                         }
                     }
+
                     if (blueColorRadioButton_Linear.Checked)
                     {
                         using (Pen linearPen = new Pen(Color.Blue))
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
-                            graphics.DrawLine(linearPen, 0, yIntercept, 100, 100);
+                            graphics.DrawLine(linearPen, yIntercept, point1);
+
+
                         }
                     }
                     if (greenColorRadioButton_Linear.Checked)
@@ -122,7 +148,9 @@ namespace JennyCasey_Assign4
                         using (Pen linearPen = new Pen(Color.Green))
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
-                            graphics.DrawLine(linearPen, 0, yIntercept, 100, 100);
+                            graphics.DrawLine(linearPen, yIntercept, point1);
+
+
                         }
                     }
                     if (blackColorRadioButton_Linear.Checked)
@@ -130,11 +158,14 @@ namespace JennyCasey_Assign4
                         using (Pen linearPen = new Pen(Color.Black))
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
-                            graphics.DrawLine(linearPen, 0, yIntercept, 100, 100);
+                            graphics.DrawLine(linearPen, yIntercept, point1);
+
+
                         }
                     }
+
                     //if user didn't choose a color then let them know they need to
-                    if(!blackColorRadioButton_Linear.Checked && !blueColorRadioButton_Linear.Checked
+                    if (!blackColorRadioButton_Linear.Checked && !blueColorRadioButton_Linear.Checked
                         && !redColorRadioButton_Linear.Checked && !greenColorRadioButton_Linear.Checked)
                     {
                         testOutput.AppendText("Please pick a color");
@@ -142,7 +173,50 @@ namespace JennyCasey_Assign4
 
                 }
             }
+
+            //CUBIC EQUATION GRAPHING
+            if (cubic_AValue.TextLength != 0 && cubic_BValue.TextLength != 0 && cubic_CValue.TextLength != 0 && cubic_DValue.TextLength != 0)
+            {
+                //the y-intercept is always whatever d is since we set x = 0 to find equation, it cancels everything out but D value
+                double yIntercept = double.Parse(cubic_DValue.Text);
+                double aValue = int.Parse(cubic_AValue.Text);
+                double bValue = int.Parse(cubic_BValue.Text);
+                double cValue = int.Parse(cubic_CValue.Text);
+
+                double xIntercept = findXIntercept(aValue, bValue, cValue, yIntercept);
+
+                yIntercept = ((graph.Height / 2) - (graph.Height / numberOfYTicks) * yIntercept);
+                xIntercept = ((graph.Width / 2) + (graph.Width / numberOfXTicks) * xIntercept);
+
+                int x = (int)xIntercept;
+
+                int y = (int)yIntercept;
+
+
+
+                //y Point
+                Point yPoint = new Point(0, y);
+
+                //xPoint
+                Point xPoint = new Point(x, 0);
+
+                Point[] cubicPoints = { xPoint, yPoint };
+                if (isDown == true)
+                {
+                    //depending on what color choice/radio button was clicked that is the color we will draw in
+                    if (redColorRadioButton_Cubic.Checked)
+                    {
+                        using (Pen cubicPen = new Pen(Color.Red))
+                        {
+                            graphics.DrawCurve(cubicPen, cubicPoints);
+
+
+                        }
+                    }
+                }
+            }
         }
+        
 
         //mouse Down event to draw the graphs only when the mouse is Down
         private void graphButton_MouseDown(object sender, MouseEventArgs e)
@@ -186,5 +260,21 @@ namespace JennyCasey_Assign4
             string yMax = yMaxValue.Value.ToString();
             yLabelMax.Text = yMax;
         }
+
+        static double findXIntercept(double a, double b, double c, double d)
+        {
+            double xIntercept;
+
+            //get cubed root of value a
+            double cubedRoot  = (Math.Pow(a,(1.0 / 3.0)));
+
+            //get square root of value b
+            double squareRoot = (Math.Pow(b, (1.0 / 2.0)));
+
+            xIntercept = cubedRoot + squareRoot + c + d;
+            return xIntercept;
+        }
     }
+
+
 }
