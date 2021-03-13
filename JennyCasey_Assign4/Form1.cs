@@ -252,42 +252,55 @@ namespace JennyCasey_Assign4
             if (cubic_AValue.TextLength != 0 && cubic_BValue.TextLength != 0 && cubic_CValue.TextLength != 0 && cubic_DValue.TextLength != 0)
             {
                 //the y-intercept is always whatever d is since we set x = 0 to find equation, it cancels everything out but D value
-                double yIntercept = double.Parse(cubic_DValue.Text);
-                double aValue = int.Parse(cubic_AValue.Text);
-                double bValue = int.Parse(cubic_BValue.Text);
-                double cValue = int.Parse(cubic_CValue.Text);
+                int yIntercept = int.Parse(cubic_DValue.Text);
+                int dValue = int.Parse(cubic_DValue.Text);
+                int aValue = int.Parse(cubic_AValue.Text);
+                int bValue = int.Parse(cubic_BValue.Text);
+                int cValue = int.Parse(cubic_CValue.Text);
 
-                double xIntercept = findXIntercept(aValue, bValue, cValue, yIntercept);
-
-                yIntercept = ((graph.Height / 2) - (graph.Height / numberOfYTicks) * yIntercept);
-                xIntercept = ((graph.Width / 2) + (graph.Width / numberOfXTicks) * xIntercept);
-
-                int x = (int)xIntercept;
-
-                int y = (int)yIntercept;
-
-
-
-                //y Point
-                Point yPoint = new Point(0, y);
-
-                //xPoint
-                Point xPoint = new Point(x, 0);
-
-                Point[] cubicPoints = { xPoint, yPoint };
-                if (isDown == true)
+                //check to ensure A value is nonzero
+                if (aValue == 0)
                 {
-                    //depending on what color choice/radio button was clicked that is the color we will draw in
-                    if (redColorRadioButton_Cubic.Checked)
-                    {
-                        using (Pen cubicPen = new Pen(Color.Red))
-                        {
-                            graphics.DrawCurve(cubicPen, cubicPoints);
-
-
-                        }
-                    }
+                    testOutput.AppendText("Sorry, first value cannot be 0, as this would cause this to not be a cubic equation!");
                 }
+
+                double yintercept_double = (aValue * 0) + (bValue * 0) + (cValue * 0) + dValue;
+                int yintercept_y = (int)yintercept_double;
+                int yintercept_x = 0;
+
+                double x, y;
+                Point[] Point = new Point[10000];
+                int n = 0;
+
+                for (int i = (yintercept_x - 5); i <= (yintercept_x + 5); i += 1)
+                {
+                    x = i;
+                    y = (aValue * (x * x * x)) + ((bValue * (x * x)) + cValue * x + dValue);
+
+                    if (x == 0)
+                    {
+                        x = graph.Width / 2;
+                    }
+                    else
+                    {
+                        x = (graph.Width / 2 + (graph.Width / xDistance * (int)x));
+                    }
+
+                    if (y == 0)
+                    {
+                        y = graph.Height / 2;
+                    }
+                    else
+                    {
+                        y = (graph.Height / 2 - (graph.Height / yDistance * (int)y));
+                    }
+
+                    Point[n] = new Point((int)x, (int)y);
+                    n++;
+
+                }
+                Pen greenPen = new Pen(Color.Green, 3);
+                e.Graphics.DrawCurve(greenPen, Point);
             }
 
             //CIRCLE EQUATIONS GRAPHING
