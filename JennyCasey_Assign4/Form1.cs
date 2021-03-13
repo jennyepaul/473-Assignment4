@@ -123,53 +123,106 @@ namespace JennyCasey_Assign4
                 int B_Value = int.Parse(Quad_Bvalue.Text);
                 int C_Value = int.Parse(Quad_Cvalue.Text);
 
-                int H_Value = (-1 * B_Value) / (2 * A_Value);
-                int K_Value = (A_Value * (H_Value * H_Value)) + (B_Value * H_Value) + C_Value;
+                int H_Value = (-1 * B_Value) / (2 * A_Value); //x-intercept of the vertex of the parabola
+
+                //plug H -value into the equation to get the K-value
+                int K_Value = (A_Value * (H_Value * H_Value)) + (B_Value * H_Value) + C_Value; //y-intercept of the vertex of the parabola
+         
+
+
+                double x,y;
+                Point[] Point = new Point[10000];
+                int n = 0;
+
+                //get point, two to the left and two to the right of the vertex and put them in an array
+                for (int i = (H_Value - 4); i <= (H_Value + 4); i += 1)
+                {
+
+                    x = i;
+                    y = (A_Value * (x * x)) + ((B_Value * x) + C_Value);
+
+                    if (x == 0)
+                    {
+                        x = graph.Width / 2;
+                    }
+                    else
+                    {
+                        x = (graph.Width / 2 + (graph.Width/20 * (int)x));
+                    }
+
+                    if (y == 0)
+                    {
+                        y = graph.Height / 2;
+                    }
+                    else
+                    {
+                        y = (graph.Height / 2 - (graph.Height/20 * (int)y));        
+                    }
+
+                    Point[n] = new Point((int)x, (int)y);
+                    n++;
+                }
+
+                Pen redPen = new Pen(Color.Red, 3);
+                if (RedColorRadioButton_Quadratic.Checked)
+                {
+                    e.Graphics.DrawCurve(redPen, Point);
+                }
+                Pen bluePen = new Pen(Color.Blue, 3);
+                if (BlueColorRadioButton_Quadratic.Checked)
+                {
+                    e.Graphics.DrawCurve(bluePen, Point);
+                }
+                Pen greenPen = new Pen(Color.Green, 3);
+                if (GreenColorRadioButton_Quadratic.Checked)
+                {
+                    e.Graphics.DrawCurve(greenPen, Point);
+                }
+                Pen blackPen = new Pen(Color.Black, 3);
+                if (BlackColorRadioButton_Quadratic.Checked)
+                {
+                    e.Graphics.DrawCurve(blackPen, Point);
+                }
+
+            }
+            
+            if (Circle_HValue.Text.Length != 0 && Circle_KValue.Text.Length != 0 && Circle_RValue.Text.Length != 0)
+            {
+                int H_Value = int.Parse(Circle_HValue.Text);
+                int K_Value = int.Parse(Circle_KValue.Text);
+                int R_Value = int.Parse(Circle_RValue.Text);
+
+                Pen blackPen = new Pen(Color.Black, 3);
+
+                if (H_Value == 0)
+                {
+                    H_Value = graph.Width / 2;
+                }
+                else
+                {
+                    H_Value = (graph.Width / 2 + (graph.Width / 20 * H_Value));
+                }
+                if (K_Value == 0)
+                {
+                    K_Value = graph.Width / 2;
+                }
+                else
+                {
+                    K_Value = (graph.Width / 2 - (graph.Width / 20 * K_Value));
+                }
+                if (R_Value == 0)
+                {
+                    R_Value = H_Value;
+                }
+                else
+                {
+                    R_Value =  (graph.Width / 20 * R_Value);
+                }
 
                 
 
-                //double Y_Value = (A_Value * (i * i)) + (B_Value * i) + C_Value; //find y value 
-
-
-                // Point point1 = new Point(H_Value, K_Value); // represents the vertex
-
-                int plot_H;
-                if (H_Value == 0)
-                {
-                    plot_H = graph.Width/2;
-                }
-                else
-                {
-                    plot_H = (graph.Width / 2) + ((graph.Width / 100) * H_Value);
-                }
-
-                int plot_K;
-                if (K_Value == 0)
-                {
-                    plot_K = graph.Height/2;
-                }
-                else
-                {
-                    plot_K = (graph.Height / 2) - ((graph.Height / 100) * K_Value);
-                }
-
-                testOutput.AppendText("H value is " + H_Value + " K value is " + K_Value + "\n");
-                testOutput.AppendText("H  plot value is " + plot_H + " K plot value is " + plot_K + "\n");
-                testOutput.AppendText("Graph Height is " + graph.Height + "Graph.Width is " + graph.Width + "\n");
-
-
-
-                Point point2 = new Point(plot_H, plot_K);
-                Point point3 = new Point(graph.Width / 3, graph.Height / 3); //(0,2)
-                Point point4 = new Point(10, 10); //(-2,2)
-                //Point point5 = new Point(0,0);
-               // Point point6 = new Point(0,0);
-               // Point point7 = new Point(0,0);
-                Point[] curvePoints = {point2, point3, point4 };
-
-                Pen redPen = new Pen(Color.Red, 3);
-                e.Graphics.DrawCurve(redPen, curvePoints, 1);
-
+                e.Graphics.DrawEllipse(blackPen, H_Value - R_Value, K_Value - R_Value,
+                      R_Value + R_Value, R_Value + R_Value);
             }
         }
 
@@ -187,5 +240,7 @@ namespace JennyCasey_Assign4
             isDown = false;
             //graph.Refresh();
         }
+
+   
     }
 }
