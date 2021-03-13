@@ -471,6 +471,12 @@ namespace JennyCasey_Assign4
                 BlueColorRadioButton_Circle.Enabled = false;
                 blueColorRadioButton_Cubic.Enabled = false;
             }
+            if(!blueColorRadioButton_Linear.Checked)
+            {
+                BlueColorRadioButton_Quadratic.Enabled = true;
+                BlueColorRadioButton_Circle.Enabled = true;
+                blueColorRadioButton_Cubic.Enabled = true;
+            }
         }
 
         private void redColorRadioButton_Linear_CheckedChanged(object sender, EventArgs e)
@@ -481,6 +487,12 @@ namespace JennyCasey_Assign4
                 RedColorRadioButton_Quadratic.Enabled = false;
                 RedColorRadioButton_Circle.Enabled = false;
                 redColorRadioButton_Cubic.Enabled = false;
+            }
+            if (!redColorRadioButton_Linear.Checked)
+            {
+                RedColorRadioButton_Quadratic.Enabled = true;
+                RedColorRadioButton_Circle.Enabled = true;
+                redColorRadioButton_Cubic.Enabled = true;
             }
 
         }
@@ -493,6 +505,12 @@ namespace JennyCasey_Assign4
                 GreenColorRadioButton_Circle.Enabled = false;
                 greenColorRadioButton_Cubic.Enabled = false;
             }
+            if (!greenColorRadioButton_Linear.Checked)
+            {
+                GreenColorRadioButton_Quadratic.Enabled = true;
+                GreenColorRadioButton_Circle.Enabled = true;
+                greenColorRadioButton_Cubic.Enabled = true;
+            }
 
         }
 
@@ -504,6 +522,12 @@ namespace JennyCasey_Assign4
                 BlackColorRadioButton_Quadratic.Enabled = false;
                 BlackColorRadioButton_Circle.Enabled = false;
                 blackColorRadioButton_Cubic.Enabled = false;
+            }
+            if (!blackColorRadioButton_Linear.Checked)
+            {
+                BlackColorRadioButton_Quadratic.Enabled = true;
+                BlackColorRadioButton_Circle.Enabled = true;
+                blackColorRadioButton_Cubic.Enabled = true;
             }
         }
     }
