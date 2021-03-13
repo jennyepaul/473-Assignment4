@@ -462,6 +462,7 @@ namespace JennyCasey_Assign4
             return xIntercept;
         }
 
+        //the following 4 functions adjust the color options availble for when linear colors are selected
         private void blueColorRadioButton_Linear_CheckedChanged(object sender, EventArgs e)
         {
             //if the user chose blue for linear, disable it for all other graphs
@@ -528,6 +529,207 @@ namespace JennyCasey_Assign4
                 BlackColorRadioButton_Quadratic.Enabled = true;
                 BlackColorRadioButton_Circle.Enabled = true;
                 blackColorRadioButton_Cubic.Enabled = true;
+            }
+        }
+
+        //the following 4 functions adjust the color options available for when cubic colors are selected
+        private void blueColorRadioButton_Cubic_CheckedChanged(object sender, EventArgs e)
+        {
+            //if the user chose blue for cubic, disable it for all other graphs
+            if (blueColorRadioButton_Cubic.Checked)
+            {
+                BlueColorRadioButton_Quadratic.Enabled = false;
+                BlueColorRadioButton_Circle.Enabled = false;
+                blueColorRadioButton_Linear.Enabled = false;
+            }
+            if (!blueColorRadioButton_Cubic.Checked)
+            {
+                BlueColorRadioButton_Quadratic.Enabled = true;
+                BlueColorRadioButton_Circle.Enabled = true;
+                blueColorRadioButton_Linear.Enabled = true;
+            }
+        }
+
+        private void redColorRadioButton_Cubic_CheckedChanged(object sender, EventArgs e)
+        {
+            //if the user chose red for cubic, disable it for all other graphs
+            if (redColorRadioButton_Cubic.Checked)
+            {
+                RedColorRadioButton_Quadratic.Enabled = false;
+                RedColorRadioButton_Circle.Enabled = false;
+                redColorRadioButton_Linear.Enabled = false;
+            }
+            if (!redColorRadioButton_Cubic.Checked)
+            {
+                RedColorRadioButton_Quadratic.Enabled = true;
+                RedColorRadioButton_Circle.Enabled = true;
+                redColorRadioButton_Linear.Enabled = true;
+            }
+        }
+
+        private void greenColorRadioButton_Cubic_CheckedChanged(object sender, EventArgs e)
+        {
+            if (greenColorRadioButton_Cubic.Checked)
+            {
+                GreenColorRadioButton_Quadratic.Enabled = false;
+                GreenColorRadioButton_Circle.Enabled = false;
+                greenColorRadioButton_Linear.Enabled = false;
+            }
+            if (!greenColorRadioButton_Cubic.Checked)
+            {
+                GreenColorRadioButton_Quadratic.Enabled = true;
+                GreenColorRadioButton_Circle.Enabled = true;
+                greenColorRadioButton_Linear.Enabled = true;
+            }
+
+        }
+
+        private void blackColorRadioButton_Cubic_CheckedChanged(object sender, EventArgs e)
+        {
+            if (blackColorRadioButton_Cubic.Checked)
+            {
+                BlackColorRadioButton_Quadratic.Enabled = false;
+                BlackColorRadioButton_Circle.Enabled = false;
+                blackColorRadioButton_Linear.Enabled = false;
+            }
+            if (!blackColorRadioButton_Linear.Checked)
+            {
+                BlackColorRadioButton_Quadratic.Enabled = true;
+                BlackColorRadioButton_Circle.Enabled = true;
+                blackColorRadioButton_Linear.Enabled = true;
+            }
+        }
+
+        //the following 4 functions adjust the color options available for when quadratic colors are selected
+
+        private void BlueColorRadioButton_Quadratic_CheckedChanged(object sender, EventArgs e)
+        {
+            if (BlueColorRadioButton_Quadratic.Checked)
+            {
+                blueColorRadioButton_Cubic.Enabled = false;
+                BlueColorRadioButton_Circle.Enabled = false;
+                blueColorRadioButton_Linear.Enabled = false;
+            }
+            if (!BlueColorRadioButton_Quadratic.Checked)
+            {
+                blueColorRadioButton_Cubic.Enabled = true;
+                BlueColorRadioButton_Circle.Enabled = true;
+                blueColorRadioButton_Linear.Enabled = true;
+            }
+
+        }
+
+        private void RedColorRadioButton_Quadratic_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RedColorRadioButton_Quadratic.Checked)
+            {
+                redColorRadioButton_Cubic.Enabled = false;
+                RedColorRadioButton_Circle.Enabled = false;
+                redColorRadioButton_Linear.Enabled = false;
+            }
+            if (!RedColorRadioButton_Quadratic.Checked)
+            {
+                redColorRadioButton_Cubic.Enabled = true;
+                RedColorRadioButton_Circle.Enabled = true;
+                redColorRadioButton_Linear.Enabled = true;
+            }
+        }
+
+        private void GreenColorRadioButton_Quadratic_CheckedChanged(object sender, EventArgs e)
+        {
+            if (GreenColorRadioButton_Quadratic.Checked)
+            {
+                greenColorRadioButton_Cubic.Enabled = false;
+                GreenColorRadioButton_Circle.Enabled = false;
+                greenColorRadioButton_Linear.Enabled = false;
+            }
+            if (!GreenColorRadioButton_Quadratic.Checked)
+            {
+                greenColorRadioButton_Cubic.Enabled = true;
+                GreenColorRadioButton_Circle.Enabled = true;
+                greenColorRadioButton_Linear.Enabled = true;
+            }
+        }
+
+        private void BlackColorRadioButton_Quadratic_CheckedChanged(object sender, EventArgs e)
+        {
+            if (BlackColorRadioButton_Quadratic.Checked)
+            {
+                blackColorRadioButton_Cubic.Enabled = false;
+                BlackColorRadioButton_Circle.Enabled = false;
+                blackColorRadioButton_Linear.Enabled = false;
+            }
+            if (!BlackColorRadioButton_Quadratic.Checked)
+            {
+                blackColorRadioButton_Cubic.Enabled = true;
+                BlackColorRadioButton_Circle.Enabled = true;
+                blackColorRadioButton_Linear.Enabled = true;
+            }
+        }
+
+        //the following 4 functions adjust the color options available for when circle colors are selected
+
+        private void BlueColorRadioButton_Circle_CheckedChanged(object sender, EventArgs e)
+        {
+            if (BlueColorRadioButton_Circle.Checked)
+            {
+                blueColorRadioButton_Cubic.Enabled = false;
+                BlueColorRadioButton_Quadratic.Enabled = false;
+                blueColorRadioButton_Linear.Enabled = false;
+            }
+            if (!BlueColorRadioButton_Circle.Checked)
+            {
+                blueColorRadioButton_Cubic.Enabled = true;
+                BlueColorRadioButton_Quadratic.Enabled = true;
+                blueColorRadioButton_Linear.Enabled = true;
+            }
+        }
+
+        private void RedColorRadioButton_Circle_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RedColorRadioButton_Circle.Checked)
+            {
+                redColorRadioButton_Cubic.Enabled = false;
+                RedColorRadioButton_Quadratic.Enabled = false;
+                redColorRadioButton_Linear.Enabled = false;
+            }
+            if (!RedColorRadioButton_Circle.Checked)
+            {
+                redColorRadioButton_Cubic.Enabled = true;
+                RedColorRadioButton_Quadratic.Enabled = true;
+                redColorRadioButton_Linear.Enabled = true;
+            }
+        }
+
+        private void GreenColorRadioButton_Circle_CheckedChanged(object sender, EventArgs e)
+        {
+            if (GreenColorRadioButton_Circle.Checked)
+            {
+                greenColorRadioButton_Cubic.Enabled = false;
+                GreenColorRadioButton_Quadratic.Enabled = false;
+                greenColorRadioButton_Linear.Enabled = false;
+            }
+            if (!GreenColorRadioButton_Circle.Checked)
+            {
+                greenColorRadioButton_Cubic.Enabled = true;
+                GreenColorRadioButton_Quadratic.Enabled = true;
+                greenColorRadioButton_Linear.Enabled = true;
+            }
+        }
+
+        private void BlackColorRadioButton_Circle_CheckedChanged(object sender, EventArgs e)
+        {
+            if (BlackColorRadioButton_Circle.Checked)
+            {
+                blackColorRadioButton_Cubic.Enabled = false;
+                BlackColorRadioButton_Quadratic.Enabled = false;
+                blackColorRadioButton_Linear.Enabled = false;
+            }
+            if (!BlackColorRadioButton_Circle.Checked)
+            {
+                blackColorRadioButton_Cubic.Enabled = true;
+                BlackColorRadioButton_Quadratic.Enabled = true;
+                blackColorRadioButton_Linear.Enabled = true;
             }
         }
     }

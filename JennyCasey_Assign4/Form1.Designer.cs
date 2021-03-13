@@ -386,6 +386,7 @@ namespace JennyCasey_Assign4
             this.blackColorRadioButton_Cubic.TabStop = true;
             this.blackColorRadioButton_Cubic.Text = "Black";
             this.blackColorRadioButton_Cubic.UseVisualStyleBackColor = true;
+            this.blackColorRadioButton_Cubic.CheckedChanged += new System.EventHandler(this.blackColorRadioButton_Cubic_CheckedChanged);
             // 
             // redColorRadioButton_Cubic
             // 
@@ -397,6 +398,7 @@ namespace JennyCasey_Assign4
             this.redColorRadioButton_Cubic.TabStop = true;
             this.redColorRadioButton_Cubic.Text = "Red";
             this.redColorRadioButton_Cubic.UseVisualStyleBackColor = true;
+            this.redColorRadioButton_Cubic.CheckedChanged += new System.EventHandler(this.redColorRadioButton_Cubic_CheckedChanged);
             // 
             // greenColorRadioButton_Cubic
             // 
@@ -408,6 +410,7 @@ namespace JennyCasey_Assign4
             this.greenColorRadioButton_Cubic.TabStop = true;
             this.greenColorRadioButton_Cubic.Text = "Green";
             this.greenColorRadioButton_Cubic.UseVisualStyleBackColor = true;
+            this.greenColorRadioButton_Cubic.CheckedChanged += new System.EventHandler(this.greenColorRadioButton_Cubic_CheckedChanged);
             // 
             // blueColorRadioButton_Cubic
             // 
@@ -419,6 +422,7 @@ namespace JennyCasey_Assign4
             this.blueColorRadioButton_Cubic.TabStop = true;
             this.blueColorRadioButton_Cubic.Text = "Blue";
             this.blueColorRadioButton_Cubic.UseVisualStyleBackColor = true;
+            this.blueColorRadioButton_Cubic.CheckedChanged += new System.EventHandler(this.blueColorRadioButton_Cubic_CheckedChanged);
             // 
             // equationColumnLabel
             // 
@@ -607,6 +611,7 @@ namespace JennyCasey_Assign4
             this.BlackColorRadioButton_Quadratic.TabStop = true;
             this.BlackColorRadioButton_Quadratic.Text = "Black";
             this.BlackColorRadioButton_Quadratic.UseVisualStyleBackColor = true;
+            this.BlackColorRadioButton_Quadratic.CheckedChanged += new System.EventHandler(this.BlackColorRadioButton_Quadratic_CheckedChanged);
             // 
             // RedColorRadioButton_Quadratic
             // 
@@ -618,6 +623,7 @@ namespace JennyCasey_Assign4
             this.RedColorRadioButton_Quadratic.TabStop = true;
             this.RedColorRadioButton_Quadratic.Text = "Red";
             this.RedColorRadioButton_Quadratic.UseVisualStyleBackColor = true;
+            this.RedColorRadioButton_Quadratic.CheckedChanged += new System.EventHandler(this.RedColorRadioButton_Quadratic_CheckedChanged);
             // 
             // GreenColorRadioButton_Quadratic
             // 
@@ -629,6 +635,7 @@ namespace JennyCasey_Assign4
             this.GreenColorRadioButton_Quadratic.TabStop = true;
             this.GreenColorRadioButton_Quadratic.Text = "Green";
             this.GreenColorRadioButton_Quadratic.UseVisualStyleBackColor = true;
+            this.GreenColorRadioButton_Quadratic.CheckedChanged += new System.EventHandler(this.GreenColorRadioButton_Quadratic_CheckedChanged);
             // 
             // BlueColorRadioButton_Quadratic
             // 
@@ -640,6 +647,7 @@ namespace JennyCasey_Assign4
             this.BlueColorRadioButton_Quadratic.TabStop = true;
             this.BlueColorRadioButton_Quadratic.Text = "Blue";
             this.BlueColorRadioButton_Quadratic.UseVisualStyleBackColor = true;
+            this.BlueColorRadioButton_Quadratic.CheckedChanged += new System.EventHandler(this.BlueColorRadioButton_Quadratic_CheckedChanged);
             // 
             // groupBox4
             // 
@@ -664,6 +672,7 @@ namespace JennyCasey_Assign4
             this.BlackColorRadioButton_Circle.TabStop = true;
             this.BlackColorRadioButton_Circle.Text = "Black";
             this.BlackColorRadioButton_Circle.UseVisualStyleBackColor = true;
+            this.BlackColorRadioButton_Circle.CheckedChanged += new System.EventHandler(this.BlackColorRadioButton_Circle_CheckedChanged);
             // 
             // RedColorRadioButton_Circle
             // 
@@ -675,6 +684,7 @@ namespace JennyCasey_Assign4
             this.RedColorRadioButton_Circle.TabStop = true;
             this.RedColorRadioButton_Circle.Text = "Red";
             this.RedColorRadioButton_Circle.UseVisualStyleBackColor = true;
+            this.RedColorRadioButton_Circle.CheckedChanged += new System.EventHandler(this.RedColorRadioButton_Circle_CheckedChanged);
             // 
             // GreenColorRadioButton_Circle
             // 
@@ -686,6 +696,7 @@ namespace JennyCasey_Assign4
             this.GreenColorRadioButton_Circle.TabStop = true;
             this.GreenColorRadioButton_Circle.Text = "Green";
             this.GreenColorRadioButton_Circle.UseVisualStyleBackColor = true;
+            this.GreenColorRadioButton_Circle.CheckedChanged += new System.EventHandler(this.GreenColorRadioButton_Circle_CheckedChanged);
             // 
             // BlueColorRadioButton_Circle
             // 
@@ -697,6 +708,7 @@ namespace JennyCasey_Assign4
             this.BlueColorRadioButton_Circle.TabStop = true;
             this.BlueColorRadioButton_Circle.Text = "Blue";
             this.BlueColorRadioButton_Circle.UseVisualStyleBackColor = true;
+            this.BlueColorRadioButton_Circle.CheckedChanged += new System.EventHandler(this.BlueColorRadioButton_Circle_CheckedChanged);
             // 
             // label7
             // 
