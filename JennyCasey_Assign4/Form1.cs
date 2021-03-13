@@ -58,6 +58,7 @@ namespace JennyCasey_Assign4
                 
 
                 graphics.DrawLine(myPen, 0, graph.Height / 2, graph.Width, graph.Height / 2);
+                graphics.DrawLine(myPen, graph.Width / 2, 0, graph.Width / 2, graph.Height);
             }
 
             //need to find a few points from the slope and then draw that
@@ -118,22 +119,47 @@ namespace JennyCasey_Assign4
             //QUADRADTIC EQUATION GRAPHING 
             if (Quad_Avalue.Text.Length != 0 && Quad_Bvalue.Text.Length != 0 && Quad_Cvalue.Text.Length !=0)
             {
-                double A_Value = double.Parse(Quad_Avalue.Text);
-                double B_Value = double.Parse(Quad_Bvalue.Text);
-                double C_Value = double.Parse(Quad_Cvalue.Text);
+                int A_Value = int.Parse(Quad_Avalue.Text);
+                int B_Value = int.Parse(Quad_Bvalue.Text);
+                int C_Value = int.Parse(Quad_Cvalue.Text);
 
-                double H_Value = (-1 * B_Value) / (2 * A_Value);
-                double K_Value = (A_Value * (H_Value * H_Value)) + (B_Value * H_Value) + C_Value;
+                int H_Value = (-1 * B_Value) / (2 * A_Value);
+                int K_Value = (A_Value * (H_Value * H_Value)) + (B_Value * H_Value) + C_Value;
 
-                testOutput.AppendText("H value is " + H_Value + "K value is " + K_Value + "\n");
+                
 
                 //double Y_Value = (A_Value * (i * i)) + (B_Value * i) + C_Value; //find y value 
 
 
                 // Point point1 = new Point(H_Value, K_Value); // represents the vertex
 
+                int plot_H;
+                if (H_Value == 0)
+                {
+                    plot_H = graph.Width/2;
+                }
+                else
+                {
+                    plot_H = (graph.Width / 2) + ((graph.Width / 100) * H_Value);
+                }
 
-                Point point2 = new Point(graph.Width/2, graph.Height/2);
+                int plot_K;
+                if (K_Value == 0)
+                {
+                    plot_K = graph.Height/2;
+                }
+                else
+                {
+                    plot_K = (graph.Height / 2) - ((graph.Height / 100) * K_Value);
+                }
+
+                testOutput.AppendText("H value is " + H_Value + " K value is " + K_Value + "\n");
+                testOutput.AppendText("H  plot value is " + plot_H + " K plot value is " + plot_K + "\n");
+                testOutput.AppendText("Graph Height is " + graph.Height + "Graph.Width is " + graph.Width + "\n");
+
+
+
+                Point point2 = new Point(plot_H, plot_K);
                 Point point3 = new Point(graph.Width / 3, graph.Height / 3); //(0,2)
                 Point point4 = new Point(10, 10); //(-2,2)
                 //Point point5 = new Point(0,0);
