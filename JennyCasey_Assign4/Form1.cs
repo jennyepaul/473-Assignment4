@@ -115,10 +115,10 @@ namespace JennyCasey_Assign4
 
                 ///find a way to extend the linear line more
 
-                if (isDown == true)
-                {
+               if (isDown == true)
+               {
                     //depending on what color choice/radio button was clicked that is the color we will draw in
-                    if (redColorRadioButton_Linear.Checked)
+                    if (redColorRadioButton_Linear.Checked && redColorRadioButton_Linear.Enabled)
                     {
                         using (Pen linearPen = new Pen(Color.Red))
                         {
@@ -129,7 +129,7 @@ namespace JennyCasey_Assign4
                         }
                     }
 
-                    if (blueColorRadioButton_Linear.Checked)
+                    if (blueColorRadioButton_Linear.Checked && blueColorRadioButton_Linear.Enabled)
                     {
                         using (Pen linearPen = new Pen(Color.Blue))
                         {
@@ -139,7 +139,7 @@ namespace JennyCasey_Assign4
 
                         }
                     }
-                    if (greenColorRadioButton_Linear.Checked)
+                    if (greenColorRadioButton_Linear.Checked && greenColorRadioButton_Linear.Enabled)
                     {
                         using (Pen linearPen = new Pen(Color.Green))
                         {
@@ -149,7 +149,7 @@ namespace JennyCasey_Assign4
 
                         }
                     }
-                    if (blackColorRadioButton_Linear.Checked)
+                    if (blackColorRadioButton_Linear.Checked && blackColorRadioButton_Linear.Enabled)
                     {
                         using (Pen linearPen = new Pen(Color.Black))
                         {
@@ -221,25 +221,29 @@ namespace JennyCasey_Assign4
                 Pen bluePen = new Pen(Color.Blue, 3);
                 Pen greenPen = new Pen(Color.Green, 3);
                 Pen blackPen = new Pen(Color.Black, 3);
-                if (RedColorRadioButton_Quadratic.Checked)
-                {
-                    e.Graphics.DrawCurve(redPen, Point);
-                }
-                else if (BlueColorRadioButton_Quadratic.Checked)
-                {
-                    e.Graphics.DrawCurve(bluePen, Point);
-                }
-                else if (GreenColorRadioButton_Quadratic.Checked)
-                {
-                    e.Graphics.DrawCurve(greenPen, Point);
-                }
-                else if (BlackColorRadioButton_Quadratic.Checked)
-                {
-                    e.Graphics.DrawCurve(blackPen, Point);
-                }
-                else
-                {
-                    testOutput.AppendText("Please Choose a Color");
+
+                if (isDown == true)
+                { 
+                    if (RedColorRadioButton_Quadratic.Checked && RedColorRadioButton_Quadratic.Enabled)
+                    {
+                        e.Graphics.DrawCurve(redPen, Point);
+                    }
+                    else if (BlueColorRadioButton_Quadratic.Checked && BlueColorRadioButton_Quadratic.Enabled)
+                    {
+                        e.Graphics.DrawCurve(bluePen, Point);
+                    }
+                    else if (GreenColorRadioButton_Quadratic.Checked && GreenColorRadioButton_Quadratic.Enabled)
+                    {
+                        e.Graphics.DrawCurve(greenPen, Point);
+                    }
+                    else if (BlackColorRadioButton_Quadratic.Checked && BlackColorRadioButton_Quadratic.Enabled)
+                    {
+                        e.Graphics.DrawCurve(blackPen, Point);
+                    }
+                    else
+                    {
+                        testOutput.AppendText("Please Choose a Color");
+                    }
                 }
 
             }
@@ -296,28 +300,28 @@ namespace JennyCasey_Assign4
                 if (isDown == true)
                 {
                     //depending on what color choice/radio button was clicked that is the color we will draw in
-                    if (redColorRadioButton_Linear.Checked)
+                    if (redColorRadioButton_Cubic.Checked && redColorRadioButton_Cubic.Enabled)
                     {
                         using (Pen cubicPen = new Pen(Color.Red))
                         {
                             e.Graphics.DrawCurve(cubicPen, Point);
                         }
                     }
-                    else if (blueColorRadioButton_Linear.Checked)
+                    else if (blueColorRadioButton_Cubic.Checked && blueColorRadioButton_Cubic.Enabled)
                     {
                         using (Pen cubicPen = new Pen(Color.Blue))
                         {
                             e.Graphics.DrawCurve(cubicPen, Point);
                         }
                     }
-                    else if (greenColorRadioButton_Linear.Checked)
+                    else if (greenColorRadioButton_Cubic.Checked && greenColorRadioButton_Cubic.Enabled)
                     {
                         using (Pen cubicPen = new Pen(Color.Green))
                         {
                             e.Graphics.DrawCurve(cubicPen, Point);
                         }
                     }
-                    else if (blackColorRadioButton_Linear.Checked)
+                    else if (blackColorRadioButton_Cubic.Checked && blackColorRadioButton_Cubic.Enabled)
                     {
                         using (Pen cubicPen = new Pen(Color.Black))
                         {
@@ -367,29 +371,33 @@ namespace JennyCasey_Assign4
                 Pen redPen = new Pen(Color.Red, 3);
                 Pen bluePen = new Pen(Color.Blue, 3);
                 Pen greenPen = new Pen(Color.Green, 3);
-                if (RedColorRadioButton_Circle.Checked)
+
+                if (isDown == true)
                 {
-                    e.Graphics.DrawEllipse(redPen, H_Value - R_Value, K_Value - R_Value,
-                       R_Value + R_Value, R_Value + R_Value);
-                }
-                else if (BlueColorRadioButton_Circle.Checked)
-                {
-                    e.Graphics.DrawEllipse(bluePen, H_Value - R_Value, K_Value - R_Value,
-                      R_Value + R_Value, R_Value + R_Value);
-                }
-                else if (GreenColorRadioButton_Circle.Checked)
-                {
-                    e.Graphics.DrawEllipse(greenPen, H_Value - R_Value, K_Value - R_Value,
-                      R_Value + R_Value, R_Value + R_Value);
-                }
-                else if (BlackColorRadioButton_Circle.Checked)
-                {
-                    e.Graphics.DrawEllipse(blackPen, H_Value - R_Value, K_Value - R_Value,
-                      R_Value + R_Value, R_Value + R_Value);
-                }
-                else
-                {
-                    testOutput.AppendText("Please Choose a Color");
+                    if (RedColorRadioButton_Circle.Checked && RedColorRadioButton_Circle.Enabled)
+                    {
+                        e.Graphics.DrawEllipse(redPen, H_Value - R_Value, K_Value - R_Value,
+                           R_Value + R_Value, R_Value + R_Value);
+                    }
+                    else if (BlueColorRadioButton_Circle.Checked && BlueColorRadioButton_Circle.Enabled)
+                    {
+                        e.Graphics.DrawEllipse(bluePen, H_Value - R_Value, K_Value - R_Value,
+                          R_Value + R_Value, R_Value + R_Value);
+                    }
+                    else if (GreenColorRadioButton_Circle.Checked && GreenColorRadioButton_Circle.Enabled)
+                    {
+                        e.Graphics.DrawEllipse(greenPen, H_Value - R_Value, K_Value - R_Value,
+                          R_Value + R_Value, R_Value + R_Value);
+                    }
+                    else if (BlackColorRadioButton_Circle.Checked && BlackColorRadioButton_Circle.Enabled)
+                    {
+                        e.Graphics.DrawEllipse(blackPen, H_Value - R_Value, K_Value - R_Value,
+                          R_Value + R_Value, R_Value + R_Value);
+                    }
+                    else
+                    {
+                        testOutput.AppendText("Please Choose a Color");
+                    }
                 }
 
                 
@@ -454,7 +462,50 @@ namespace JennyCasey_Assign4
             return xIntercept;
         }
 
-       
+        private void blueColorRadioButton_Linear_CheckedChanged(object sender, EventArgs e)
+        {
+            //if the user chose blue for linear, disable it for all other graphs
+            if (blueColorRadioButton_Linear.Checked)
+            {
+                BlueColorRadioButton_Quadratic.Enabled = false;
+                BlueColorRadioButton_Circle.Enabled = false;
+                blueColorRadioButton_Cubic.Enabled = false;
+            }
+        }
+
+        private void redColorRadioButton_Linear_CheckedChanged(object sender, EventArgs e)
+        {
+            //if the user chose red for linear, disable it for all other graphs
+            if (redColorRadioButton_Linear.Checked)
+            {
+                RedColorRadioButton_Quadratic.Enabled = false;
+                RedColorRadioButton_Circle.Enabled = false;
+                redColorRadioButton_Cubic.Enabled = false;
+            }
+
+        }
+
+        private void greenColorRadioButton_Linear_CheckedChanged(object sender, EventArgs e)
+        {
+            if (greenColorRadioButton_Linear.Checked)
+            {
+                GreenColorRadioButton_Quadratic.Enabled = false;
+                GreenColorRadioButton_Circle.Enabled = false;
+                greenColorRadioButton_Cubic.Enabled = false;
+            }
+
+        }
+
+        private void blackColorRadioButton_Linear_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (blackColorRadioButton_Linear.Checked)
+            {
+                BlackColorRadioButton_Quadratic.Enabled = false;
+                BlackColorRadioButton_Circle.Enabled = false;
+                blackColorRadioButton_Cubic.Enabled = false;
+            }
+        }
     }
 
 

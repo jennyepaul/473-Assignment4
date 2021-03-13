@@ -325,6 +325,7 @@ namespace JennyCasey_Assign4
             this.blackColorRadioButton_Linear.TabStop = true;
             this.blackColorRadioButton_Linear.Text = "Black";
             this.blackColorRadioButton_Linear.UseVisualStyleBackColor = true;
+            this.blackColorRadioButton_Linear.CheckedChanged += new System.EventHandler(this.blackColorRadioButton_Linear_CheckedChanged);
             // 
             // redColorRadioButton_Linear
             // 
@@ -336,6 +337,7 @@ namespace JennyCasey_Assign4
             this.redColorRadioButton_Linear.TabStop = true;
             this.redColorRadioButton_Linear.Text = "Red";
             this.redColorRadioButton_Linear.UseVisualStyleBackColor = true;
+            this.redColorRadioButton_Linear.CheckedChanged += new System.EventHandler(this.redColorRadioButton_Linear_CheckedChanged);
             // 
             // greenColorRadioButton_Linear
             // 
@@ -347,6 +349,7 @@ namespace JennyCasey_Assign4
             this.greenColorRadioButton_Linear.TabStop = true;
             this.greenColorRadioButton_Linear.Text = "Green";
             this.greenColorRadioButton_Linear.UseVisualStyleBackColor = true;
+            this.greenColorRadioButton_Linear.CheckedChanged += new System.EventHandler(this.greenColorRadioButton_Linear_CheckedChanged);
             // 
             // blueColorRadioButton_Linear
             // 
@@ -358,6 +361,7 @@ namespace JennyCasey_Assign4
             this.blueColorRadioButton_Linear.TabStop = true;
             this.blueColorRadioButton_Linear.Text = "Blue";
             this.blueColorRadioButton_Linear.UseVisualStyleBackColor = true;
+            this.blueColorRadioButton_Linear.CheckedChanged += new System.EventHandler(this.blueColorRadioButton_Linear_CheckedChanged);
             // 
             // colorBox_Cubic
             // 
@@ -478,7 +482,7 @@ namespace JennyCasey_Assign4
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 46);
+            this.label3.Location = new System.Drawing.Point(-3, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 17);
             this.label3.TabIndex = 1;
