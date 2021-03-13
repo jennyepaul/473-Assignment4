@@ -142,80 +142,6 @@ namespace JennyCasey_Assign4
 
                 }
             }
-
-            //QUADRADTIC EQUATION GRAPHING 
-            if (Quad_Avalue.Text.Length != 0 && Quad_Bvalue.Text.Length != 0 && Quad_Cvalue.Text.Length != 0)
-            {
-                int A_Value = int.Parse(Quad_Avalue.Text);
-                int B_Value = int.Parse(Quad_Bvalue.Text);
-                int C_Value = int.Parse(Quad_Cvalue.Text);
-
-                int H_Value = (-1 * B_Value) / (2 * A_Value); //x-intercept of the vertex of the parabola
-
-                //plug H -value into the equation to get the K-value
-                int K_Value = (A_Value * (H_Value * H_Value)) + (B_Value * H_Value) + C_Value; //y-intercept of the vertex of the parabola
-
-
-
-                double x, y;
-                Point[] Point = new Point[10000];
-                int n = 0;
-
-                //get point, two to the left and two to the right of the vertex and put them in an array
-                for (int i = (H_Value - 4); i <= (H_Value + 4); i += 1)
-                {
-
-                    x = i;
-                    y = (A_Value * (x * x)) + ((B_Value * x) + C_Value);
-
-                    if (x == 0)
-                    {
-                        x = graph.Width / 2;
-                    }
-                    else
-                    {
-                        x = (graph.Width / 2 + (graph.Width / xDistance * (int)x));
-                    }
-
-                    if (y == 0)
-                    {
-                        y = graph.Height / 2;
-                    }
-                    else
-                    {
-                        y = (graph.Height / 2 - (graph.Height / yDistance * (int)y));
-                    }
-
-                    Point[n] = new Point((int)x, (int)y);
-                    n++;
-                }
-
-                Pen redPen = new Pen(Color.Red, 3);
-                Pen bluePen = new Pen(Color.Blue, 3);
-                Pen greenPen = new Pen(Color.Green, 3);
-                Pen blackPen = new Pen(Color.Black, 3);
-                if (RedColorRadioButton_Quadratic.Checked)
-                {
-                    e.Graphics.DrawCurve(redPen, Point);
-                } 
-                else if (BlueColorRadioButton_Quadratic.Checked)
-                {
-                    e.Graphics.DrawCurve(bluePen, Point);
-                }              
-                else if (GreenColorRadioButton_Quadratic.Checked)
-                {
-                    e.Graphics.DrawCurve(greenPen, Point);
-                }              
-                else if (BlackColorRadioButton_Quadratic.Checked)
-                {
-                    e.Graphics.DrawCurve(blackPen, Point);
-                }
-                else
-                {
-                    testOutput.AppendText("Please Choose a Color");
-                }
-
-            }
         }
 
         //mouse Down event to draw the graphs only when the mouse is Down
@@ -259,11 +185,6 @@ namespace JennyCasey_Assign4
         {
             string yMax = yMaxValue.Value.ToString();
             yLabelMax.Text = yMax;
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
