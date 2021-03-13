@@ -188,49 +188,87 @@ namespace JennyCasey_Assign4
                 {
                     testOutput.AppendText("Sorry, first value cannot be 0, as this would cause this to not be a cubic equation!");
                 }
-                
-                //plug in 2 & -2 for x to get y value
-                double point2y = (aValue * Math.Pow(2, 3)) + (bValue * Math.Pow(2, 2)) +(cValue * 2) + dValue;       //x = 2
-                double point3y = (aValue * Math.Pow(-2, 3)) + (bValue * Math.Pow(-2, 2)) + (cValue * -2) + dValue;    //x = -2
 
-                //find the actual y coordinates depending on # of intervals
-                double ypoint2 = ((graph.Height / 2) - (graph.Height / numberOfYTicks) * point2y);
-                double ypoint3 = ((graph.Height / 2) + (graph.Height / numberOfYTicks) * point3y);
+                double yintercept_double = (aValue * 0) + (bValue * 0) + (cValue * 0) + dValue;
+                int yintercept_y = (int)yintercept_double;
+                int yintercept_x = 0;
 
-                //convert y values just found to int 
-                int y2 = (int)ypoint2;
-                int y3 = (int)ypoint3;
+                double x, y;
+                Point[] Point = new Point[10000];
+                int n = 0;
 
-                //convert the 2 sample x values to actual x coordinates depending on # of intervals
-                int xpoint2 = ((graph.Width / 2) + (graph.Width / numberOfXTicks) * 2);
-                int xpoint3 = ((graph.Width / 2) - (graph.Width / numberOfXTicks) * 2);
-
-
-                //find y intercept value
-                yIntercept = ((graph.Height / 2) - (graph.Height / numberOfYTicks) * yIntercept);
-
-
-                //yIntercept Point
-                Point yPoint = new Point(graph.Width / 2, yIntercept);
-
-                //other 2 sample points with x = 2 and x = -2
-                Point point2 = new Point(xpoint2, y2);
-                Point point3 = new Point(xpoint3, y3);
-
-                Point[] cubicPoints = { yPoint, point2, point3 };
-                if (isDown == true)
+                for (int i = (yintercept_x - 5); i <= (yintercept_x + 5); i += 1)
                 {
-                    //depending on what color choice/radio button was clicked that is the color we will draw in
-                    if (redColorRadioButton_Cubic.Checked)
+                    x = i;
+                    y = (aValue * (x * x * x)) + ((bValue * (x *x)) + cValue * x + dValue);
+
+                    if (x == 0)
                     {
-                        using (Pen cubicPen = new Pen(Color.Red))
-                        {
-                            //draw the curve
-                            graphics.DrawCurve(cubicPen, cubicPoints);                   
-                        }
+                        x = graph.Width / 2;
                     }
+                    else
+                    {
+                        x = (graph.Width / 2 + (graph.Width / xDistance * (int)x));
+                    }
+
+                    if (y == 0)
+                    {
+                        y = graph.Height / 2;
+                    }
+                    else
+                    {
+                        y = (graph.Height / 2 - (graph.Height / yDistance * (int)y));
+                    }
+
+                    Point[n] = new Point((int)x, (int)y);
+                    n++;
+
                 }
-            }
+                Pen greenPen = new Pen(Color.Green, 3);
+                e.Graphics.DrawCurve(greenPen, Point);
+
+                    //plug in 2 & -2 for x to get y value
+                    /*double point2y = (aValue * Math.Pow(2, 3)) + (bValue * Math.Pow(2, 2)) +(cValue * 2) + dValue;       //x = 2
+                    double point3y = (aValue * Math.Pow(-2, 3)) + (bValue * Math.Pow(-2, 2)) + (cValue * -2) + dValue;    //x = -2
+
+                    //find the actual y coordinates depending on # of intervals
+                    double ypoint2 = ((graph.Height / 2) - (graph.Height / numberOfYTicks) * point2y);
+                    double ypoint3 = ((graph.Height / 2) + (graph.Height / numberOfYTicks) * point3y);
+
+                    //convert y values just found to int 
+                    int y2 = (int)ypoint2;
+                    int y3 = (int)ypoint3;
+
+                    //convert the 2 sample x values to actual x coordinates depending on # of intervals
+                    int xpoint2 = ((graph.Width / 2) + (graph.Width / numberOfXTicks) * 2);
+                    int xpoint3 = ((graph.Width / 2) - (graph.Width / numberOfXTicks) * 2);
+
+
+                    //find y intercept value
+                    yIntercept = ((graph.Height / 2) - (graph.Height / numberOfYTicks) * yIntercept);
+
+
+                    //yIntercept Point
+                    Point yPoint = new Point(graph.Width / 2, yIntercept);
+
+                    //other 2 sample points with x = 2 and x = -2
+                    Point point2 = new Point(xpoint2, y2);
+                    Point point3 = new Point(xpoint3, y3);
+
+                    Point[] cubicPoints = { yPoint, point2, point3 };
+                    if (isDown == true)
+                    {
+                        //depending on what color choice/radio button was clicked that is the color we will draw in
+                        if (redColorRadioButton_Cubic.Checked)
+                        {
+                            using (Pen cubicPen = new Pen(Color.Red))
+                            {
+                                //draw the curve
+                                graphics.DrawCurve(cubicPen, cubicPoints);                   
+                            }
+                        }
+                    }*/
+                }
         }
         
 
