@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Numerics; 
 
 namespace JennyCasey_Assign4
 {
@@ -177,19 +178,30 @@ namespace JennyCasey_Assign4
             {
                 //the y-intercept is always whatever d is since we set x = 0 to find equation, it cancels everything out but D value
                 double yIntercept = double.Parse(cubic_DValue.Text);
+                double dValue = double.Parse(cubic_DValue.Text);
                 double aValue = int.Parse(cubic_AValue.Text);
                 double bValue = int.Parse(cubic_BValue.Text);
                 double cValue = int.Parse(cubic_CValue.Text);
 
+                int x3 = 2;
+                int x4 = 0;
+
+                //testOutput.AppendText("A value is " + aValue + " B value is " + bValue + "c Value is " + cValue);
+                //test output to see if we grabbed the right info
+                //testOutput.AppendText("y intercept is " + yIntercept);
+
                 double xIntercept = findXIntercept(aValue, bValue, cValue, yIntercept);
+
+                //test output to see if we grabbed the right info
+                //testOutput.AppendText("cubed root of A " + xIntercept);
+
+
 
                 yIntercept = ((graph.Height / 2) - (graph.Height / numberOfYTicks) * yIntercept);
                 xIntercept = ((graph.Width / 2) + (graph.Width / numberOfXTicks) * xIntercept);
 
                 int x = (int)xIntercept;
-
                 int y = (int)yIntercept;
-
 
 
                 //yIntercept Point
@@ -198,9 +210,28 @@ namespace JennyCasey_Assign4
                 //xIntercept Point
                 Point xPoint = new Point(x, 0);
 
-                Point point3 = new Point(graph.Width / 2, graph.Height / 2);
 
-                Point[] cubicPoints = { xPoint, yPoint, point3 };
+                //getting new points here
+                double point3Y = aValue * (Math.Pow(x3, 3)) + bValue * (Math.Pow(x3, 2)) + cValue * x3 + dValue;
+                double point4Y = aValue * (Math.Pow(x4, 3)) + bValue * (Math.Pow(x4, 2)) + cValue * x4 + dValue;
+
+                //converting points 3 & 4 to ints
+                int y3 = (int)point3Y;
+                int y4 = (int)point4Y;
+
+                //finding the right amount of space based on interbals
+                x3  = ((graph.Width / 2) + (graph.Width / numberOfXTicks) * x3);
+                x4 = ((graph.Width / 2) + (graph.Width / numberOfXTicks) * x4);
+
+                y3 = ((graph.Height / 2) - (graph.Height / numberOfYTicks) * y3);
+                y4 = ((graph.Height / 2) - (graph.Height / numberOfYTicks) * y4);
+
+
+                Point point3 = new Point(x3, y3);
+                Point point4 = new Point(x4, y4);
+
+                //had xPoint in here before, took it out cause not sure if x-intercept math is right?
+                Point[] cubicPoints = {yPoint, point3, point4};
                 if (isDown == true)
                 {
                     //depending on what color choice/radio button was clicked that is the color we will draw in
@@ -209,6 +240,13 @@ namespace JennyCasey_Assign4
                         using (Pen cubicPen = new Pen(Color.Red))
                         {
                             graphics.DrawCurve(cubicPen, cubicPoints);
+
+                            //graph the x intercept point
+                            //graphics.DrawRectangle(cubicPen, x, 0, 5, 5);
+
+                            //graph the y intercept point
+                            //graphics.DrawRectangle(cubicPen, 0, y, 5, 5);
+
 
 
                         }
@@ -263,18 +301,32 @@ namespace JennyCasey_Assign4
 
         static double findXIntercept(double a, double b, double c, double d)
         {
+            //equation is 0 = A * x * x * x + B * x * x + c * x + d
+            //xValue = a + b + c + d
             double xIntercept;
-            double xValue; 
 
-            //get cubed root of value a
-            double cubedRoot  = (Math.Pow(a,(1.0 / 3.0)));
+            double xValue = 1;
 
-            //get square root of value b
-            double squareRoot = (Math.Pow(b, (1.0 / 2.0)));
+            //get cubed root of value A
+            double A = (Math.Ceiling(Math.Pow(a, 1.0/ 3.0)));
 
-            xValue = cubedRoot + squareRoot + c;
+            //get square root of value B
+            double B = (Math.Ceiling(Math.Pow(b, 1.0 / 2.0)));
 
-            xIntercept = (-1 * d) / xValue;
+            //add all X variables together
+            A = A + B + c;
+
+            //flip sign to account for subtracting the 'x' value over in the equation 
+            A *= -1;
+
+            //multiply x value by A
+            xValue *= A;
+
+            //divide by D value
+            xValue /= d;
+
+            //set x intercept to xValue just calculated
+            xIntercept = xValue;
 
             return xIntercept;
         }
