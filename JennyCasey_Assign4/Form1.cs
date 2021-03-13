@@ -174,7 +174,7 @@ namespace JennyCasey_Assign4
                 }
             }
 
-
+            //QUADRATIC EQUATION GRAPHING 
             if (Quad_Avalue.Text.Length != 0 && Quad_Bvalue.Text.Length != 0 && Quad_Cvalue.Text.Length != 0)
             {
                 int A_Value = int.Parse(Quad_Avalue.Text);
@@ -247,6 +247,7 @@ namespace JennyCasey_Assign4
                 }
 
             }
+
             //CUBIC EQUATION GRAPHING
             if (cubic_AValue.TextLength != 0 && cubic_BValue.TextLength != 0 && cubic_CValue.TextLength != 0 && cubic_DValue.TextLength != 0)
             {
@@ -287,6 +288,70 @@ namespace JennyCasey_Assign4
                         }
                     }
                 }
+            }
+
+            //CIRCLE EQUATIONS GRAPHING
+            if (Circle_HValue.Text.Length != 0 && Circle_KValue.Text.Length != 0 && Circle_RValue.Text.Length != 0)
+            {
+                int H_Value = int.Parse(Circle_HValue.Text);
+                int K_Value = int.Parse(Circle_KValue.Text);
+                int R_Value = int.Parse(Circle_RValue.Text);
+
+                Pen blackPen = new Pen(Color.Black, 3);
+
+                if (H_Value == 0)
+                {
+                    H_Value = graph.Width / 2;
+                }
+                else
+                {
+                    H_Value = (graph.Width / 2 + (graph.Width / xDistance * H_Value));
+                }
+                if (K_Value == 0)
+                {
+                    K_Value = graph.Width / 2;
+                }
+                else
+                {
+                    K_Value = (graph.Width / 2 - (graph.Width / yDistance * K_Value));
+                }
+                if (R_Value == 0)
+                {
+                    R_Value = H_Value;
+                }
+                else
+                {
+                    R_Value = (graph.Width / xDistance * R_Value);
+                }
+                Pen redPen = new Pen(Color.Red, 3);
+                Pen bluePen = new Pen(Color.Blue, 3);
+                Pen greenPen = new Pen(Color.Green, 3);
+                if (RedColorRadioButton_Circle.Checked)
+                {
+                    e.Graphics.DrawEllipse(redPen, H_Value - R_Value, K_Value - R_Value,
+                       R_Value + R_Value, R_Value + R_Value);
+                }
+                else if (BlueColorRadioButton_Circle.Checked)
+                {
+                    e.Graphics.DrawEllipse(bluePen, H_Value - R_Value, K_Value - R_Value,
+                      R_Value + R_Value, R_Value + R_Value);
+                }
+                else if (GreenColorRadioButton_Circle.Checked)
+                {
+                    e.Graphics.DrawEllipse(greenPen, H_Value - R_Value, K_Value - R_Value,
+                      R_Value + R_Value, R_Value + R_Value);
+                }
+                else if (BlackColorRadioButton_Circle.Checked)
+                {
+                    e.Graphics.DrawEllipse(blackPen, H_Value - R_Value, K_Value - R_Value,
+                      R_Value + R_Value, R_Value + R_Value);
+                }
+                else
+                {
+                    testOutput.AppendText("Please Choose a Color");
+                }
+
+                
             }
         }
         
