@@ -89,7 +89,6 @@ namespace JennyCasey_Assign4
                                                (graph.Width / 2) - numberOfYTicks, i * (graph.Height) / numberOfYTicks);
                 }
 
-                // graph.Refresh();
             }
             //LINEAR EQUATION GRAPHING
             if (linear_riseValue.TextLength != 0 && linear_runValue.TextLength != 0 && linear_yPointVal.TextLength != 0 && linear_xPointVal.TextLength != 0)
@@ -115,9 +114,6 @@ namespace JennyCasey_Assign4
                 Point point1 = new Point(xValue + run, yValue - rise);
 
                 ///find a way to extend the linear line more
-
-
-
 
                 if (isDown == true)
                 {
@@ -264,8 +260,6 @@ namespace JennyCasey_Assign4
                     testOutput.AppendText("Sorry, first value cannot be 0, as this would cause this to not be a cubic equation!");
                 }
 
-                double yintercept_double = (aValue * 0) + (bValue * 0) + (cValue * 0) + dValue;
-                int yintercept_y = (int)yintercept_double;
                 int yintercept_x = 0;
 
                 double x, y;
@@ -299,8 +293,42 @@ namespace JennyCasey_Assign4
                     n++;
 
                 }
-                Pen greenPen = new Pen(Color.Green, 3);
-                e.Graphics.DrawCurve(greenPen, Point);
+                if (isDown == true)
+                {
+                    //depending on what color choice/radio button was clicked that is the color we will draw in
+                    if (redColorRadioButton_Linear.Checked)
+                    {
+                        using (Pen cubicPen = new Pen(Color.Red))
+                        {
+                            e.Graphics.DrawCurve(cubicPen, Point);
+                        }
+                    }
+                    else if (blueColorRadioButton_Linear.Checked)
+                    {
+                        using (Pen cubicPen = new Pen(Color.Blue))
+                        {
+                            e.Graphics.DrawCurve(cubicPen, Point);
+                        }
+                    }
+                    else if (greenColorRadioButton_Linear.Checked)
+                    {
+                        using (Pen cubicPen = new Pen(Color.Green))
+                        {
+                            e.Graphics.DrawCurve(cubicPen, Point);
+                        }
+                    }
+                    else if (blackColorRadioButton_Linear.Checked)
+                    {
+                        using (Pen cubicPen = new Pen(Color.Black))
+                        {
+                            e.Graphics.DrawCurve(cubicPen, Point);
+                        }
+                    }
+                    else
+                    {
+                        testOutput.AppendText("Please Choose a Color");
+                    }
+                }
             }
 
             //CIRCLE EQUATIONS GRAPHING
