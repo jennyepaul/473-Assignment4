@@ -64,8 +64,8 @@ namespace JennyCasey_Assign4
             this.testOutput = new System.Windows.Forms.RichTextBox();
             this.quadraticEquation = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.Quad_Bvalue = new System.Windows.Forms.TextBox();
+            this.Quad_Avalue = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.circleEquation = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -73,10 +73,10 @@ namespace JennyCasey_Assign4
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.BlackColorRadioButton_Quadratic = new System.Windows.Forms.RadioButton();
+            this.RedColorRadioButton_Quadratic = new System.Windows.Forms.RadioButton();
+            this.GreenColorRadioButton_Quadratic = new System.Windows.Forms.RadioButton();
+            this.BlueColorRadioButton_Quadratic = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
@@ -99,6 +99,8 @@ namespace JennyCasey_Assign4
             this.yLabelMax = new System.Windows.Forms.Label();
             this.xLabelMin = new System.Windows.Forms.Label();
             this.yLabelMin = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.Quad_Cvalue = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.graph)).BeginInit();
             this.linearEquation.SuspendLayout();
             this.cubicEquation.SuspendLayout();
@@ -441,9 +443,11 @@ namespace JennyCasey_Assign4
             // 
             // quadraticEquation
             // 
+            this.quadraticEquation.Controls.Add(this.Quad_Cvalue);
+            this.quadraticEquation.Controls.Add(this.label12);
             this.quadraticEquation.Controls.Add(this.label3);
-            this.quadraticEquation.Controls.Add(this.textBox3);
-            this.quadraticEquation.Controls.Add(this.textBox4);
+            this.quadraticEquation.Controls.Add(this.Quad_Bvalue);
+            this.quadraticEquation.Controls.Add(this.Quad_Avalue);
             this.quadraticEquation.Controls.Add(this.label4);
             this.quadraticEquation.Location = new System.Drawing.Point(771, 255);
             this.quadraticEquation.Name = "quadraticEquation";
@@ -461,28 +465,28 @@ namespace JennyCasey_Assign4
             this.label3.TabIndex = 1;
             this.label3.Text = "y = ";
             // 
-            // textBox3
+            // Quad_Bvalue
             // 
-            this.textBox3.Location = new System.Drawing.Point(109, 41);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(25, 22);
-            this.textBox3.TabIndex = 4;
+            this.Quad_Bvalue.Location = new System.Drawing.Point(95, 43);
+            this.Quad_Bvalue.Name = "Quad_Bvalue";
+            this.Quad_Bvalue.Size = new System.Drawing.Size(25, 22);
+            this.Quad_Bvalue.TabIndex = 4;
             // 
-            // textBox4
+            // Quad_Avalue
             // 
-            this.textBox4.Location = new System.Drawing.Point(46, 41);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(25, 22);
-            this.textBox4.TabIndex = 3;
+            this.Quad_Avalue.Location = new System.Drawing.Point(29, 43);
+            this.Quad_Avalue.Name = "Quad_Avalue";
+            this.Quad_Avalue.Size = new System.Drawing.Size(25, 22);
+            this.Quad_Avalue.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(77, 44);
+            this.label4.Location = new System.Drawing.Point(58, 46);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 17);
+            this.label4.Size = new System.Drawing.Size(35, 17);
             this.label4.TabIndex = 2;
-            this.label4.Text = "x +";
+            this.label4.Text = "^2 +";
             // 
             // circleEquation
             // 
@@ -531,10 +535,10 @@ namespace JennyCasey_Assign4
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.radioButton1);
-            this.groupBox3.Controls.Add(this.radioButton2);
-            this.groupBox3.Controls.Add(this.radioButton3);
-            this.groupBox3.Controls.Add(this.radioButton4);
+            this.groupBox3.Controls.Add(this.BlackColorRadioButton_Quadratic);
+            this.groupBox3.Controls.Add(this.RedColorRadioButton_Quadratic);
+            this.groupBox3.Controls.Add(this.GreenColorRadioButton_Quadratic);
+            this.groupBox3.Controls.Add(this.BlueColorRadioButton_Quadratic);
             this.groupBox3.Location = new System.Drawing.Point(1020, 255);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(230, 78);
@@ -542,49 +546,49 @@ namespace JennyCasey_Assign4
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Color:";
             // 
-            // radioButton1
+            // BlackColorRadioButton_Quadratic
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(82, 49);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(63, 21);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Black";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.BlackColorRadioButton_Quadratic.AutoSize = true;
+            this.BlackColorRadioButton_Quadratic.Location = new System.Drawing.Point(82, 49);
+            this.BlackColorRadioButton_Quadratic.Name = "BlackColorRadioButton_Quadratic";
+            this.BlackColorRadioButton_Quadratic.Size = new System.Drawing.Size(63, 21);
+            this.BlackColorRadioButton_Quadratic.TabIndex = 3;
+            this.BlackColorRadioButton_Quadratic.TabStop = true;
+            this.BlackColorRadioButton_Quadratic.Text = "Black";
+            this.BlackColorRadioButton_Quadratic.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // RedColorRadioButton_Quadratic
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(82, 21);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(55, 21);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Red";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.RedColorRadioButton_Quadratic.AutoSize = true;
+            this.RedColorRadioButton_Quadratic.Location = new System.Drawing.Point(82, 21);
+            this.RedColorRadioButton_Quadratic.Name = "RedColorRadioButton_Quadratic";
+            this.RedColorRadioButton_Quadratic.Size = new System.Drawing.Size(55, 21);
+            this.RedColorRadioButton_Quadratic.TabIndex = 2;
+            this.RedColorRadioButton_Quadratic.TabStop = true;
+            this.RedColorRadioButton_Quadratic.Text = "Red";
+            this.RedColorRadioButton_Quadratic.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // GreenColorRadioButton_Quadratic
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(7, 49);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(69, 21);
-            this.radioButton3.TabIndex = 1;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Green";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.GreenColorRadioButton_Quadratic.AutoSize = true;
+            this.GreenColorRadioButton_Quadratic.Location = new System.Drawing.Point(7, 49);
+            this.GreenColorRadioButton_Quadratic.Name = "GreenColorRadioButton_Quadratic";
+            this.GreenColorRadioButton_Quadratic.Size = new System.Drawing.Size(69, 21);
+            this.GreenColorRadioButton_Quadratic.TabIndex = 1;
+            this.GreenColorRadioButton_Quadratic.TabStop = true;
+            this.GreenColorRadioButton_Quadratic.Text = "Green";
+            this.GreenColorRadioButton_Quadratic.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // BlueColorRadioButton_Quadratic
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(7, 22);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(57, 21);
-            this.radioButton4.TabIndex = 0;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Blue";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.BlueColorRadioButton_Quadratic.AutoSize = true;
+            this.BlueColorRadioButton_Quadratic.Location = new System.Drawing.Point(7, 22);
+            this.BlueColorRadioButton_Quadratic.Name = "BlueColorRadioButton_Quadratic";
+            this.BlueColorRadioButton_Quadratic.Size = new System.Drawing.Size(57, 21);
+            this.BlueColorRadioButton_Quadratic.TabIndex = 0;
+            this.BlueColorRadioButton_Quadratic.TabStop = true;
+            this.BlueColorRadioButton_Quadratic.Text = "Blue";
+            this.BlueColorRadioButton_Quadratic.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -839,6 +843,22 @@ namespace JennyCasey_Assign4
             this.yLabelMin.TabIndex = 31;
             this.yLabelMin.Text = "NULL";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(126, 46);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(26, 17);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "x +";
+            // 
+            // Quad_Cvalue
+            // 
+            this.Quad_Cvalue.Location = new System.Drawing.Point(158, 43);
+            this.Quad_Cvalue.Name = "Quad_Cvalue";
+            this.Quad_Cvalue.Size = new System.Drawing.Size(25, 22);
+            this.Quad_Cvalue.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -931,8 +951,8 @@ namespace JennyCasey_Assign4
         private System.Windows.Forms.RichTextBox testOutput;
         private System.Windows.Forms.GroupBox quadraticEquation;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox Quad_Bvalue;
+        private System.Windows.Forms.TextBox Quad_Avalue;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox circleEquation;
         private System.Windows.Forms.Label label5;
@@ -940,10 +960,10 @@ namespace JennyCasey_Assign4
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton BlackColorRadioButton_Quadratic;
+        private System.Windows.Forms.RadioButton RedColorRadioButton_Quadratic;
+        private System.Windows.Forms.RadioButton GreenColorRadioButton_Quadratic;
+        private System.Windows.Forms.RadioButton BlueColorRadioButton_Quadratic;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.RadioButton radioButton6;
@@ -976,6 +996,8 @@ namespace JennyCasey_Assign4
         private System.Windows.Forms.TextBox cubic_AValue;
         private System.Windows.Forms.Label cubic_Alabel;
         private System.Windows.Forms.Label cubic_Blabel;
+        private System.Windows.Forms.TextBox Quad_Cvalue;
+        private System.Windows.Forms.Label label12;
     }
 }
 

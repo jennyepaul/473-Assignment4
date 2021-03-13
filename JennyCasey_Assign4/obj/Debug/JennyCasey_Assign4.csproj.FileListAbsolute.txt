@@ -8,3 +8,13 @@ C:\Users\jenny\Desktop\473-Assignment4\JennyCasey_Assign4\obj\Debug\JennyCasey_A
 C:\Users\jenny\Desktop\473-Assignment4\JennyCasey_Assign4\obj\Debug\JennyCasey_Assign4.csproj.CoreCompileInputs.cache
 C:\Users\jenny\Desktop\473-Assignment4\JennyCasey_Assign4\obj\Debug\JennyCasey_Assign4.exe
 C:\Users\jenny\Desktop\473-Assignment4\JennyCasey_Assign4\obj\Debug\JennyCasey_Assign4.pdb
+C:\Users\casey\Desktop\CSCI 473504\Assignment4\JennyCasey_Assign4\bin\Debug\JennyCasey_Assign4.exe.config
+C:\Users\casey\Desktop\CSCI 473504\Assignment4\JennyCasey_Assign4\bin\Debug\JennyCasey_Assign4.exe
+C:\Users\casey\Desktop\CSCI 473504\Assignment4\JennyCasey_Assign4\bin\Debug\JennyCasey_Assign4.pdb
+C:\Users\casey\Desktop\CSCI 473504\Assignment4\JennyCasey_Assign4\obj\Debug\JennyCasey_Assign4.csprojAssemblyReference.cache
+C:\Users\casey\Desktop\CSCI 473504\Assignment4\JennyCasey_Assign4\obj\Debug\JennyCasey_Assign4.Form1.resources
+C:\Users\casey\Desktop\CSCI 473504\Assignment4\JennyCasey_Assign4\obj\Debug\JennyCasey_Assign4.Properties.Resources.resources
+C:\Users\casey\Desktop\CSCI 473504\Assignment4\JennyCasey_Assign4\obj\Debug\JennyCasey_Assign4.csproj.GenerateResource.cache
+C:\Users\casey\Desktop\CSCI 473504\Assignment4\JennyCasey_Assign4\obj\Debug\JennyCasey_Assign4.csproj.CoreCompileInputs.cache
+C:\Users\casey\Desktop\CSCI 473504\Assignment4\JennyCasey_Assign4\obj\Debug\JennyCasey_Assign4.exe
+C:\Users\casey\Desktop\CSCI 473504\Assignment4\JennyCasey_Assign4\obj\Debug\JennyCasey_Assign4.pdb
