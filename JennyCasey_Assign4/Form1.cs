@@ -47,7 +47,6 @@ namespace JennyCasey_Assign4
             Graphics graphics = e.Graphics;
 
             //need to do a check in here to ensure we have values for everything
-
             xMin = (int)xMinValue.Value;
             xMax = (int)xMaxValue.Value;
 
@@ -66,27 +65,45 @@ namespace JennyCasey_Assign4
             int numberOfXTicks = xDistance / xInterval;
 
 
-
             using (Pen graphPen = new Pen(Color.Black))
             {
-                //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
-                //draw the x & y lines of the graph
-                graphics.DrawLine(graphPen, graph.Width / 2, 0, graph.Width / 2, graph.Height);
-                graphics.DrawLine(graphPen, 0, graph.Height / 2, graph.Width, graph.Height / 2);
-
-                for (int i = 0; i <= numberOfXTicks; i++)
+                //adjust the logic here, a good start but need to fix this based on what he has on assignment directions
+                if ((yMin > 0 || yMax < 0) && (xMin == 0 && xMax == 0))
                 {
-                    graphics.DrawLine(graphPen, i * (graph.Width) / numberOfXTicks, (graph.Height / 2) - numberOfXTicks,
-                                                i * (graph.Width) / numberOfXTicks, (graph.Height / 2) + numberOfXTicks);
-
+                    //only draw the y axis
+                    graphics.DrawLine(graphPen, 0, graph.Height / 2, graph.Width, graph.Height / 2);
+                }
+                else if ((xMin > 0 || xMax < 0) && (yMin == 0 && yMax == 0))
+                {
+                    //only draw the x-axis
+                    graphics.DrawLine(graphPen, graph.Width / 2, 0, graph.Width / 2, graph.Height);
 
                 }
-                for (int i = 0; i <= numberOfYTicks; i++)
+                else if ((xMin > 0 && yMin > 0) || (xMax < 0 && yMin > 0) || (xMax < 0 && yMax < 0) || (xMin > 0 && yMax < 0))
                 {
-                    graphics.DrawLine(graphPen, (graph.Width / 2) + numberOfYTicks, i * (graph.Height) / numberOfYTicks,
-                                               (graph.Width / 2) - numberOfYTicks, i * (graph.Height) / numberOfYTicks);
+                    //draw neither axis and just draw ticks
                 }
+                //draw the graph normally
+                else
+                {
+                    //draw the x & y lines of the graph
+                    graphics.DrawLine(graphPen, graph.Width / 2, 0, graph.Width / 2, graph.Height);
+                    graphics.DrawLine(graphPen, 0, graph.Height / 2, graph.Width, graph.Height / 2);
 
+                    for (int i = 0; i <= numberOfXTicks; i++)
+                    {
+                        graphics.DrawLine(graphPen, i * (graph.Width) / numberOfXTicks, (graph.Height / 2) - numberOfXTicks,
+                                                    i * (graph.Width) / numberOfXTicks, (graph.Height / 2) + numberOfXTicks);
+
+
+                    }
+                    for (int i = 0; i <= numberOfYTicks; i++)
+                    {
+                        graphics.DrawLine(graphPen, (graph.Width / 2) + numberOfYTicks, i * (graph.Height) / numberOfYTicks,
+                                                   (graph.Width / 2) - numberOfYTicks, i * (graph.Height) / numberOfYTicks);
+                    }
+                }
+                
             }
             //LINEAR EQUATION GRAPHING
             if (linear_riseValue.TextLength != 0 && linear_runValue.TextLength != 0 && linear_yPointVal.TextLength != 0 && linear_xPointVal.TextLength != 0)

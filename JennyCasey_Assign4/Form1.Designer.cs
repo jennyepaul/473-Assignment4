@@ -771,6 +771,11 @@ namespace JennyCasey_Assign4
             // xMaxValue
             // 
             this.xMaxValue.Location = new System.Drawing.Point(815, 508);
+            this.xMaxValue.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.xMaxValue.Name = "xMaxValue";
             this.xMaxValue.Size = new System.Drawing.Size(50, 22);
             this.xMaxValue.TabIndex = 19;
@@ -820,6 +825,11 @@ namespace JennyCasey_Assign4
             // yMaxValue
             // 
             this.yMaxValue.Location = new System.Drawing.Point(976, 508);
+            this.yMaxValue.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.yMaxValue.Name = "yMaxValue";
             this.yMaxValue.Size = new System.Drawing.Size(49, 22);
             this.yMaxValue.TabIndex = 23;
