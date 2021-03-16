@@ -70,14 +70,20 @@ namespace JennyCasey_Assign4
                 //adjust the logic here, a good start but need to fix this based on what he has on assignment directions
                 if ((yMin > 0 || yMax < 0) && (xMin == 0 && xMax == 0))
                 {
+                    //if yMin is greater than 0 then we want the upper part of the graph (upside down T)
+                    //if yMax is less than 0, then we want the lower part of the graph (T looking graph)
                     //only draw the y axis
-                    graphics.DrawLine(graphPen, 0, graph.Height / 2, graph.Width, graph.Height / 2);
+                    graphics.DrawLine(graphPen, graph.Width / 2, 0, graph.Width / 2, graph.Height);
+
                 }
                 else if ((xMin > 0 || xMax < 0) && (yMin == 0 && yMax == 0))
                 {
+                    //if xMin is greater than 0, then we want the right side of the graph |_____
+                    //                                                                    |
+                    //is xMax is less than 0, we want the left side of the graph _____|
+                    //                                                                |
                     //only draw the x-axis
-                    graphics.DrawLine(graphPen, graph.Width / 2, 0, graph.Width / 2, graph.Height);
-
+                    graphics.DrawLine(graphPen, 0, graph.Height / 2, graph.Width, graph.Height / 2);
                 }
                 else if ((xMin > 0 && yMin > 0) || (xMax < 0 && yMin > 0) || (xMax < 0 && yMax < 0) || (xMin > 0 && yMax < 0))
                 {
@@ -86,21 +92,24 @@ namespace JennyCasey_Assign4
                 //draw the graph normally
                 else
                 {
-                    //draw the x & y lines of the graph
-                    graphics.DrawLine(graphPen, graph.Width / 2, 0, graph.Width / 2, graph.Height);
-                    graphics.DrawLine(graphPen, 0, graph.Height / 2, graph.Width, graph.Height / 2);
-
-                    for (int i = 0; i <= numberOfXTicks; i++)
+                    if ((xMin != 0 && xMax != 0 && yMin != 0 && yMax != 0)) && ((xMin <= 0 && yMin <= 0) || (yMax > 0 && xMax > 0))
                     {
-                        graphics.DrawLine(graphPen, i * (graph.Width) / numberOfXTicks, (graph.Height / 2) - numberOfXTicks,
-                                                    i * (graph.Width) / numberOfXTicks, (graph.Height / 2) + numberOfXTicks);
+                        //draw the x & y lines of the graph
+                        graphics.DrawLine(graphPen, graph.Width / 2, 0, graph.Width / 2, graph.Height);
+                        graphics.DrawLine(graphPen, 0, graph.Height / 2, graph.Width, graph.Height / 2);
+
+                        for (int i = 0; i <= numberOfXTicks; i++)
+                        {
+                            graphics.DrawLine(graphPen, i * (graph.Width) / numberOfXTicks, (graph.Height / 2) - numberOfXTicks,
+                                                        i * (graph.Width) / numberOfXTicks, (graph.Height / 2) + numberOfXTicks);
 
 
-                    }
-                    for (int i = 0; i <= numberOfYTicks; i++)
-                    {
-                        graphics.DrawLine(graphPen, (graph.Width / 2) + numberOfYTicks, i * (graph.Height) / numberOfYTicks,
-                                                   (graph.Width / 2) - numberOfYTicks, i * (graph.Height) / numberOfYTicks);
+                        }
+                        for (int i = 0; i <= numberOfYTicks; i++)
+                        {
+                            graphics.DrawLine(graphPen, (graph.Width / 2) + numberOfYTicks, i * (graph.Height) / numberOfYTicks,
+                                                       (graph.Width / 2) - numberOfYTicks, i * (graph.Height) / numberOfYTicks);
+                        }
                     }
                 }
                 
