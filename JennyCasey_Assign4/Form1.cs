@@ -526,7 +526,10 @@ namespace JennyCasey_Assign4
 
                 int yintercept_x = 0;
 
-                double x, y;
+                int x;
+                int y;
+                int xPoint;
+                int yPoint;
                 Point[] Point = new Point[10000];
                 int n = 0;
 
@@ -537,27 +540,26 @@ namespace JennyCasey_Assign4
 
                     if (x == 0)
                     {
-                        x = graph.Width / 2;
+                        xPoint = graph.Width / 2;
                     }
                     else
                     {
                         //need to adjust this based on the type of graph (how the ticks are drawn)
                         //getting an x point here i think?
-                        x = (xOrigin+ (graph.Width / xDistance * (int)x));
+                        xPoint = (xOrigin + (graph.Width / xDistance * x));
                     }
 
                     if (y == 0)
                     {
-                        y = graph.Height / 2;
+                        yPoint = graph.Height / 2;
                     }
                     else
                     {
                         //need to adjust this based on the type of graph (how the ticks are drawn)
-                        
-                        y = (yOrigin - (graph.Height / yDistance * (int)y));
+                        yPoint= (yOrigin - (graph.Height / yDistance * y));
                     }
 
-                    Point[n] = new Point((int)x, (int)y);
+                    Point[n] = new Point(xPoint, yPoint);
                     n++;
 
                 }
