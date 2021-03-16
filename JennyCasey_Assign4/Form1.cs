@@ -486,6 +486,38 @@ namespace JennyCasey_Assign4
                 int bValue = int.Parse(cubic_BValue.Text);
                 int cValue = int.Parse(cubic_CValue.Text);
 
+                int xOrigin = 0;
+                int yOrigin = 0;
+
+                //depending on what graph we have, we need to adjust the origin
+                if (isNormalGraph)
+                {
+                    xOrigin = graph.Width / 2;
+                    yOrigin = graph.Height / 2;
+                }
+                else if (isYMinGreat0)
+                {
+                    xOrigin = graph1xOrigin;
+                    yOrigin = graph1yOrigin;
+                }
+                else if (isYMaxSmall0)
+                {
+                    xOrigin = graph2xOrigin;
+                    yOrigin = graph2yOrigin;
+                }
+                else if (isXMinGreat0)
+                {
+
+                    xOrigin = graph3xOrigin;
+                    yOrigin = graph3yOrigin;
+
+                }
+                else if (isXMaxSmall0)
+                {
+                    xOrigin = graph4xOrigin;
+                    yOrigin = graph4yOrigin;
+                }
+
                 //check to ensure A value is nonzero
                 if (aValue == 0)
                 {
@@ -498,7 +530,7 @@ namespace JennyCasey_Assign4
                 Point[] Point = new Point[10000];
                 int n = 0;
 
-                for (int i = (yintercept_x - 5); i <= (yintercept_x + 5); i += 1)
+                for (int i = (yintercept_x - 5); i <= (yintercept_x + 5); i++)
                 {
                     x = i;
                     y = (aValue * (x * x * x)) + ((bValue * (x * x)) + cValue * x + dValue);
@@ -510,7 +542,8 @@ namespace JennyCasey_Assign4
                     else
                     {
                         //need to adjust this based on the type of graph (how the ticks are drawn)
-                        x = (graph.Width / 2 + (graph.Width / xDistance * (int)x));
+                        //getting an x point here i think?
+                        x = (xOrigin+ (graph.Width / xDistance * (int)x));
                     }
 
                     if (y == 0)
@@ -520,7 +553,8 @@ namespace JennyCasey_Assign4
                     else
                     {
                         //need to adjust this based on the type of graph (how the ticks are drawn)
-                        y = (graph.Height / 2 - (graph.Height / yDistance * (int)y));
+                        
+                        y = (yOrigin - (graph.Height / yDistance * (int)y));
                     }
 
                     Point[n] = new Point((int)x, (int)y);
