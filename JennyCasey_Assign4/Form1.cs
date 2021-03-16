@@ -28,19 +28,17 @@ namespace JennyCasey_Assign4
         private static int yInterval;
         private static Point origin;
 
-        //linear equation points
-        /*
-        private static Point linearPointOne;
-        private static Point linearPointTwo;
-        private static Point linearPointThree;
-        private static Point linearPointFour;
-        private static Point linearPointFive;
-        */
         public Form1()
         {
             InitializeComponent();
+
+            //add in all the squared, and cubed labels
             cubic_Alabel.Text = "x\x00B3 +";
             cubic_Blabel.Text = "x\x00B2 +";
+            quadratic_label1.Text = "\x00B2 +";
+            circle_label1.Text = ")\x00B2 + (y-";
+            circle_label2.Text = ")\x00B2 =";
+            circle_label3.Text = "\x00B2)";
 
         }
 
@@ -113,7 +111,8 @@ namespace JennyCasey_Assign4
                 Point yIntercept = new Point(xValue, yValue);
                 Point point1 = new Point(xValue + run, yValue - rise);
 
-                ///find a way to extend the linear line more
+                //another point to extend the linear line
+                Point point2 = new Point(xValue - run, yValue + rise);
 
                if (isDown == true)
                {
@@ -124,8 +123,7 @@ namespace JennyCasey_Assign4
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
                             graphics.DrawLine(linearPen, yIntercept, point1);
-
-
+                            graphics.DrawLine(linearPen, point1, point2);
                         }
                     }
 
@@ -135,8 +133,7 @@ namespace JennyCasey_Assign4
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
                             graphics.DrawLine(linearPen, yIntercept, point1);
-
-
+                            graphics.DrawLine(linearPen, point1, point2);
                         }
                     }
                     if (greenColorRadioButton_Linear.Checked && greenColorRadioButton_Linear.Enabled)
@@ -145,8 +142,7 @@ namespace JennyCasey_Assign4
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
                             graphics.DrawLine(linearPen, yIntercept, point1);
-
-
+                            graphics.DrawLine(linearPen, point1, point2);
                         }
                     }
                     if (blackColorRadioButton_Linear.Checked && blackColorRadioButton_Linear.Enabled)
@@ -155,8 +151,7 @@ namespace JennyCasey_Assign4
                         {
                             //(System.Drawing.Pen pen, int x1, int y1, int x2, int y2);
                             graphics.DrawLine(linearPen, yIntercept, point1);
-
-
+                            graphics.DrawLine(linearPen, point1, point2);
                         }
                     }
 
@@ -169,7 +164,7 @@ namespace JennyCasey_Assign4
 
                 }
             }
-
+            
             //QUADRATIC EQUATION GRAPHING 
             if (Quad_Avalue.Text.Length != 0 && Quad_Bvalue.Text.Length != 0 && Quad_Cvalue.Text.Length != 0)
             {
@@ -334,6 +329,7 @@ namespace JennyCasey_Assign4
                     }
                 }
             }
+           
 
             //CIRCLE EQUATIONS GRAPHING
             if (Circle_HValue.Text.Length != 0 && Circle_KValue.Text.Length != 0 && Circle_RValue.Text.Length != 0)
@@ -398,10 +394,9 @@ namespace JennyCasey_Assign4
                     {
                         testOutput.AppendText("Please Choose a Color");
                     }
-                }
-
-                
+                }  
             }
+            
         }
         
 

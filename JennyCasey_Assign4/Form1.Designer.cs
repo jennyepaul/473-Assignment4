@@ -68,11 +68,11 @@ namespace JennyCasey_Assign4
             this.label3 = new System.Windows.Forms.Label();
             this.Quad_Bvalue = new System.Windows.Forms.TextBox();
             this.Quad_Avalue = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.quadratic_label1 = new System.Windows.Forms.Label();
             this.circleEquation = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.circle_label3 = new System.Windows.Forms.Label();
+            this.circle_label2 = new System.Windows.Forms.Label();
+            this.circle_label1 = new System.Windows.Forms.Label();
             this.Circle_RValue = new System.Windows.Forms.TextBox();
             this.Circle_KValue = new System.Windows.Forms.TextBox();
             this.Circle_HValue = new System.Windows.Forms.TextBox();
@@ -446,9 +446,9 @@ namespace JennyCasey_Assign4
             // 
             // testOutput
             // 
-            this.testOutput.Location = new System.Drawing.Point(771, 609);
+            this.testOutput.Location = new System.Drawing.Point(771, 587);
             this.testOutput.Name = "testOutput";
-            this.testOutput.Size = new System.Drawing.Size(467, 61);
+            this.testOutput.Size = new System.Drawing.Size(467, 83);
             this.testOutput.TabIndex = 12;
             this.testOutput.Text = "";
             // 
@@ -459,7 +459,7 @@ namespace JennyCasey_Assign4
             this.quadraticEquation.Controls.Add(this.label3);
             this.quadraticEquation.Controls.Add(this.Quad_Bvalue);
             this.quadraticEquation.Controls.Add(this.Quad_Avalue);
-            this.quadraticEquation.Controls.Add(this.label4);
+            this.quadraticEquation.Controls.Add(this.quadratic_label1);
             this.quadraticEquation.Location = new System.Drawing.Point(771, 255);
             this.quadraticEquation.Name = "quadraticEquation";
             this.quadraticEquation.Size = new System.Drawing.Size(200, 78);
@@ -506,20 +506,21 @@ namespace JennyCasey_Assign4
             this.Quad_Avalue.Size = new System.Drawing.Size(25, 22);
             this.Quad_Avalue.TabIndex = 3;
             // 
-            // label4
+            // quadratic_label1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(58, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 17);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "^2 +";
+            this.quadratic_label1.AutoSize = true;
+            this.quadratic_label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quadratic_label1.Location = new System.Drawing.Point(58, 46);
+            this.quadratic_label1.Name = "quadratic_label1";
+            this.quadratic_label1.Size = new System.Drawing.Size(36, 18);
+            this.quadratic_label1.TabIndex = 2;
+            this.quadratic_label1.Text = "^2 +";
             // 
             // circleEquation
             // 
-            this.circleEquation.Controls.Add(this.label14);
-            this.circleEquation.Controls.Add(this.label13);
-            this.circleEquation.Controls.Add(this.label5);
+            this.circleEquation.Controls.Add(this.circle_label3);
+            this.circleEquation.Controls.Add(this.circle_label2);
+            this.circleEquation.Controls.Add(this.circle_label1);
             this.circleEquation.Controls.Add(this.Circle_RValue);
             this.circleEquation.Controls.Add(this.Circle_KValue);
             this.circleEquation.Controls.Add(this.Circle_HValue);
@@ -531,32 +532,35 @@ namespace JennyCasey_Assign4
             this.circleEquation.TabStop = false;
             this.circleEquation.Text = "Circle Equation";
             // 
-            // label14
+            // circle_label3
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(212, 48);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(28, 17);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "^2)";
+            this.circle_label3.AutoSize = true;
+            this.circle_label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.circle_label3.Location = new System.Drawing.Point(209, 44);
+            this.circle_label3.Name = "circle_label3";
+            this.circle_label3.Size = new System.Drawing.Size(28, 18);
+            this.circle_label3.TabIndex = 8;
+            this.circle_label3.Text = "^2)";
             // 
-            // label13
+            // circle_label2
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(145, 44);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 17);
-            this.label13.TabIndex = 7;
-            this.label13.Text = ")^2 =";
+            this.circle_label2.AutoSize = true;
+            this.circle_label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.circle_label2.Location = new System.Drawing.Point(145, 44);
+            this.circle_label2.Name = "circle_label2";
+            this.circle_label2.Size = new System.Drawing.Size(41, 18);
+            this.circle_label2.TabIndex = 7;
+            this.circle_label2.Text = ")^2 =";
             // 
-            // label5
+            // circle_label1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(54, 46);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 17);
-            this.label5.TabIndex = 6;
-            this.label5.Text = ")^2 + (y-";
+            this.circle_label1.AutoSize = true;
+            this.circle_label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.circle_label1.Location = new System.Drawing.Point(54, 46);
+            this.circle_label1.Name = "circle_label1";
+            this.circle_label1.Size = new System.Drawing.Size(62, 18);
+            this.circle_label1.TabIndex = 6;
+            this.circle_label1.Text = ")^2 + (y-";
             // 
             // Circle_RValue
             // 
@@ -1000,7 +1004,7 @@ namespace JennyCasey_Assign4
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Quad_Bvalue;
         private System.Windows.Forms.TextBox Quad_Avalue;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label quadratic_label1;
         private System.Windows.Forms.GroupBox circleEquation;
         private System.Windows.Forms.TextBox Circle_KValue;
         private System.Windows.Forms.TextBox Circle_HValue;
@@ -1044,9 +1048,9 @@ namespace JennyCasey_Assign4
         private System.Windows.Forms.Label cubic_Blabel;
         private System.Windows.Forms.TextBox Quad_Cvalue;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label circle_label3;
+        private System.Windows.Forms.Label circle_label2;
+        private System.Windows.Forms.Label circle_label1;
         private System.Windows.Forms.TextBox Circle_RValue;
     }
 }
