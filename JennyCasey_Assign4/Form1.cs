@@ -329,15 +329,14 @@ namespace JennyCasey_Assign4
                     yOrigin = graph4yOrigin;
                 }
 
+                
+                //NOTES:
+                //might have to adjust the points that are calculated cause if there is no x or no y, we can't add or subtract from that point?
 
                 xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
                 yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 run = (graph.Width / xInterval) * run;
                 rise = (graph.Height / yInterval) * rise;
-
-                //int xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
-                //int yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
-
 
                 //first xpoint is going to be xOrigin + (graphWidth / xinterval)xPoint)
                 //first ypoiint is going to be yOrigin + (yHeight / yInterval)yPoint)
