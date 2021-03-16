@@ -712,20 +712,6 @@ namespace JennyCasey_Assign4
             //yLabelMax.Text = yMax;
         }
 
-        static double findXIntercept(double a, double b, double c, double d)
-        {
-            double xIntercept;
-
-            //get cubed root of value a
-            double cubedRoot  = (Math.Pow(a,(1.0 / 3.0)));
-
-            //get square root of value b
-            double squareRoot = (Math.Pow(b, (1.0 / 2.0)));
-
-            xIntercept = cubedRoot + squareRoot + c + d;
-            return xIntercept;
-        }
-
         //the following 4 functions adjust the color options availble for when linear colors are selected
         private void blueColorRadioButton_Linear_CheckedChanged(object sender, EventArgs e)
         {
