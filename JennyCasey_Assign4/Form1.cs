@@ -616,14 +616,14 @@ namespace JennyCasey_Assign4
         private void xMinValue_ValueChanged(object sender, EventArgs e)
         {
             string xMin = xMinValue.Value.ToString();
-            xLabelMin.Text = xMin;
+            //xLabelMin.Text = xMin;
         }
 
         //changes the x max value on the graph depending what user enters
         private void xMaxValue_ValueChanged(object sender, EventArgs e)
         {
             string xMax = xMaxValue.Value.ToString();
-            xLabelMax.Text = xMax;
+            //xLabelMax.Text = xMax;
 
         }
 
@@ -631,13 +631,13 @@ namespace JennyCasey_Assign4
         private void yMinValue_ValueChanged(object sender, EventArgs e)
         {
             string yMin = yMinValue.Value.ToString();
-            yLabelMin.Text = yMin;
+            //yLabelMin.Text = yMin;
         }
         //changes y max value on the graph depending what user enters
         private void yMaxValue_ValueChanged(object sender, EventArgs e)
         {
             string yMax = yMaxValue.Value.ToString();
-            yLabelMax.Text = yMax;
+            //yLabelMax.Text = yMax;
         }
 
         static double findXIntercept(double a, double b, double c, double d)
