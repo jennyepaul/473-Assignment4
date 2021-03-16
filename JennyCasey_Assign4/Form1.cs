@@ -300,8 +300,11 @@ namespace JennyCasey_Assign4
                 int xOrigin = 0;
                 int yOrigin = 0;
 
+                run = (graph.Width / xInterval) * run;
+                rise = (graph.Height / yInterval) * rise;
+
                 //depending on what graph we have, we need to adjust the origin
-                if(isNormalGraph)
+                if (isNormalGraph)
                 {
                     xOrigin = graph.Width / 2;
                     yOrigin = graph.Height / 2;
@@ -315,13 +318,13 @@ namespace JennyCasey_Assign4
                 {
                     xOrigin = graph2xOrigin;
                     yOrigin = graph2yOrigin;
+
                 }
                 else if(isXMinGreat0)
                 {
 
                     xOrigin = graph3xOrigin;
                     yOrigin = graph3yOrigin;
-
                 }
                 else if(isXMaxSmall0)
                 {
@@ -335,11 +338,7 @@ namespace JennyCasey_Assign4
 
                 xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
                 yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
-                run = (graph.Width / xInterval) * run;
-                rise = (graph.Height / yInterval) * rise;
-
-                //first xpoint is going to be xOrigin + (graphWidth / xinterval)xPoint)
-                //first ypoiint is going to be yOrigin + (yHeight / yInterval)yPoint)
+              
                 Point yIntercept = new Point(xValue, yValue);
                 Point point1 = new Point(xValue + run, yValue - rise);
 
@@ -527,14 +526,16 @@ namespace JennyCasey_Assign4
 
                 int x;
                 int y;
-                int xPoint;
-                int yPoint;
-                Point[] Point = new Point[10000];
+                int xPoint = 0;
+                int yPoint = 0;
+                Point[] cubicPoints = new Point[10000];
                 int n = 0;
 
                 for (int i = (yintercept_x - 5); i <= (yintercept_x + 5); i++)
                 {
                     x = i;
+
+                    //cubic equation
                     y = (aValue * (x * x * x)) + ((bValue * (x * x)) + cValue * x + dValue);
 
                     if (x == 0)
@@ -545,7 +546,10 @@ namespace JennyCasey_Assign4
                     {
                         //need to adjust this based on the type of graph (how the ticks are drawn)
                         //getting an x point here i think?
-                        xPoint = (xOrigin + (graph.Width / xDistance * x));
+
+                        //why was is xDistance and not number of ticks
+                        xPoint = (xOrigin + (graph.Width / numberOfXTicks * x));
+
                     }
 
                     if (y == 0)
@@ -555,10 +559,12 @@ namespace JennyCasey_Assign4
                     else
                     {
                         //need to adjust this based on the type of graph (how the ticks are drawn)
-                        yPoint= (yOrigin - (graph.Height / yDistance * y));
+                        //why was is yDistance and not number of ticks?
+                        yPoint = (yOrigin - (graph.Height / numberOfYTicks * y));
                     }
 
-                    Point[n] = new Point(xPoint, yPoint);
+                    //creating a new point
+                    cubicPoints[n] = new Point(xPoint, yPoint);
                     n++;
 
                 }
@@ -569,28 +575,28 @@ namespace JennyCasey_Assign4
                     {
                         using (Pen cubicPen = new Pen(Color.Red))
                         {
-                            e.Graphics.DrawCurve(cubicPen, Point);
+                            e.Graphics.DrawCurve(cubicPen, cubicPoints);
                         }
                     }
                     else if (blueColorRadioButton_Cubic.Checked && blueColorRadioButton_Cubic.Enabled)
                     {
                         using (Pen cubicPen = new Pen(Color.Blue))
                         {
-                            e.Graphics.DrawCurve(cubicPen, Point);
+                            e.Graphics.DrawCurve(cubicPen, cubicPoints);
                         }
                     }
                     else if (greenColorRadioButton_Cubic.Checked && greenColorRadioButton_Cubic.Enabled)
                     {
                         using (Pen cubicPen = new Pen(Color.Green))
                         {
-                            e.Graphics.DrawCurve(cubicPen, Point);
+                            e.Graphics.DrawCurve(cubicPen, cubicPoints);
                         }
                     }
                     else if (blackColorRadioButton_Cubic.Checked && blackColorRadioButton_Cubic.Enabled)
                     {
                         using (Pen cubicPen = new Pen(Color.Black))
                         {
-                            e.Graphics.DrawCurve(cubicPen, Point);
+                            e.Graphics.DrawCurve(cubicPen, cubicPoints);
                         }
                     }
                     else
