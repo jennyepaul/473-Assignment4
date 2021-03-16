@@ -735,11 +735,6 @@ namespace JennyCasey_Assign4
             this.xMinValue.Name = "xMinValue";
             this.xMinValue.Size = new System.Drawing.Size(49, 22);
             this.xMinValue.TabIndex = 16;
-            this.xMinValue.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.xMinValue.ValueChanged += new System.EventHandler(this.xMinValue_ValueChanged);
             // 
             // xMinLabel
@@ -779,11 +774,6 @@ namespace JennyCasey_Assign4
             this.xMaxValue.Name = "xMaxValue";
             this.xMaxValue.Size = new System.Drawing.Size(50, 22);
             this.xMaxValue.TabIndex = 19;
-            this.xMaxValue.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.xMaxValue.ValueChanged += new System.EventHandler(this.xMaxValue_ValueChanged);
             // 
             // label8
@@ -815,11 +805,6 @@ namespace JennyCasey_Assign4
             this.yMinValue.Name = "yMinValue";
             this.yMinValue.Size = new System.Drawing.Size(49, 22);
             this.yMinValue.TabIndex = 22;
-            this.yMinValue.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.yMinValue.ValueChanged += new System.EventHandler(this.yMinValue_ValueChanged);
             // 
             // yMaxValue
@@ -833,11 +818,6 @@ namespace JennyCasey_Assign4
             this.yMaxValue.Name = "yMaxValue";
             this.yMaxValue.Size = new System.Drawing.Size(49, 22);
             this.yMaxValue.TabIndex = 23;
-            this.yMaxValue.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.yMaxValue.ValueChanged += new System.EventHandler(this.yMaxValue_ValueChanged);
             // 
             // yIntervalValue
