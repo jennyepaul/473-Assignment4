@@ -26,12 +26,26 @@ namespace JennyCasey_Assign4
         private static int yMin;        
         private static int yMax;
         private static int yInterval;
-        private static Point origin;
         private static bool isYMinGreat0 = false;
         private static bool isYMaxSmall0 = false;
         private static bool isXMinGreat0 = false;
         private static bool isXMaxSmall0 = false;
         private static bool isNormalGraph = false;
+
+        //the following 8 variables hold the integer location of the x and y coordinates of the graph depending
+        //on how we draw the graph
+        private static int graph1xOrigin;
+        private static int graph1yOrigin;
+
+        private static int graph2xOrigin;
+        private static int graph2yOrigin;
+
+        private static int graph3xOrigin;
+        private static int graph3yOrigin;
+
+
+        private static int graph4xOrigin;
+        private static int graph4yOrigin;
 
         public Form1()
         {
@@ -78,7 +92,14 @@ namespace JennyCasey_Assign4
                     //only draw the y axis
                     if(yMin > 0)
                     {
+                        //set the flag
                         isYMinGreat0 = true;
+
+                        //set the x & y origin for graph
+                        graph1xOrigin = graph.Width / 2;
+                        graph1yOrigin = graph.Height;
+
+
                         graphics.DrawLine(graphPen, graph.Width / 2, 0, graph.Width / 2, graph.Height);
 
                         //the x distance is just the width of the drawing plane
@@ -112,6 +133,11 @@ namespace JennyCasey_Assign4
                     if(yMax < 0)
                     {
                         isYMaxSmall0 = true;
+                        
+                        //set the x & y origin for graph
+                        graph2xOrigin = graph.Width / 2;
+                        graph2yOrigin = 0;
+
                         graphics.DrawLine(graphPen, graph.Width / 2, 0, graph.Width / 2, graph.Height);
 
                         //the x distance is just the width of the drawing plane
@@ -157,6 +183,12 @@ namespace JennyCasey_Assign4
                     if (xMin > 0)
                     {
                         isXMinGreat0 = true;
+
+                        //set the x & y origin for graph
+                        graph3xOrigin = 0;
+                        graph3yOrigin = graph.Height /2;
+
+
                         //the x distance is just the width of the drawing plane
                         xDistance = Math.Abs(xMin) + Math.Abs(xMax);
 
@@ -186,6 +218,10 @@ namespace JennyCasey_Assign4
                     if (xMax < 0)
                     {
                         isXMaxSmall0 = true;
+
+                        //set the x & y origin for graph
+                        graph4xOrigin = graph.Width;
+                        graph4yOrigin = graph.Height / 2;
 
                         //the x distance is just the width of the drawing plane
                         xDistance = Math.Abs(xMin) + Math.Abs(xMax);

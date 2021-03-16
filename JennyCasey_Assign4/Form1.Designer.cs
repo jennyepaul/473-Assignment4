@@ -100,10 +100,6 @@ namespace JennyCasey_Assign4
             this.yMinLabel = new System.Windows.Forms.Label();
             this.yMaxLabel = new System.Windows.Forms.Label();
             this.yIntervalLabel = new System.Windows.Forms.Label();
-            this.xLabelMax = new System.Windows.Forms.Label();
-            this.yLabelMax = new System.Windows.Forms.Label();
-            this.xLabelMin = new System.Windows.Forms.Label();
-            this.yLabelMin = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.graph)).BeginInit();
             this.linearEquation.SuspendLayout();
             this.cubicEquation.SuspendLayout();
@@ -864,51 +860,11 @@ namespace JennyCasey_Assign4
             this.yIntervalLabel.TabIndex = 27;
             this.yIntervalLabel.Text = "yInterval";
             // 
-            // xLabelMax
-            // 
-            this.xLabelMax.AutoSize = true;
-            this.xLabelMax.Location = new System.Drawing.Point(721, 350);
-            this.xLabelMax.Name = "xLabelMax";
-            this.xLabelMax.Size = new System.Drawing.Size(44, 17);
-            this.xLabelMax.TabIndex = 28;
-            this.xLabelMax.Text = "NULL";
-            // 
-            // yLabelMax
-            // 
-            this.yLabelMax.AutoSize = true;
-            this.yLabelMax.Location = new System.Drawing.Point(338, 25);
-            this.yLabelMax.Name = "yLabelMax";
-            this.yLabelMax.Size = new System.Drawing.Size(44, 17);
-            this.yLabelMax.TabIndex = 29;
-            this.yLabelMax.Text = "NULL";
-            // 
-            // xLabelMin
-            // 
-            this.xLabelMin.AutoSize = true;
-            this.xLabelMin.Location = new System.Drawing.Point(0, 350);
-            this.xLabelMin.Name = "xLabelMin";
-            this.xLabelMin.Size = new System.Drawing.Size(44, 17);
-            this.xLabelMin.TabIndex = 30;
-            this.xLabelMin.Text = "NULL";
-            // 
-            // yLabelMin
-            // 
-            this.yLabelMin.AutoSize = true;
-            this.yLabelMin.Location = new System.Drawing.Point(338, 695);
-            this.yLabelMin.Name = "yLabelMin";
-            this.yLabelMin.Size = new System.Drawing.Size(44, 17);
-            this.yLabelMin.TabIndex = 31;
-            this.yLabelMin.Text = "NULL";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1299, 724);
-            this.Controls.Add(this.yLabelMin);
-            this.Controls.Add(this.xLabelMin);
-            this.Controls.Add(this.yLabelMax);
-            this.Controls.Add(this.xLabelMax);
             this.Controls.Add(this.yIntervalLabel);
             this.Controls.Add(this.yMaxLabel);
             this.Controls.Add(this.yMinLabel);
@@ -1022,10 +978,6 @@ namespace JennyCasey_Assign4
         private System.Windows.Forms.Label yMinLabel;
         private System.Windows.Forms.Label yMaxLabel;
         private System.Windows.Forms.Label yIntervalLabel;
-        private System.Windows.Forms.Label xLabelMax;
-        private System.Windows.Forms.Label yLabelMax;
-        private System.Windows.Forms.Label xLabelMin;
-        private System.Windows.Forms.Label yLabelMin;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox linear_runValue;
         private System.Windows.Forms.Label label11;
