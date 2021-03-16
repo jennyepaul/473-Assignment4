@@ -294,14 +294,49 @@ namespace JennyCasey_Assign4
                 int run = int.Parse(linear_runValue.Text);
                 int yPoint = int.Parse(linear_yPointVal.Text);
                 int xPoint = int.Parse(linear_xPointVal.Text);
-                int xOrigin = graph.Width / 2;
-                int yOrigin = graph.Height / 2;
 
+                int xValue = 0;
+                int yValue = 0;
+                int xOrigin = 0;
+                int yOrigin = 0;
+
+                //depending on what graph we have, we need to adjust the origin
+                if(isNormalGraph)
+                {
+                    xOrigin = graph.Width / 2;
+                    yOrigin = graph.Height / 2;
+                }
+                else if(isYMinGreat0)
+                {
+                    xOrigin = graph1xOrigin;
+                    yOrigin = graph1yOrigin;
+                }
+                else if(isYMaxSmall0)
+                {
+                    xOrigin = graph2xOrigin;
+                    yOrigin = graph2yOrigin;
+                }
+                else if(isXMinGreat0)
+                {
+
+                    xOrigin = graph3xOrigin;
+                    yOrigin = graph3yOrigin;
+
+                }
+                else if(isXMaxSmall0)
+                {
+                    xOrigin = graph4xOrigin;
+                    yOrigin = graph4yOrigin;
+                }
+
+
+                xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
+                yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 run = (graph.Width / xInterval) * run;
                 rise = (graph.Height / yInterval) * rise;
 
-                int xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
-                int yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
+                //int xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
+                //int yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
 
 
                 //first xpoint is going to be xOrigin + (graphWidth / xinterval)xPoint)
@@ -474,6 +509,7 @@ namespace JennyCasey_Assign4
                     }
                     else
                     {
+                        //need to adjust this based on the type of graph (how the ticks are drawn)
                         x = (graph.Width / 2 + (graph.Width / xDistance * (int)x));
                     }
 
@@ -483,6 +519,7 @@ namespace JennyCasey_Assign4
                     }
                     else
                     {
+                        //need to adjust this based on the type of graph (how the ticks are drawn)
                         y = (graph.Height / 2 - (graph.Height / yDistance * (int)y));
                     }
 
