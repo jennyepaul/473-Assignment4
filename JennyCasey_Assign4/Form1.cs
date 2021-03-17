@@ -85,7 +85,7 @@ namespace JennyCasey_Assign4
 
             using (Pen graphPen = new Pen(Color.Black))
             {
-                if ((yMin > 0 || yMax < 0) && (xMin == 0 && xMax == 0))
+                if ((yMin > 0 || yMax < 0))
                 {
                     //if yMin is greater than 0 then we want the upper part of the graph (upside down T)
                     //if yMax is less than 0, then we want the lower part of the graph (T looking graph)
@@ -103,7 +103,7 @@ namespace JennyCasey_Assign4
                         graphics.DrawLine(graphPen, graph.Width / 2, 0, graph.Width / 2, graph.Height);
 
                         //the x distance is just the width of the drawing plane
-                        xDistance = Math.Abs(yMin) + Math.Abs(yMax);
+                        xDistance = Math.Abs(xMin) + Math.Abs(xMax);
 
                         //number of ticks we should draw is the width / the interval the user entered
                         numberOfXTicks = xDistance / xInterval;
@@ -141,7 +141,7 @@ namespace JennyCasey_Assign4
                         graphics.DrawLine(graphPen, graph.Width / 2, 0, graph.Width / 2, graph.Height);
 
                         //the x distance is just the width of the drawing plane
-                        xDistance = Math.Abs(yMin) + Math.Abs(yMax);
+                        xDistance = Math.Abs(xMin) + Math.Abs(xMax);
 
                         //number of ticks we should draw is the width / the interval the user entered
                         numberOfXTicks = xDistance / xInterval;
@@ -170,7 +170,7 @@ namespace JennyCasey_Assign4
                     }
 
                 }
-                else if ((xMin > 0 || xMax < 0) && (yMin == 0 && yMax == 0))
+                else if ((xMin > 0 || xMax < 0))
                 {
                     
                     graphics.DrawLine(graphPen, 0, graph.Height / 2, graph.Width, graph.Height / 2);
@@ -196,7 +196,7 @@ namespace JennyCasey_Assign4
                         numberOfXTicks = xDistance / xInterval;
 
                         //the y distance is the ymin + the y max (maybe subtract this for this condition)
-                        yDistance = Math.Abs(xMin) + Math.Abs(xMax);
+                        yDistance = Math.Abs(yMin) + Math.Abs(yMax);
 
                         //number of ticks is the distance / the interval the user entered
                         numberOfYTicks = yDistance / yInterval;
@@ -230,7 +230,7 @@ namespace JennyCasey_Assign4
                         numberOfXTicks = xDistance / xInterval;
 
                         //the y distance is the ymin + the y max (maybe subtract this for this condition)
-                        yDistance = Math.Abs(xMin) + Math.Abs(xMax);
+                        yDistance = Math.Abs(yMin) + Math.Abs(yMax);
 
                         //number of ticks is the distance / the interval the user entered
                         numberOfYTicks = yDistance / yInterval;
