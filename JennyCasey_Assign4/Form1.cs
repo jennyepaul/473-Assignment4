@@ -138,18 +138,18 @@ namespace JennyCasey_Assign4
 
                         //set the x & y origin for graph
                         graph2xOrigin = graph.Width / 2;
-                        graph2yOrigin = 0;
+                        graph2yOrigin = graph.Height;
 
                         graphics.DrawLine(graphPen, graph.Width / 2, 0, graph.Width / 2, graph.Height);
 
                         //the x distance is just the width of the drawing plane
-                        xDistance = Math.Abs(xMin) + Math.Abs(xMax);
+                        xDistance = xMax + Math.Abs(xMin);
 
                         //number of ticks we should draw is the width / the interval the user entered
                         numberOfXTicks = xDistance / xInterval;
 
                         //the y distance is the ymin + the y max (maybe subtract this for this condition)
-                        yDistance = Math.Abs(yMin) + Math.Abs(yMax);
+                        yDistance = Math.Abs(yMin) - Math.Abs(yMax);
 
                         //number of ticks is the distance / the interval the user entered
                         numberOfYTicks = yDistance / yInterval;
@@ -187,18 +187,20 @@ namespace JennyCasey_Assign4
                         isXMinGreat0 = true;
 
                         //set the x & y origin for graph
-                        graph3xOrigin = 0;
+                        graph3xOrigin = graph.Width;
                         graph3yOrigin = graph.Height / 2;
 
 
                         //the x distance is just the width of the drawing plane
-                        xDistance = Math.Abs(xMin) + Math.Abs(xMax);
+                        //xDistance = Math.Abs(xMin) + Math.Abs(xMax);
+                        xDistance = Math.Abs(xMax) - xMin;
 
                         //number of ticks we should draw is the width / the interval the user entered
                         numberOfXTicks = xDistance / xInterval;
 
                         //the y distance is the ymin + the y max (maybe subtract this for this condition)
-                        yDistance = Math.Abs(yMin) + Math.Abs(yMax);
+                        //yDistance = Math.Abs(yMin) + Math.Abs(yMax);
+                        yDistance = Math.Abs(yMax) - yMin;
 
                         //number of ticks is the distance / the interval the user entered
                         numberOfYTicks = yDistance / yInterval;
@@ -226,13 +228,13 @@ namespace JennyCasey_Assign4
                         graph4yOrigin = graph.Height / 2;
 
                         //the x distance is just the width of the drawing plane
-                        xDistance = Math.Abs(xMin) + Math.Abs(xMax);
+                        xDistance = Math.Abs(xMin) - Math.Abs(xMax);
 
                         //number of ticks we should draw is the width / the interval the user entered
                         numberOfXTicks = xDistance / xInterval;
 
                         //the y distance is the ymin + the y max (maybe subtract this for this condition)
-                        yDistance = Math.Abs(yMin) + Math.Abs(yMax);
+                        yDistance = yMax + Math.Abs(yMin);
 
                         //number of ticks is the distance / the interval the user entered
                         numberOfYTicks = yDistance / yInterval;
@@ -422,23 +424,40 @@ namespace JennyCasey_Assign4
                 else if (isYMinGreat0)
                 {
                     xOrigin = graph1xOrigin;
-                    yOrigin = graph1yOrigin;
+                    yOrigin = graph1yOrigin + (graph1yOrigin * 1 / (yDistance / yMin));
                 }
                 else if (isYMaxSmall0)
                 {
                     xOrigin = graph2xOrigin;
-                    yOrigin = graph2yOrigin;
+                    // yOrigin = graph2yOrigin;
+                    testOutput.AppendText("YMaxSmall\n");
+                    testOutput.AppendText("graph2yOrigin: " + graph2yOrigin + "\n");
+                    testOutput.AppendText("yDistance: " + yDistance + "\n");
+                    testOutput.AppendText("yMax: " + yMax + "\n");
+                    yOrigin =  - (graph2yOrigin * 1 / (yDistance / Math.Abs(yMax)));
+                    testOutput.AppendText("yOrigin: " + yOrigin + "\n");
+
 
                 }
                 else if (isXMinGreat0)
                 {
-
-                    xOrigin = graph3xOrigin;
+                    testOutput.AppendText("xMin is Great\n");
+                    testOutput.AppendText("graph3xOrigin: " + graph3xOrigin + "\n");
+                    testOutput.AppendText("xDistance: " + xDistance + "\n");
+                    testOutput.AppendText("xMin: " + xMin + "\n");
+                    xOrigin = -(graph3xOrigin * 1 / (xDistance / xMin));
                     yOrigin = graph3yOrigin;
+                    testOutput.AppendText("xOrigin: " + xOrigin + "\n");
                 }
                 else if (isXMaxSmall0)
                 {
-                    xOrigin = graph4xOrigin;
+                    testOutput.AppendText("isXMaxSmall\n");     
+                    xOrigin = graph4xOrigin + (graph4xOrigin * 1/(xDistance/Math.Abs(xMax)));
+                    testOutput.AppendText("graph4xOrigin: " + graph4xOrigin + "\n");
+                    testOutput.AppendText("xDistance: " + xDistance + "\n");
+                    testOutput.AppendText("Math.Abs(xMax): " + Math.Abs(xMax) + "\n");
+                    //testOutput.AppendText("graph4xOrigin * 1/(xDistance/xMin): " + graph4xOrigin * 1 / (xDistance / xMin) + "\n");
+                    testOutput.AppendText("xOrigin " + xOrigin + "\n");
                     yOrigin = graph4yOrigin;
                 }
 
@@ -473,18 +492,13 @@ namespace JennyCasey_Assign4
                     else
                     {
                         //y = (graph.Height / 2 - (graph.Height / yDistance * (int)y));
-                        y = ((yOrigin + (yOrigin * 1/(yDistance/yMin)))- (graph.Height / yDistance * (int)y));
+                        y = (yOrigin - (graph.Height / yDistance * (int)y));             
                     }
 
                     Point[n] = new Point((int)x, (int)y);
                     n++;
                 }
-                testOutput.AppendText("xDistance: " + xDistance + "\n");
-                testOutput.AppendText("yDistance: " + yDistance + "\n");
-                testOutput.AppendText("xOrigin: " + xOrigin + "\n");
-                testOutput.AppendText("yOrigin: " + (yOrigin + (yOrigin * (yDistance/yMin))) + "\n");
-                testOutput.AppendText("xOrigin Center: " + graph.Width/2 + "\n");
-                testOutput.AppendText("yOrigin Center: " + graph.Height/2 + "\n");
+           
 
                 Pen redPen = new Pen(Color.Red, 3);
                 Pen bluePen = new Pen(Color.Blue, 3);
