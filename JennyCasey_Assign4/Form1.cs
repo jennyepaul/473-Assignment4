@@ -803,33 +803,205 @@ namespace JennyCasey_Assign4
                 {
                     xOrigin = graph.Width / 2;
                     yOrigin = graph.Height / 2;
+
+                    if (H_Value == 0)
+                    {
+                        //H_Value = graph.Width / 2;
+                        H_Value = yOrigin;
+                    }
+                    else
+                    {
+                        // H_Value = (yOrigin + (graph.Width / xDistance * H_Value));
+                        H_Value = (yOrigin + (graph.Width / numberOfXTicks * H_Value));
+                    }
+                    if (K_Value == 0)
+                    {
+                        //K_Value = graph.Width / 2;
+                        K_Value = xOrigin;
+                    }
+                    else
+                    {
+                        // K_Value = (xOrigin - (graph.Width / yDistance * K_Value));
+                        K_Value = (xOrigin - (graph.Width / numberOfYTicks * K_Value));
+                    }
+                    if (R_Value == 0)
+                    {
+                        R_Value = H_Value;
+                    }
+                    else
+                    {
+                        //R_Value = (graph.Width / xDistance * R_Value);
+                        R_Value = ((graph.Width / numberOfXTicks) * R_Value);
+                    }
+
+
                 }
                 else if (isYMinGreat0)
                 {
                     //we have upside down T graph
                     xOrigin = graph1xOrigin;
                     yOrigin = graph1yOrigin;
+
+                    if (H_Value == 0)
+                    {
+                        H_Value = yOrigin;
+                    }
+                    else
+                    {   //H value is X
+                        H_Value = (xOrigin + (graph.Width / numberOfXTicks * H_Value));
+                    }
+                    if (K_Value == 0)
+                    {
+                        //K_Value = graph.Width / 2;
+                        K_Value = xOrigin;
+                    }
+                    else
+                    {
+                        //KValue is Y
+                        K_Value = (yOrigin - (graph.Width / numberOfYTicks * K_Value));
+                    }
+                    if (R_Value == 0)
+                    {
+                        R_Value = H_Value;
+                    }
+                    else
+                    {
+                        R_Value = ((graph.Width / numberOfXTicks) * R_Value);
+                    }
+
                 }
                 else if (isYMaxSmall0)
                 {
                     //we have regular T graph
                     xOrigin = graph2xOrigin;
                     yOrigin = graph2yOrigin;
+
+                    if (H_Value == 0)
+                    {
+                        H_Value = yOrigin;
+                    }
+                    else
+                    {   //H value is X
+                        H_Value = (xOrigin + (graph.Width / numberOfXTicks * H_Value));
+                    }
+                    if (K_Value == 0)
+                    {
+                        //K_Value = graph.Width / 2;
+                        K_Value = xOrigin;
+                    }
+                    else
+                    {
+                        //KValue is Y
+                        K_Value = (yOrigin - (graph.Width / numberOfYTicks * K_Value));
+                    }
+                    if (R_Value == 0)
+                    {
+                        R_Value = H_Value;
+                    }
+                    else
+                    {
+                        R_Value = ((graph.Width / numberOfXTicks) * R_Value);
+                    }
+
                 }
                 else if (isXMinGreat0)
                 {
                     xOrigin = graph3xOrigin;
                     yOrigin = graph3yOrigin;
+
+                    if (H_Value == 0)
+                    {
+                        H_Value = yOrigin;
+                    }
+                    else
+                    {   //H value is X
+                        H_Value = (xOrigin + (graph.Width / numberOfXTicks * H_Value));
+                    }
+                    if (K_Value == 0)
+                    {
+                        //K_Value = graph.Width / 2;
+                        K_Value = xOrigin;
+                    }
+                    else
+                    {
+                        //KValue is Y
+                        K_Value = (yOrigin - (graph.Width / numberOfYTicks * K_Value));
+                    }
+                    if (R_Value == 0)
+                    {
+                        R_Value = H_Value;
+                    }
+                    else
+                    {
+                        R_Value = ((graph.Width / numberOfXTicks) * R_Value);
+                    }
+
                 }
                 else if (isXMaxSmall0)
                 {
                     xOrigin = graph4xOrigin;
                     yOrigin = graph4yOrigin;
+
+                    if (H_Value == 0)
+                    {
+                        H_Value = yOrigin;
+                    }
+                    else
+                    {   //H value is X
+                        H_Value = (xOrigin - (graph.Width / numberOfXTicks * H_Value));
+                    }
+                    if (K_Value == 0)
+                    {
+                        //K_Value = graph.Width / 2;
+                        K_Value = xOrigin;
+                    }
+                    else
+                    {
+                        //KValue is Y
+                        K_Value = (yOrigin - (graph.Width / numberOfYTicks * K_Value));
+                    }
+                    if (R_Value == 0)
+                    {
+                        R_Value = H_Value;
+                    }
+                    else
+                    {
+                        R_Value = ((graph.Width / numberOfXTicks) * R_Value);
+                    }
+
                 }
                 else if (isUpperRightQuad)
                 {
                     xOrigin = 0;
                     yOrigin = graph.Height;
+
+                    if (H_Value == 0)
+                    {
+                        H_Value = yOrigin;
+                    }
+                    else
+                    {   //H value is X
+                        H_Value = (xOrigin + (graph.Width / numberOfXTicks * H_Value));
+                    }
+                    if (K_Value == 0)
+                    {
+                        //K_Value = graph.Width / 2;
+                        K_Value = xOrigin;
+                    }
+                    else
+                    {
+                        //KValue is Y
+                        K_Value = (yOrigin - (graph.Width / numberOfYTicks * K_Value));
+                    }
+                    if (R_Value == 0)
+                    {
+                        R_Value = H_Value;
+                    }
+                    else
+                    {
+                        R_Value = ((graph.Width / numberOfXTicks) * R_Value);
+                    }
+
 
                 }
                 else if (isUpperLeftQuad)
@@ -837,48 +1009,102 @@ namespace JennyCasey_Assign4
                     xOrigin = graph.Width;
                     yOrigin = graph.Height;
 
+                    if (H_Value == 0)
+                    {
+                        H_Value = yOrigin;
+                    }
+                    else
+                    {   //H value is X
+                        H_Value = (xOrigin - (graph.Width / numberOfXTicks * H_Value));
+                    }
+                    if (K_Value == 0)
+                    {
+                        //K_Value = graph.Width / 2;
+                        K_Value = xOrigin;
+                    }
+                    else
+                    {
+                        //KValue is Y
+                        K_Value = (yOrigin - (graph.Width / numberOfYTicks * K_Value));
+                    }
+                    if (R_Value == 0)
+                    {
+                        R_Value = H_Value;
+                    }
+                    else
+                    {
+                        R_Value = ((graph.Width / numberOfXTicks) * R_Value);
+                    }
+
+
                 }
                 else if (isLowerLeftQuad)
                 {
                     xOrigin = graph.Width;
                     yOrigin = 0;
+
+                    if (H_Value == 0)
+                    {
+                        H_Value = yOrigin;
+                    }
+                    else
+                    {   //H value is X
+                        H_Value = (xOrigin - (graph.Width / numberOfXTicks * H_Value));
+                    }
+                    if (K_Value == 0)
+                    {
+                        //K_Value = graph.Width / 2;
+                        K_Value = xOrigin;
+                    }
+                    else
+                    {
+                        //KValue is Y
+                        K_Value = (yOrigin + (graph.Width / numberOfYTicks * K_Value));
+                    }
+                    if (R_Value == 0)
+                    {
+                        R_Value = H_Value;
+                    }
+                    else
+                    {
+                        R_Value = ((graph.Width / numberOfXTicks) * R_Value);
+                    }
+
                 }
                 else if (isLowerRightQuad)
                 {
                     xOrigin = 0;
                     yOrigin = 0;
+                    if (H_Value == 0)
+                    {
+                        H_Value = yOrigin;
+                    }
+                    else
+                    {   //H value is X
+                        H_Value = (xOrigin + (graph.Width / numberOfXTicks * H_Value));
+                    }
+                    if (K_Value == 0)
+                    {
+                        //K_Value = graph.Width / 2;
+                        K_Value = xOrigin;
+                    }
+                    else
+                    {
+                        //KValue is Y
+                        K_Value = (yOrigin + (graph.Width / numberOfYTicks * K_Value));
+                    }
+                    if (R_Value == 0)
+                    {
+                        R_Value = H_Value;
+                    }
+                    else
+                    {
+                        R_Value = ((graph.Width / numberOfXTicks) * R_Value);
+                    }
+
 
                 }
 
-                if (H_Value == 0)
-                {
-                    //H_Value = graph.Width / 2;
-                    H_Value = yOrigin; 
-                }
-                else
-                {
-                    // H_Value = (yOrigin + (graph.Width / xDistance * H_Value));
-                    H_Value = (yOrigin + (graph.Width / numberOfXTicks * H_Value));
-                }
-                if (K_Value == 0)
-                {
-                    //K_Value = graph.Width / 2;
-                    K_Value = xOrigin;
-                }
-                else
-                {
-                    // K_Value = (xOrigin - (graph.Width / yDistance * K_Value));
-                    K_Value = (xOrigin - (graph.Width / numberOfYTicks * K_Value));
-                }
-                if (R_Value == 0)
-                {
-                    R_Value = H_Value;
-                }
-                else
-                {
-                    //R_Value = (graph.Width / xDistance * R_Value);
-                    R_Value = ((graph.Width / numberOfXTicks) * R_Value);
-                }
                 Pen redPen = new Pen(Color.Red, 3);
                 Pen bluePen = new Pen(Color.Blue, 3);
                 Pen greenPen = new Pen(Color.Green, 3);
@@ -911,7 +1137,13 @@ namespace JennyCasey_Assign4
                     }
                 }  
             }
-            
+            else
+            {
+                if(isDown)
+                {
+                    testOutput.AppendText("Circle equation is NOT being graphed\n");
+                }
+            }
         }
         
         //mouse Down event to draw the graphs only when the mouse is Down
@@ -926,6 +1158,17 @@ namespace JennyCasey_Assign4
         private void graphButton_MouseUp(object sender, MouseEventArgs e)
         { 
             isDown = false;
+            
+            //reset flags
+            isYMinGreat0 = false;
+            isYMaxSmall0 = false;
+            isXMinGreat0 = false;
+            isXMaxSmall0 = false;
+            isUpperRightQuad = false;
+            isLowerRightQuad = false;
+            isUpperLeftQuad = false;
+            isLowerLeftQuad = false;
+
             //graph.Refresh();
         }
 
@@ -1228,6 +1471,4 @@ namespace JennyCasey_Assign4
             }
         }
     }
-
-
 }
