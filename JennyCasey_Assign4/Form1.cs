@@ -453,6 +453,8 @@ namespace JennyCasey_Assign4
                     xOrigin = graph1xOrigin;
                     yOrigin = graph1yOrigin;
 
+                    //xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
+                    //yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                     xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
                     yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 }
@@ -462,8 +464,11 @@ namespace JennyCasey_Assign4
                     xOrigin = graph2xOrigin;
                     yOrigin = graph2yOrigin;
 
+                    // xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
+                    // yValue = (yOrigin + (graph.Height / numberOfYTicks) * yPoint);
+
                     xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
-                    yValue = (yOrigin + (graph.Height / numberOfYTicks) * yPoint);
+                    yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 }
                 else if(isXMinGreat0)
                 {
@@ -471,6 +476,8 @@ namespace JennyCasey_Assign4
                     xOrigin = graph3xOrigin;
                     yOrigin = graph3yOrigin;
 
+                    //xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
+                    //yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                     xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
                     yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 }
@@ -479,7 +486,9 @@ namespace JennyCasey_Assign4
                     xOrigin = graph4xOrigin;
                     yOrigin = graph4yOrigin;
 
-                    xValue = (xOrigin - (graph.Width / numberOfXTicks) * xPoint);
+                    // xValue = (xOrigin - (graph.Width / numberOfXTicks) * xPoint);
+                    //yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
+                    xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
                     yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 }      
                 else if(isUpperRightQuad)
@@ -489,13 +498,17 @@ namespace JennyCasey_Assign4
 
                     xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
                     yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
+                   
                 }
                 else if(isUpperLeftQuad)
                 {
                     xOrigin = graph.Width;
                     yOrigin = graph.Height;
 
-                    xValue = (xOrigin - (graph.Width / numberOfXTicks) * xPoint);
+                    //xValue = (xOrigin - (graph.Width / numberOfXTicks) * xPoint);
+                    //yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
+
+                    xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
                     yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 }
                 else if(isLowerLeftQuad)
@@ -503,16 +516,20 @@ namespace JennyCasey_Assign4
                     xOrigin = graph.Width;
                     yOrigin = 0;
 
-                    xValue = (xOrigin - (graph.Width / numberOfXTicks) * xPoint);
-                    yValue = (yOrigin + (graph.Height / numberOfYTicks) * yPoint);
+                    //xValue = (xOrigin - (graph.Width / numberOfXTicks) * xPoint);
+                    //yValue = (yOrigin + (graph.Height / numberOfYTicks) * yPoint);
+                    xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
+                    yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 }
                 else if(isLowerRightQuad)
                 {
                     xOrigin = 0;
                     yOrigin = 0;
 
+                    //xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
+                    //yValue = (yOrigin + (graph.Height / numberOfYTicks) * yPoint);
                     xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
-                    yValue = (yOrigin + (graph.Height / numberOfYTicks) * yPoint);
+                    yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 }
 
                 Point yIntercept = new Point(xValue, yValue);
