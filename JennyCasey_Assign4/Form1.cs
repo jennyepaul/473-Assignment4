@@ -974,7 +974,7 @@ namespace JennyCasey_Assign4
                     }
                     else
                     {   //H value is X
-                        H_Value = (xOrigin - (graph.Width / numberOfXTicks * H_Value));
+                        H_Value = (xOrigin + (graph.Width / numberOfXTicks * H_Value));
                     }
                     if (K_Value == 0)
                     {
@@ -1041,7 +1041,7 @@ namespace JennyCasey_Assign4
                     }
                     else
                     {   //H value is X
-                        H_Value = (xOrigin - (graph.Width / numberOfXTicks * H_Value));
+                        H_Value = (xOrigin + (graph.Width / numberOfXTicks * H_Value));
                     }
                     if (K_Value == 0)
                     {
@@ -1075,7 +1075,8 @@ namespace JennyCasey_Assign4
                     }
                     else
                     {   //H value is X
-                        H_Value = (xOrigin - (graph.Width / numberOfXTicks * H_Value));
+                        H_Value = (xOrigin + (graph.Width / numberOfXTicks * H_Value));
+
                     }
                     if (K_Value == 0)
                     {
@@ -1086,7 +1087,8 @@ namespace JennyCasey_Assign4
                     {
                         //KValue is Y
 
-                        K_Value = (yOrigin + (graph.Width / numberOfYTicks * K_Value));
+                        K_Value = (yOrigin - (graph.Width / numberOfYTicks * K_Value));
+
                     }
                     if (R_Value == 0)
                     {
@@ -1096,12 +1098,43 @@ namespace JennyCasey_Assign4
                     {
                         R_Value = ((graph.Width / numberOfXTicks) * R_Value);
                     }
-
+                    
                 }
                 else if (isLowerRightQuad)
                 {
                     xOrigin = 0;
-                    yOrigin = 0;
+                    yOrigin = 0;    
+                    if (H_Value == 0)
+                    {
+                        //H_Value = graph.Width / 2;
+                        H_Value = yOrigin;
+                    }
+                    else
+                    {
+                        // H_Value = (yOrigin + (graph.Width / xDistance * H_Value));
+                        H_Value = (yOrigin + (graph.Width / numberOfXTicks * H_Value));
+                    }
+                    if (K_Value == 0)
+                    {
+                        //K_Value = graph.Width / 2;
+                        K_Value = xOrigin;
+                    }
+                    else
+                    {
+                        // K_Value = (xOrigin - (graph.Width / yDistance * K_Value));
+                        K_Value = (xOrigin - (graph.Width / numberOfYTicks * K_Value));
+                    }
+                    if (R_Value == 0)
+                    {
+                        R_Value = H_Value;
+                    }
+                    else
+                    {
+                        //R_Value = (graph.Width / xDistance * R_Value);
+                        R_Value = ((graph.Width / numberOfXTicks) * R_Value);
+                    }
+
+                    /*
                     if (H_Value == 0)
                     {
                         H_Value = yOrigin;
@@ -1128,7 +1161,7 @@ namespace JennyCasey_Assign4
                     {
                         R_Value = ((graph.Width / numberOfXTicks) * R_Value);
                     }
-
+                    */
 
                 }
 
