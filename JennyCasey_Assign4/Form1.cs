@@ -23,7 +23,7 @@ namespace JennyCasey_Assign4
         private static int xMin;        // -- the lowest x-coordinate value
         private static int xMax;        // -- the highest x-coordinate value
         private static int xInterval;  // -- the distance between ticks on the x-axis
-        private static int yMin;        
+        private static int yMin;
         private static int yMax;
         private static int yInterval;
         private static bool isYMinGreat0 = false;
@@ -64,7 +64,7 @@ namespace JennyCasey_Assign4
         private void graph_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
-        
+
             xMin = (int)xMinValue.Value;
             xMax = (int)xMaxValue.Value;
 
@@ -75,12 +75,12 @@ namespace JennyCasey_Assign4
             yInterval = (int)yIntervalValue.Value;
 
             //find the distance between the y points
-            int yDistance = 0; 
-            int numberOfYTicks =0;
+            int yDistance = 0;
+            int numberOfYTicks = 0;
 
             //find the distance between the x points
-            int xDistance =0;  
-            int numberOfXTicks = 0; 
+            int xDistance = 0;
+            int numberOfXTicks = 0;
 
 
             using (Pen graphPen = new Pen(Color.Black))
@@ -90,7 +90,7 @@ namespace JennyCasey_Assign4
                     //if yMin is greater than 0 then we want the upper part of the graph (upside down T)
                     //if yMax is less than 0, then we want the lower part of the graph (T looking graph)
                     //only draw the y axis
-                    if(yMin > 0)
+                    if (yMin > 0)
                     {
                         //set the flag
                         isYMinGreat0 = true;
@@ -103,13 +103,15 @@ namespace JennyCasey_Assign4
                         graphics.DrawLine(graphPen, graph.Width / 2, 0, graph.Width / 2, graph.Height);
 
                         //the x distance is just the width of the drawing plane
-                        xDistance = Math.Abs(xMin) + Math.Abs(xMax);
+                        //xDistance = Math.Abs(xMin) + Math.Abs(xMax);
+                        xDistance = Math.Abs(xMax) - xMin;
 
                         //number of ticks we should draw is the width / the interval the user entered
                         numberOfXTicks = xDistance / xInterval;
 
                         //the y distance is the ymin + the y max (maybe subtract this for this condition)
-                        yDistance = Math.Abs(yMin) + Math.Abs(yMax);
+                        //yDistance = Math.Abs(yMin) + Math.Abs(yMax);
+                        yDistance = Math.Abs(yMax) - yMin;
 
                         //number of ticks is the distance / the interval the user entered
                         numberOfYTicks = yDistance / yInterval;
@@ -130,10 +132,10 @@ namespace JennyCasey_Assign4
                         }
 
                     }
-                    if(yMax < 0)
+                    if (yMax < 0)
                     {
                         isYMaxSmall0 = true;
-                        
+
                         //set the x & y origin for graph
                         graph2xOrigin = graph.Width / 2;
                         graph2yOrigin = 0;
@@ -172,7 +174,7 @@ namespace JennyCasey_Assign4
                 }
                 else if ((xMin > 0 || xMax < 0))
                 {
-                    
+
                     graphics.DrawLine(graphPen, 0, graph.Height / 2, graph.Width, graph.Height / 2);
 
                     //if xMin is greater than 0, then we want the right side of the graph |_____
@@ -186,7 +188,7 @@ namespace JennyCasey_Assign4
 
                         //set the x & y origin for graph
                         graph3xOrigin = 0;
-                        graph3yOrigin = graph.Height /2;
+                        graph3yOrigin = graph.Height / 2;
 
 
                         //the x distance is just the width of the drawing plane
@@ -255,7 +257,7 @@ namespace JennyCasey_Assign4
                 //draw the graph normally
                 else
                 {
-                    if ((xMin != 0 && xMax != 0 && yMin != 0 && yMax != 0)  &&  (xMin <= 0 && yMin <= 0) || (yMax > 0 && xMax > 0))
+                    if ((xMin != 0 && xMax != 0 && yMin != 0 && yMax != 0) && (xMin <= 0 && yMin <= 0) || (yMax > 0 && xMax > 0))
                     {
                         isNormalGraph = true;
                         //find the distance between the y points
@@ -284,7 +286,7 @@ namespace JennyCasey_Assign4
                         }
                     }
                 }
-                
+
             }
             //LINEAR EQUATION GRAPHING
             if (linear_riseValue.TextLength != 0 && linear_runValue.TextLength != 0 && linear_yPointVal.TextLength != 0 && linear_xPointVal.TextLength != 0)
@@ -309,44 +311,45 @@ namespace JennyCasey_Assign4
                     xOrigin = graph.Width / 2;
                     yOrigin = graph.Height / 2;
                 }
-                else if(isYMinGreat0)
+                else if (isYMinGreat0)
                 {
                     xOrigin = graph1xOrigin;
                     yOrigin = graph1yOrigin;
                 }
-                else if(isYMaxSmall0)
+                else if (isYMaxSmall0)
                 {
                     xOrigin = graph2xOrigin;
                     yOrigin = graph2yOrigin;
 
                 }
-                else if(isXMinGreat0)
+                else if (isXMinGreat0)
                 {
 
                     xOrigin = graph3xOrigin;
                     yOrigin = graph3yOrigin;
                 }
-                else if(isXMaxSmall0)
+                else if (isXMaxSmall0)
                 {
                     xOrigin = graph4xOrigin;
                     yOrigin = graph4yOrigin;
                 }
 
-                
+                testOutput.AppendText("xOrigin Linear: " + xOrigin + "\n");
+                testOutput.AppendText("yOrigin Linear: " + yOrigin + "\n");
                 //NOTES:
                 //might have to adjust the points that are calculated cause if there is no x or no y, we can't add or subtract from that point?
 
                 xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
                 yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
-              
+
                 Point yIntercept = new Point(xValue, yValue);
                 Point point1 = new Point(xValue + run, yValue - rise);
 
                 //another point to extend the linear line
                 Point point2 = new Point(xValue - run, yValue + rise);
 
-               if (isDown == true)
-               {
+                if (isDown == true)
+                {
                     //depending on what color choice/radio button was clicked that is the color we will draw in
                     if (redColorRadioButton_Linear.Checked && redColorRadioButton_Linear.Enabled)
                     {
@@ -395,19 +398,49 @@ namespace JennyCasey_Assign4
 
                 }
             }
-            
+
             //QUADRATIC EQUATION GRAPHING 
             if (Quad_Avalue.Text.Length != 0 && Quad_Bvalue.Text.Length != 0 && Quad_Cvalue.Text.Length != 0)
             {
                 int A_Value = int.Parse(Quad_Avalue.Text);
                 int B_Value = int.Parse(Quad_Bvalue.Text);
                 int C_Value = int.Parse(Quad_Cvalue.Text);
+                int xOrigin = 0;
+                int yOrigin = 0;
 
                 int H_Value = (-1 * B_Value) / (2 * A_Value); //x-intercept of the vertex of the parabola
 
                 //plug H -value into the equation to get the K-value
                 int K_Value = (A_Value * (H_Value * H_Value)) + (B_Value * H_Value) + C_Value; //y-intercept of the vertex of the parabola
 
+                //depending on what graph we have, we need to adjust the origin
+                if (isNormalGraph)
+                {
+                    xOrigin = graph.Width / 2;
+                    yOrigin = graph.Height / 2;
+                }
+                else if (isYMinGreat0)
+                {
+                    xOrigin = graph1xOrigin;
+                    yOrigin = graph1yOrigin;
+                }
+                else if (isYMaxSmall0)
+                {
+                    xOrigin = graph2xOrigin;
+                    yOrigin = graph2yOrigin;
+
+                }
+                else if (isXMinGreat0)
+                {
+
+                    xOrigin = graph3xOrigin;
+                    yOrigin = graph3yOrigin;
+                }
+                else if (isXMaxSmall0)
+                {
+                    xOrigin = graph4xOrigin;
+                    yOrigin = graph4yOrigin;
+                }
 
 
                 double x, y;
@@ -423,25 +456,35 @@ namespace JennyCasey_Assign4
 
                     if (x == 0)
                     {
-                        x = graph.Width / 2;
+                        //x = graph.Width / 2;
+                        x = xOrigin;
                     }
                     else
                     {
-                        x = (graph.Width / 2 + (graph.Width / xDistance * (int)x));
+                        // x = (graph.Width / 2 + (graph.Width / xDistance * (int)x));
+                        x = (xOrigin + (graph.Width / xDistance * (int)x));
                     }
 
                     if (y == 0)
                     {
-                        y = graph.Height / 2;
+                        //y = graph.Height / 2;
+                        y = yOrigin;
                     }
                     else
                     {
-                        y = (graph.Height / 2 - (graph.Height / yDistance * (int)y));
+                        //y = (graph.Height / 2 - (graph.Height / yDistance * (int)y));
+                        y = ((yOrigin + (yOrigin * 1/(yDistance/yMin)))- (graph.Height / yDistance * (int)y));
                     }
 
                     Point[n] = new Point((int)x, (int)y);
                     n++;
                 }
+                testOutput.AppendText("xDistance: " + xDistance + "\n");
+                testOutput.AppendText("yDistance: " + yDistance + "\n");
+                testOutput.AppendText("xOrigin: " + xOrigin + "\n");
+                testOutput.AppendText("yOrigin: " + (yOrigin + (yOrigin * (yDistance/yMin))) + "\n");
+                testOutput.AppendText("xOrigin Center: " + graph.Width/2 + "\n");
+                testOutput.AppendText("yOrigin Center: " + graph.Height/2 + "\n");
 
                 Pen redPen = new Pen(Color.Red, 3);
                 Pen bluePen = new Pen(Color.Blue, 3);
@@ -449,7 +492,7 @@ namespace JennyCasey_Assign4
                 Pen blackPen = new Pen(Color.Black, 3);
 
                 if (isDown == true)
-                { 
+                {
                     if (RedColorRadioButton_Quadratic.Checked && RedColorRadioButton_Quadratic.Enabled)
                     {
                         e.Graphics.DrawCurve(redPen, Point);
@@ -568,7 +611,7 @@ namespace JennyCasey_Assign4
                     {
                         //need to adjust this based on the type of graph (how the ticks are drawn)
                         //why was is yDistance and not number of ticks?
-                        
+
                         yPoint = (yOrigin - (graph.Height / numberOfYTicks * y));
                     }
 
@@ -615,7 +658,7 @@ namespace JennyCasey_Assign4
                     }
                 }
             }
-           
+
 
             //CIRCLE EQUATIONS GRAPHING
             if (Circle_HValue.Text.Length != 0 && Circle_KValue.Text.Length != 0 && Circle_RValue.Text.Length != 0)
@@ -680,11 +723,11 @@ namespace JennyCasey_Assign4
                     {
                         testOutput.AppendText("Please Choose a Color");
                     }
-                }  
+                }
             }
-            
+
         }
-        
+
         //mouse Down event to draw the graphs only when the mouse is Down
         private void graphButton_MouseDown(object sender, MouseEventArgs e)
         {
@@ -695,7 +738,7 @@ namespace JennyCasey_Assign4
 
         //when Mouse is up, it will reset the "isDown" bool variable
         private void graphButton_MouseUp(object sender, MouseEventArgs e)
-        { 
+        {
             isDown = false;
             //graph.Refresh();
         }
@@ -738,7 +781,7 @@ namespace JennyCasey_Assign4
                 BlueColorRadioButton_Circle.Enabled = false;
                 blueColorRadioButton_Cubic.Enabled = false;
             }
-            if(!blueColorRadioButton_Linear.Checked)
+            if (!blueColorRadioButton_Linear.Checked)
             {
                 BlueColorRadioButton_Quadratic.Enabled = true;
                 BlueColorRadioButton_Circle.Enabled = true;
@@ -1002,3 +1045,6 @@ namespace JennyCasey_Assign4
 
 
 }
+
+
+
