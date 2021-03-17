@@ -586,6 +586,9 @@ namespace JennyCasey_Assign4
             //QUADRATIC EQUATION GRAPHING 
             if (Quad_Avalue.Text.Length != 0 && Quad_Bvalue.Text.Length != 0 && Quad_Cvalue.Text.Length != 0)
             {
+                int xOrigin = 0;
+                int yOrigin = 0;
+
                 int A_Value = int.Parse(Quad_Avalue.Text);
                 int B_Value = int.Parse(Quad_Bvalue.Text);
                 int C_Value = int.Parse(Quad_Cvalue.Text);
@@ -601,8 +604,63 @@ namespace JennyCasey_Assign4
                 Point[] Point = new Point[10000];
                 int n = 0;
 
-                //get point, two to the left and two to the right of the vertex and put them in an array
-                for (int i = (H_Value - 4); i <= (H_Value + 4); i += 1)
+                if (isNormalGraph)
+                {
+                    xOrigin = graph.Width / 2;
+                    yOrigin = graph.Height / 2;
+
+                }
+                else if (isYMinGreat0)
+                {
+                    //we have upside down T graph
+                    xOrigin = graph1xOrigin;
+                    yOrigin = graph1yOrigin;
+
+                }
+                else if (isYMaxSmall0)
+                {
+                    //we have regular T graph
+                    xOrigin = graph2xOrigin;
+                    yOrigin = graph2yOrigin;
+
+                }
+                else if (isXMinGreat0)
+                {
+                    xOrigin = graph3xOrigin;
+                    yOrigin = graph3yOrigin;
+                }
+                else if (isXMaxSmall0)
+                {
+                    xOrigin = graph4xOrigin;
+                    yOrigin = graph4yOrigin;
+
+                }
+                else if (isUpperRightQuad)
+                {
+                    xOrigin = 0;
+                    yOrigin = graph.Height;
+
+                }
+                else if (isUpperLeftQuad)
+                {
+                    xOrigin = graph.Width;
+                    yOrigin = graph.Height;
+
+                }
+                else if (isLowerLeftQuad)
+                {
+                    xOrigin = graph.Width;
+                    yOrigin = 0;
+                }
+                else if (isLowerRightQuad)
+                {
+                    xOrigin = 0;
+                    yOrigin = 0;
+                }
+
+                
+               //get point, two to the left and two to the right of the vertex and put them in an array
+               for (int i = (H_Value - 4); i <= (H_Value + 4); i += 1)
                 {
 
                     x = i;
@@ -610,26 +668,30 @@ namespace JennyCasey_Assign4
 
                     if (x == 0)
                     {
-                        x = graph.Width / 2;
+                        //x = graph.Width / 2;
+                        x = xOrigin;
                     }
                     else
                     {
-                        x = (graph.Width / 2 + (graph.Width / xDistance * (int)x));
+                        //x = (graph.Width / 2 + (graph.Width / xDistance * (int)x));
+                        x = (xOrigin + (graph.Width / numberOfXTicks * (int)x));
                     }
 
                     if (y == 0)
                     {
-                        y = graph.Height / 2;
+                        //y = graph.Height / 2;
+                        y = yOrigin;
                     }
                     else
                     {
-                        y = (graph.Height / 2 - (graph.Height / yDistance * (int)y));
+                        //y = (graph.Height / 2 - (graph.Height / yDistance * (int)y));
+                        y = (yOrigin - (graph.Height / numberOfYTicks * (int)y));
                     }
 
                     Point[n] = new Point((int)x, (int)y);
                     n++;
                 }
-
+                 
                 Pen redPen = new Pen(Color.Red, 3);
                 Pen bluePen = new Pen(Color.Blue, 3);
                 Pen greenPen = new Pen(Color.Green, 3);
@@ -682,25 +744,29 @@ namespace JennyCasey_Assign4
                 int xOrigin = 0;
                 int yOrigin = 0;
 
-                //depending on what graph we have, we need to adjust the origin
+
                 if (isNormalGraph)
                 {
                     xOrigin = graph.Width / 2;
                     yOrigin = graph.Height / 2;
+
                 }
                 else if (isYMinGreat0)
                 {
+                    //we have upside down T graph
                     xOrigin = graph1xOrigin;
                     yOrigin = graph1yOrigin;
+
                 }
                 else if (isYMaxSmall0)
                 {
+                    //we have regular T graph
                     xOrigin = graph2xOrigin;
                     yOrigin = graph2yOrigin;
+
                 }
                 else if (isXMinGreat0)
                 {
-                    //our origin is (0, height/2);
                     xOrigin = graph3xOrigin;
                     yOrigin = graph3yOrigin;
                 }
@@ -708,7 +774,31 @@ namespace JennyCasey_Assign4
                 {
                     xOrigin = graph4xOrigin;
                     yOrigin = graph4yOrigin;
+
                 }
+                else if (isUpperRightQuad)
+                {
+                    xOrigin = 0;
+                    yOrigin = graph.Height;
+
+                }
+                else if (isUpperLeftQuad)
+                {
+                    xOrigin = graph.Width;
+                    yOrigin = graph.Height;
+
+                }
+                else if (isLowerLeftQuad)
+                {
+                    xOrigin = graph.Width;
+                    yOrigin = 0;
+                }
+                else if (isLowerRightQuad)
+                {
+                    xOrigin = 0;
+                    yOrigin = 0;
+                }
+
 
                 //check to ensure A value is nonzero
                 if (aValue == 0)
@@ -738,29 +828,20 @@ namespace JennyCasey_Assign4
 
                     if (x == 0)
                     {
-                        //if x is zero then the x point is whatever the x origin value is (need to add in conditions to what this is)
-                        xPoint = graph.Width / 2;
+                        xPoint = xOrigin;
                     }
                     else
                     {
-                        //need to adjust this based on the type of graph (how the ticks are drawn)
-                        //getting an x point here i think?
-
-                        //why was is xDistance and not number of ticks
                         xPoint = (xOrigin + (graph.Width / numberOfXTicks * x));
 
                     }
 
                     if (y == 0)
                     {
-                        //if y is zero then the x point is whatever the y origin value is (need to add in conditions to what this is)
-                        yPoint = graph.Height / 2;
+                        yPoint = yOrigin;
                     }
                     else
                     {
-                        //need to adjust this based on the type of graph (how the ticks are drawn)
-                        //why was is yDistance and not number of ticks?
-                        
                         yPoint = (yOrigin - (graph.Height / numberOfYTicks * y));
                     }
 
@@ -833,6 +914,7 @@ namespace JennyCasey_Assign4
                 {
                     xOrigin = graph.Width / 2;
                     yOrigin = graph.Height / 2;
+                
 
                     if (H_Value == 0)
                     {
