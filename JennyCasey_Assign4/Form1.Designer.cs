@@ -29,6 +29,7 @@ namespace JennyCasey_Assign4
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.graph = new System.Windows.Forms.PictureBox();
             this.equation1 = new System.Windows.Forms.Label();
             this.equation1_mx = new System.Windows.Forms.Label();
@@ -100,6 +101,20 @@ namespace JennyCasey_Assign4
             this.yMinLabel = new System.Windows.Forms.Label();
             this.yMaxLabel = new System.Windows.Forms.Label();
             this.yIntervalLabel = new System.Windows.Forms.Label();
+            this.rise_toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.run_toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.yPoint_toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.xPoint_toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.aValue_toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.bValue_toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.cValue_toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.dvalue_toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.hValue_toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.kValue_toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.radius_toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.quadA_toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.quadB_toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.quadC_toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.graph)).BeginInit();
             this.linearEquation.SuspendLayout();
             this.cubicEquation.SuspendLayout();
@@ -150,6 +165,7 @@ namespace JennyCasey_Assign4
             this.linear_riseValue.Name = "linear_riseValue";
             this.linear_riseValue.Size = new System.Drawing.Size(25, 22);
             this.linear_riseValue.TabIndex = 3;
+            this.rise_toolTip.SetToolTip(this.linear_riseValue, "Please enter \'rise\' of slope");
             // 
             // linear_yPointVal
             // 
@@ -157,6 +173,7 @@ namespace JennyCasey_Assign4
             this.linear_yPointVal.Name = "linear_yPointVal";
             this.linear_yPointVal.Size = new System.Drawing.Size(25, 22);
             this.linear_yPointVal.TabIndex = 4;
+            this.yPoint_toolTip.SetToolTip(this.linear_yPointVal, "Please enter \'y\' value of point");
             // 
             // linearEquation
             // 
@@ -190,6 +207,7 @@ namespace JennyCasey_Assign4
             this.linear_xPointVal.Name = "linear_xPointVal";
             this.linear_xPointVal.Size = new System.Drawing.Size(25, 22);
             this.linear_xPointVal.TabIndex = 7;
+            this.xPoint_toolTip.SetToolTip(this.linear_xPointVal, "Please enter \'x\' value of point");
             // 
             // linear_runValue
             // 
@@ -197,6 +215,7 @@ namespace JennyCasey_Assign4
             this.linear_runValue.Name = "linear_runValue";
             this.linear_runValue.Size = new System.Drawing.Size(25, 22);
             this.linear_runValue.TabIndex = 6;
+            this.run_toolTip.SetToolTip(this.linear_runValue, "Please enter \'run\' of slope");
             // 
             // label10
             // 
@@ -258,6 +277,7 @@ namespace JennyCasey_Assign4
             this.cubic_DValue.Name = "cubic_DValue";
             this.cubic_DValue.Size = new System.Drawing.Size(25, 22);
             this.cubic_DValue.TabIndex = 10;
+            this.dvalue_toolTip.SetToolTip(this.cubic_DValue, "Please enter a value to see this equation graphed");
             // 
             // cubic_CValue
             // 
@@ -265,6 +285,7 @@ namespace JennyCasey_Assign4
             this.cubic_CValue.Name = "cubic_CValue";
             this.cubic_CValue.Size = new System.Drawing.Size(25, 22);
             this.cubic_CValue.TabIndex = 9;
+            this.cValue_toolTip.SetToolTip(this.cubic_CValue, "Please enter a value to see this equation graphed");
             // 
             // cubic_BValue
             // 
@@ -272,6 +293,7 @@ namespace JennyCasey_Assign4
             this.cubic_BValue.Name = "cubic_BValue";
             this.cubic_BValue.Size = new System.Drawing.Size(25, 22);
             this.cubic_BValue.TabIndex = 8;
+            this.bValue_toolTip.SetToolTip(this.cubic_BValue, "Please enter a value to see this equation graphed");
             // 
             // cubic_AValue
             // 
@@ -279,6 +301,7 @@ namespace JennyCasey_Assign4
             this.cubic_AValue.Name = "cubic_AValue";
             this.cubic_AValue.Size = new System.Drawing.Size(25, 22);
             this.cubic_AValue.TabIndex = 7;
+            this.aValue_toolTip.SetToolTip(this.cubic_AValue, "Please enter a nonzero value");
             // 
             // label1
             // 
@@ -469,6 +492,7 @@ namespace JennyCasey_Assign4
             this.Quad_Cvalue.Name = "Quad_Cvalue";
             this.Quad_Cvalue.Size = new System.Drawing.Size(25, 22);
             this.Quad_Cvalue.TabIndex = 6;
+            this.quadC_toolTip.SetToolTip(this.Quad_Cvalue, "\'c\'; enter a real number");
             // 
             // label12
             // 
@@ -494,6 +518,7 @@ namespace JennyCasey_Assign4
             this.Quad_Bvalue.Name = "Quad_Bvalue";
             this.Quad_Bvalue.Size = new System.Drawing.Size(25, 22);
             this.Quad_Bvalue.TabIndex = 4;
+            this.quadB_toolTip.SetToolTip(this.Quad_Bvalue, "\'b\'; enter a real number");
             // 
             // Quad_Avalue
             // 
@@ -501,6 +526,7 @@ namespace JennyCasey_Assign4
             this.Quad_Avalue.Name = "Quad_Avalue";
             this.Quad_Avalue.Size = new System.Drawing.Size(25, 22);
             this.Quad_Avalue.TabIndex = 3;
+            this.quadA_toolTip.SetToolTip(this.Quad_Avalue, "\'a\'; enter a real number");
             // 
             // quadratic_label1
             // 
@@ -564,6 +590,7 @@ namespace JennyCasey_Assign4
             this.Circle_RValue.Name = "Circle_RValue";
             this.Circle_RValue.Size = new System.Drawing.Size(25, 22);
             this.Circle_RValue.TabIndex = 5;
+            this.radius_toolTip.SetToolTip(this.Circle_RValue, "\'r\'; radius of the circle");
             // 
             // Circle_KValue
             // 
@@ -571,6 +598,7 @@ namespace JennyCasey_Assign4
             this.Circle_KValue.Name = "Circle_KValue";
             this.Circle_KValue.Size = new System.Drawing.Size(25, 22);
             this.Circle_KValue.TabIndex = 4;
+            this.kValue_toolTip.SetToolTip(this.Circle_KValue, "\'k\'; y coordinate of the center of the circle");
             // 
             // Circle_HValue
             // 
@@ -578,6 +606,7 @@ namespace JennyCasey_Assign4
             this.Circle_HValue.Name = "Circle_HValue";
             this.Circle_HValue.Size = new System.Drawing.Size(25, 22);
             this.Circle_HValue.TabIndex = 3;
+            this.hValue_toolTip.SetToolTip(this.Circle_HValue, "\'h\'; x coordinate of the center of the circle");
             // 
             // label6
             // 
@@ -860,6 +889,84 @@ namespace JennyCasey_Assign4
             this.yIntervalLabel.TabIndex = 27;
             this.yIntervalLabel.Text = "yInterval";
             // 
+            // rise_toolTip
+            // 
+            this.rise_toolTip.AutoPopDelay = 5000;
+            this.rise_toolTip.InitialDelay = 100;
+            this.rise_toolTip.ReshowDelay = 100;
+            // 
+            // run_toolTip
+            // 
+            this.run_toolTip.AutoPopDelay = 5000;
+            this.run_toolTip.InitialDelay = 100;
+            this.run_toolTip.ReshowDelay = 100;
+            // 
+            // xPoint_toolTip
+            // 
+            this.xPoint_toolTip.AutoPopDelay = 5000;
+            this.xPoint_toolTip.InitialDelay = 100;
+            this.xPoint_toolTip.ReshowDelay = 100;
+            // 
+            // aValue_toolTip
+            // 
+            this.aValue_toolTip.AutoPopDelay = 5000;
+            this.aValue_toolTip.InitialDelay = 100;
+            this.aValue_toolTip.ReshowDelay = 100;
+            // 
+            // bValue_toolTip
+            // 
+            this.bValue_toolTip.AutoPopDelay = 5000;
+            this.bValue_toolTip.InitialDelay = 10;
+            this.bValue_toolTip.ReshowDelay = 100;
+            // 
+            // cValue_toolTip
+            // 
+            this.cValue_toolTip.AutoPopDelay = 5000;
+            this.cValue_toolTip.InitialDelay = 100;
+            this.cValue_toolTip.ReshowDelay = 100;
+            // 
+            // dvalue_toolTip
+            // 
+            this.dvalue_toolTip.AutoPopDelay = 5000;
+            this.dvalue_toolTip.InitialDelay = 100;
+            this.dvalue_toolTip.ReshowDelay = 100;
+            // 
+            // hValue_toolTip
+            // 
+            this.hValue_toolTip.AutoPopDelay = 5000;
+            this.hValue_toolTip.InitialDelay = 100;
+            this.hValue_toolTip.ReshowDelay = 100;
+            // 
+            // kValue_toolTip
+            // 
+            this.kValue_toolTip.AutoPopDelay = 5000;
+            this.kValue_toolTip.InitialDelay = 100;
+            this.kValue_toolTip.ReshowDelay = 100;
+            // 
+            // radius_toolTip
+            // 
+            this.radius_toolTip.AutoPopDelay = 5000;
+            this.radius_toolTip.InitialDelay = 100;
+            this.radius_toolTip.ReshowDelay = 100;
+            // 
+            // quadA_toolTip
+            // 
+            this.quadA_toolTip.AutoPopDelay = 5000;
+            this.quadA_toolTip.InitialDelay = 100;
+            this.quadA_toolTip.ReshowDelay = 100;
+            // 
+            // quadB_toolTip
+            // 
+            this.quadB_toolTip.AutoPopDelay = 5000;
+            this.quadB_toolTip.InitialDelay = 100;
+            this.quadB_toolTip.ReshowDelay = 100;
+            // 
+            // quadC_toolTip
+            // 
+            this.quadC_toolTip.AutoPopDelay = 5000;
+            this.quadC_toolTip.InitialDelay = 100;
+            this.quadC_toolTip.ReshowDelay = 100;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -994,6 +1101,20 @@ namespace JennyCasey_Assign4
         private System.Windows.Forms.Label circle_label2;
         private System.Windows.Forms.Label circle_label1;
         private System.Windows.Forms.TextBox Circle_RValue;
+        private System.Windows.Forms.ToolTip rise_toolTip;
+        private System.Windows.Forms.ToolTip run_toolTip;
+        private System.Windows.Forms.ToolTip yPoint_toolTip;
+        private System.Windows.Forms.ToolTip xPoint_toolTip;
+        private System.Windows.Forms.ToolTip dvalue_toolTip;
+        private System.Windows.Forms.ToolTip cValue_toolTip;
+        private System.Windows.Forms.ToolTip bValue_toolTip;
+        private System.Windows.Forms.ToolTip aValue_toolTip;
+        private System.Windows.Forms.ToolTip radius_toolTip;
+        private System.Windows.Forms.ToolTip kValue_toolTip;
+        private System.Windows.Forms.ToolTip hValue_toolTip;
+        private System.Windows.Forms.ToolTip quadC_toolTip;
+        private System.Windows.Forms.ToolTip quadB_toolTip;
+        private System.Windows.Forms.ToolTip quadA_toolTip;
     }
 }
 

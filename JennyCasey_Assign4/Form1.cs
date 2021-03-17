@@ -63,6 +63,8 @@ namespace JennyCasey_Assign4
 
         private void graph_Paint(object sender, PaintEventArgs e)
         {
+            testOutput.Clear();
+
             Graphics graphics = e.Graphics;
         
             xMin = (int)xMinValue.Value;
@@ -82,15 +84,15 @@ namespace JennyCasey_Assign4
             int xDistance =0;  
             int numberOfXTicks = 0; 
 
-
             using (Pen graphPen = new Pen(Color.Black))
             {
-                if ((yMin > 0 || yMax < 0))
+                //depending on the values of the xMin, xMax, yMin, and yMax we may have 1-4 quadrants as a graph
+                if ((yMin > 0 || yMax < 0) && (xMin < 0) && (xMax > 0))
                 {
                     //if yMin is greater than 0 then we want the upper part of the graph (upside down T)
                     //if yMax is less than 0, then we want the lower part of the graph (T looking graph)
                     //only draw the y axis
-                    if(yMin > 0)
+                    if (yMin > 0)
                     {
                         //set the flag
                         isYMinGreat0 = true;
@@ -115,7 +117,7 @@ namespace JennyCasey_Assign4
                         numberOfYTicks = yDistance / yInterval;
 
 
-                        //draw ticks on bottom of screen ---causes screen to be black?
+                        //draw ticks on bottom of screen
                         for (int i = 0; i <= numberOfXTicks; i++)
                         {
                             graphics.DrawLine(graphPen, i * (graph.Width) / numberOfXTicks, (graph.Height) - numberOfXTicks,
@@ -130,10 +132,10 @@ namespace JennyCasey_Assign4
                         }
 
                     }
-                    if(yMax < 0)
+                    if (yMax < 0)
                     {
                         isYMaxSmall0 = true;
-                        
+
                         //set the x & y origin for graph
                         graph2xOrigin = graph.Width / 2;
                         graph2yOrigin = 0;
@@ -170,9 +172,9 @@ namespace JennyCasey_Assign4
                     }
 
                 }
-                else if ((xMin > 0 || xMax < 0))
+                else if ((xMin > 0 || xMax < 0) && (yMin < 0) && (yMax > 0))
                 {
-                    
+
                     graphics.DrawLine(graphPen, 0, graph.Height / 2, graph.Width, graph.Height / 2);
 
                     //if xMin is greater than 0, then we want the right side of the graph |_____
@@ -180,13 +182,13 @@ namespace JennyCasey_Assign4
                     //is xMax is less than 0, we want the left side of the graph _____|
                     //                                                                |
                     //only draw the x-axis
-                    if (xMin > 0)
+                    if (xMin > 0) 
                     {
                         isXMinGreat0 = true;
 
                         //set the x & y origin for graph
                         graph3xOrigin = 0;
-                        graph3yOrigin = graph.Height /2;
+                        graph3yOrigin = graph.Height / 2;
 
 
                         //the x distance is just the width of the drawing plane
@@ -215,7 +217,7 @@ namespace JennyCasey_Assign4
 
 
                     }
-                    if (xMax < 0)
+                    if (xMax < 0 && yMax > 0)
                     {
                         isXMaxSmall0 = true;
 
@@ -251,6 +253,115 @@ namespace JennyCasey_Assign4
                 else if ((xMin > 0 && yMin > 0) || (xMax < 0 && yMin > 0) || (xMax < 0 && yMax < 0) || (xMin > 0 && yMax < 0))
                 {
                     //draw neither axis and just draw ticks
+                    if (xMin > 0 && yMin > 0)
+                    {
+                        //graph the right upper quadrant
+                        //the x distance is just the width of the drawing plane
+                        xDistance = Math.Abs(xMin) + Math.Abs(xMax);
+
+                        //number of ticks we should draw is the width / the interval the user entered
+                        numberOfXTicks = xDistance / xInterval;
+
+                        //the y distance is the ymin + the y max (maybe subtract this for this condition)
+                        yDistance = Math.Abs(yMin) + Math.Abs(yMax);
+
+                        //number of ticks is the distance / the interval the user entered
+                        numberOfYTicks = yDistance / yInterval;
+
+                        //draw ticks on sides of screen
+                        for (int i = 0; i <= numberOfXTicks; i++)
+                        { 
+                                graphics.DrawLine(graphPen, i * (graph.Width) / numberOfXTicks, (graph.Height) - numberOfXTicks,
+                                                            i * (graph.Width) / numberOfXTicks, (graph.Height) + numberOfXTicks);
+                        }
+                        for (int i = 0; i <= numberOfYTicks; i++)
+                        {
+                            graphics.DrawLine(graphPen, 0 + numberOfYTicks, i * (graph.Height) / numberOfYTicks,
+                                                       0 - numberOfYTicks, i * (graph.Height) / numberOfYTicks);
+                        }
+
+                    }
+                    else if (xMax < 0 && yMin > 0)
+                    {
+                        //graph the left upper quadrant
+                        //the x distance is just the width of the drawing plane
+                        xDistance = Math.Abs(xMin) + Math.Abs(xMax);
+
+                        //number of ticks we should draw is the width / the interval the user entered
+                        numberOfXTicks = xDistance / xInterval;
+
+                        //the y distance is the ymin + the y max (maybe subtract this for this condition)
+                        yDistance = Math.Abs(yMin) + Math.Abs(yMax);
+
+                        //number of ticks is the distance / the interval the user entered
+                        numberOfYTicks = yDistance / yInterval;
+
+                        //draw ticks on sides of screen
+                        for (int i = 0; i <= numberOfXTicks; i++)
+                        {
+                            graphics.DrawLine(graphPen, i * (graph.Width) / numberOfXTicks, (graph.Height) - numberOfXTicks,
+                                                        i * (graph.Width) / numberOfXTicks, (graph.Height) + numberOfXTicks);
+                        }
+                        for (int i = 0; i <= numberOfYTicks; i++)
+                        {
+                            graphics.DrawLine(graphPen, graph.Width + numberOfYTicks, i * (graph.Height) / numberOfYTicks,
+                                                       graph.Width - numberOfYTicks, i * (graph.Height) / numberOfYTicks);
+                        }
+                    }
+                    else if (xMax < 0 && yMax < 0)
+                    {
+                        //graph lower left quadrant
+                        //the x distance is just the width of the drawing plane
+                        xDistance = Math.Abs(xMin) + Math.Abs(xMax);
+
+                        //number of ticks we should draw is the width / the interval the user entered
+                        numberOfXTicks = xDistance / xInterval;
+
+                        //the y distance is the ymin + the y max (maybe subtract this for this condition)
+                        yDistance = Math.Abs(yMin) + Math.Abs(yMax);
+
+                        //number of ticks is the distance / the interval the user entered
+                        numberOfYTicks = yDistance / yInterval;
+
+                        //draw ticks on sides of screen
+                        for (int i = 0; i <= numberOfXTicks; i++)
+                        {
+                            graphics.DrawLine(graphPen, i * (graph.Width) / numberOfXTicks, 0 - numberOfXTicks,
+                                                        i * (graph.Width) / numberOfXTicks, 0 + numberOfXTicks);
+                        }
+                        for (int i = 0; i <= numberOfYTicks; i++)
+                        {
+                            graphics.DrawLine(graphPen, graph.Width + numberOfYTicks, i * (graph.Height) / numberOfYTicks,
+                                                       graph.Width - numberOfYTicks, i * (graph.Height) / numberOfYTicks);
+                        }
+                    }
+                    else if(xMin > 0 && yMax < 0)
+                    {
+                        //graph the lower right quadrant
+                        //the x distance is just the width of the drawing plane
+                        xDistance = Math.Abs(xMin) + Math.Abs(xMax);
+
+                        //number of ticks we should draw is the width / the interval the user entered
+                        numberOfXTicks = xDistance / xInterval;
+
+                        //the y distance is the ymin + the y max (maybe subtract this for this condition)
+                        yDistance = Math.Abs(yMin) + Math.Abs(yMax);
+
+                        //number of ticks is the distance / the interval the user entered
+                        numberOfYTicks = yDistance / yInterval;
+
+                        //draw ticks on sides of screen
+                        for (int i = 0; i <= numberOfXTicks; i++)
+                        {
+                            graphics.DrawLine(graphPen, i * (graph.Width) / numberOfXTicks, 0 - numberOfXTicks,
+                                                        i * (graph.Width) / numberOfXTicks, 0 + numberOfXTicks);
+                        }
+                        for (int i = 0; i <= numberOfYTicks; i++)
+                        {
+                            graphics.DrawLine(graphPen, 0 + numberOfYTicks, i * (graph.Height) / numberOfYTicks,
+                                                       0 - numberOfYTicks, i * (graph.Height) / numberOfYTicks);
+                        }
+                    }
                 }
                 //draw the graph normally
                 else
@@ -294,6 +405,25 @@ namespace JennyCasey_Assign4
                 int run = int.Parse(linear_runValue.Text);
                 int yPoint = int.Parse(linear_yPointVal.Text);
                 int xPoint = int.Parse(linear_xPointVal.Text);
+                
+                //if any of the values the user entered have a negative sign in it, make the integer values
+                //negative
+                if(linear_riseValue.Text.Contains("-"))
+                {
+                    rise *= -1;
+                }
+                if (linear_runValue.Text.Contains("-"))
+                {
+                    run *= -1;
+                }
+                if (linear_yPointVal.Text.Contains("-"))
+                {
+                    yPoint *= -1;
+                }
+                if (linear_xPointVal.Text.Contains("-"))
+                {
+                    xPoint *= -1;
+                }
 
                 int xValue = 0;
                 int yValue = 0;
@@ -395,7 +525,14 @@ namespace JennyCasey_Assign4
 
                 }
             }
-            
+            else
+            {
+                if(isDown == true)
+                {
+                    testOutput.AppendText("Linear equation NOT being graphed");
+                }
+            }
+
             //QUADRATIC EQUATION GRAPHING 
             if (Quad_Avalue.Text.Length != 0 && Quad_Bvalue.Text.Length != 0 && Quad_Cvalue.Text.Length != 0)
             {
@@ -508,9 +645,6 @@ namespace JennyCasey_Assign4
                     //our origin is (0, height/2);
                     xOrigin = graph3xOrigin;
                     yOrigin = graph3yOrigin;
-
-                    testOutput.AppendText("coordinates are: (" + xOrigin + "," + yOrigin + ")");
-
                 }
                 else if (isXMaxSmall0)
                 {
