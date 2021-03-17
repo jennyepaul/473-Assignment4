@@ -505,9 +505,11 @@ namespace JennyCasey_Assign4
                 }
                 else if (isXMinGreat0)
                 {
-
+                    //our origin is (0, height/2);
                     xOrigin = graph3xOrigin;
                     yOrigin = graph3yOrigin;
+
+                    testOutput.AppendText("coordinates are: (" + xOrigin + "," + yOrigin + ")");
 
                 }
                 else if (isXMaxSmall0)
@@ -521,14 +523,18 @@ namespace JennyCasey_Assign4
                 {
                     testOutput.AppendText("Sorry, first value cannot be 0, as this would cause this to not be a cubic equation!");
                 }
+                yIntercept = (yOrigin + (graph.Height / numberOfYTicks) * yIntercept);
 
                 int yintercept_x = 0;
+
+                //wonky ness has to be something either with this math, or with the above logic to do the ticks
 
                 int x;
                 int y;
                 int xPoint = 0;
                 int yPoint = 0;
                 Point[] cubicPoints = new Point[10000];
+
                 int n = 0;
 
                 for (int i = (yintercept_x - 5); i <= (yintercept_x + 5); i++)
@@ -540,6 +546,7 @@ namespace JennyCasey_Assign4
 
                     if (x == 0)
                     {
+                        //if x is zero then the x point is whatever the x origin value is (need to add in conditions to what this is)
                         xPoint = graph.Width / 2;
                     }
                     else
@@ -554,12 +561,14 @@ namespace JennyCasey_Assign4
 
                     if (y == 0)
                     {
+                        //if y is zero then the x point is whatever the y origin value is (need to add in conditions to what this is)
                         yPoint = graph.Height / 2;
                     }
                     else
                     {
                         //need to adjust this based on the type of graph (how the ticks are drawn)
                         //why was is yDistance and not number of ticks?
+                        
                         yPoint = (yOrigin - (graph.Height / numberOfYTicks * y));
                     }
 
@@ -568,6 +577,7 @@ namespace JennyCasey_Assign4
                     n++;
 
                 }
+
                 if (isDown == true)
                 {
                     //depending on what color choice/radio button was clicked that is the color we will draw in
