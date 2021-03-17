@@ -81,6 +81,17 @@ namespace JennyCasey_Assign4
             xInterval = (int)xIntervalValue.Value;
             yInterval = (int)yIntervalValue.Value;
 
+            //error output if user tries to make min > max
+            if(xMin > xMax)
+            {
+                testOutput.AppendText("xMin can NOT be greater than xMax, please readjust the minimum value!\n");
+            }
+            //error output if user tries to make min > max
+            if (yMin > yMax)
+            {
+                testOutput.AppendText("yMin can NOT be greater than yMax, please readjust the minimum value!\n");
+            }
+           
             //find the distance between the y points
             int yDistance = 0; 
             int numberOfYTicks =0;
@@ -564,7 +575,7 @@ namespace JennyCasey_Assign4
             {
                 if(isDown == true)
                 {
-                    testOutput.AppendText("Linear equation NOT being graphed");
+                    testOutput.AppendText("Linear equation NOT being graphed\n");
                 }
             }
 
@@ -641,9 +652,17 @@ namespace JennyCasey_Assign4
                     else
                     {
                         testOutput.AppendText("Please Choose a Color");
+                        
                     }
                 }
 
+            }
+            else
+            {
+                if (isDown)
+                {
+                    testOutput.AppendText("Quadratic equation is NOT being graphed\n");
+                }
             }
 
             //CUBIC EQUATION GRAPHING
@@ -784,7 +803,14 @@ namespace JennyCasey_Assign4
                     }
                 }
             }
-           
+            else
+            {
+                if (isDown)
+                {
+                    testOutput.AppendText("Cubic equation is NOT being graphed\n");
+                }
+            }
+
 
             //CIRCLE EQUATIONS GRAPHING
             if (Circle_HValue.Text.Length != 0 && Circle_KValue.Text.Length != 0 && Circle_RValue.Text.Length != 0)
@@ -1059,6 +1085,7 @@ namespace JennyCasey_Assign4
                     else
                     {
                         //KValue is Y
+
                         K_Value = (yOrigin + (graph.Width / numberOfYTicks * K_Value));
                     }
                     if (R_Value == 0)
