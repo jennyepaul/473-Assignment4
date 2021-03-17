@@ -32,6 +32,11 @@ namespace JennyCasey_Assign4
         private static bool isXMaxSmall0 = false;
         private static bool isNormalGraph = false;
 
+        private static bool isUpperRightQuad = false;
+        private static bool isUpperLeftQuad = false;
+        private static bool isLowerLeftQuad = false;
+        private static bool isLowerRightQuad = false;
+
         //the following 8 variables hold the integer location of the x and y coordinates of the graph depending
         //on how we draw the graph
         private static int graph1xOrigin;
@@ -256,6 +261,8 @@ namespace JennyCasey_Assign4
                     if (xMin > 0 && yMin > 0)
                     {
                         //graph the right upper quadrant
+                        isUpperRightQuad = true;
+
                         //the x distance is just the width of the drawing plane
                         xDistance = Math.Abs(xMin) + Math.Abs(xMax);
 
@@ -284,6 +291,8 @@ namespace JennyCasey_Assign4
                     else if (xMax < 0 && yMin > 0)
                     {
                         //graph the left upper quadrant
+                        isUpperLeftQuad = true;
+
                         //the x distance is just the width of the drawing plane
                         xDistance = Math.Abs(xMin) + Math.Abs(xMax);
 
@@ -311,6 +320,8 @@ namespace JennyCasey_Assign4
                     else if (xMax < 0 && yMax < 0)
                     {
                         //graph lower left quadrant
+                        isLowerLeftQuad = true;
+
                         //the x distance is just the width of the drawing plane
                         xDistance = Math.Abs(xMin) + Math.Abs(xMax);
 
@@ -338,6 +349,7 @@ namespace JennyCasey_Assign4
                     else if(xMin > 0 && yMax < 0)
                     {
                         //graph the lower right quadrant
+                        isLowerRightQuad = true;
                         //the x distance is just the width of the drawing plane
                         xDistance = Math.Abs(xMin) + Math.Abs(xMax);
 
@@ -405,25 +417,7 @@ namespace JennyCasey_Assign4
                 int run = int.Parse(linear_runValue.Text);
                 int yPoint = int.Parse(linear_yPointVal.Text);
                 int xPoint = int.Parse(linear_xPointVal.Text);
-                
-                //if any of the values the user entered have a negative sign in it, make the integer values
-                //negative
-                if(linear_riseValue.Text.Contains("-"))
-                {
-                    rise *= -1;
-                }
-                if (linear_runValue.Text.Contains("-"))
-                {
-                    run *= -1;
-                }
-                if (linear_yPointVal.Text.Contains("-"))
-                {
-                    yPoint *= -1;
-                }
-                if (linear_xPointVal.Text.Contains("-"))
-                {
-                    xPoint *= -1;
-                }
+               
 
                 int xValue = 0;
                 int yValue = 0;
@@ -438,37 +432,78 @@ namespace JennyCasey_Assign4
                 {
                     xOrigin = graph.Width / 2;
                     yOrigin = graph.Height / 2;
+
+                    xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
+                    yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 }
                 else if(isYMinGreat0)
                 {
+                    //we have upside down T graph
                     xOrigin = graph1xOrigin;
                     yOrigin = graph1yOrigin;
+
+                    xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
+                    yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 }
                 else if(isYMaxSmall0)
                 {
+                    //we have regular T graph
                     xOrigin = graph2xOrigin;
                     yOrigin = graph2yOrigin;
 
+                    xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
+                    yValue = (yOrigin + (graph.Height / numberOfYTicks) * yPoint);
                 }
                 else if(isXMinGreat0)
                 {
 
                     xOrigin = graph3xOrigin;
                     yOrigin = graph3yOrigin;
+
+                    xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
+                    yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 }
                 else if(isXMaxSmall0)
                 {
                     xOrigin = graph4xOrigin;
                     yOrigin = graph4yOrigin;
+
+                    xValue = (xOrigin - (graph.Width / numberOfXTicks) * xPoint);
+                    yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
+                }      
+                else if(isUpperRightQuad)
+                {
+                    xOrigin = 0;
+                    yOrigin = graph.Height;
+
+                    xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
+                    yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
+                }
+                else if(isUpperLeftQuad)
+                {
+                    xOrigin = graph.Width;
+                    yOrigin = graph.Height;
+
+                    xValue = (xOrigin - (graph.Width / numberOfXTicks) * xPoint);
+                    yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
+                }
+                else if(isLowerLeftQuad)
+                {
+                    xOrigin = graph.Width;
+                    yOrigin = 0;
+
+                    xValue = (xOrigin - (graph.Width / numberOfXTicks) * xPoint);
+                    yValue = (yOrigin + (graph.Height / numberOfYTicks) * yPoint);
+                }
+                else if(isLowerRightQuad)
+                {
+                    xOrigin = 0;
+                    yOrigin = 0;
+
+                    xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
+                    yValue = (yOrigin + (graph.Height / numberOfYTicks) * yPoint);
                 }
 
-                
-                //NOTES:
-                //might have to adjust the points that are calculated cause if there is no x or no y, we can't add or subtract from that point?
-
-                xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
-                yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
-              
                 Point yIntercept = new Point(xValue, yValue);
                 Point point1 = new Point(xValue + run, yValue - rise);
 
@@ -758,23 +793,82 @@ namespace JennyCasey_Assign4
                 int K_Value = int.Parse(Circle_KValue.Text);
                 int R_Value = int.Parse(Circle_RValue.Text);
 
+                int xOrigin = 0;
+                int yOrigin = 0;
+
                 Pen blackPen = new Pen(Color.Black, 3);
+
+                //depending on what graph we have, we need to adjust the origin
+                if (isNormalGraph)
+                {
+                    xOrigin = graph.Width / 2;
+                    yOrigin = graph.Height / 2;
+                }
+                else if (isYMinGreat0)
+                {
+                    //we have upside down T graph
+                    xOrigin = graph1xOrigin;
+                    yOrigin = graph1yOrigin;
+                }
+                else if (isYMaxSmall0)
+                {
+                    //we have regular T graph
+                    xOrigin = graph2xOrigin;
+                    yOrigin = graph2yOrigin;
+                }
+                else if (isXMinGreat0)
+                {
+                    xOrigin = graph3xOrigin;
+                    yOrigin = graph3yOrigin;
+                }
+                else if (isXMaxSmall0)
+                {
+                    xOrigin = graph4xOrigin;
+                    yOrigin = graph4yOrigin;
+                }
+                else if (isUpperRightQuad)
+                {
+                    xOrigin = 0;
+                    yOrigin = graph.Height;
+
+                }
+                else if (isUpperLeftQuad)
+                {
+                    xOrigin = graph.Width;
+                    yOrigin = graph.Height;
+
+                }
+                else if (isLowerLeftQuad)
+                {
+                    xOrigin = graph.Width;
+                    yOrigin = 0;
+                }
+                else if (isLowerRightQuad)
+                {
+                    xOrigin = 0;
+                    yOrigin = 0;
+
+                }
 
                 if (H_Value == 0)
                 {
-                    H_Value = graph.Width / 2;
+                    //H_Value = graph.Width / 2;
+                    H_Value = yOrigin; 
                 }
                 else
                 {
-                    H_Value = (graph.Width / 2 + (graph.Width / xDistance * H_Value));
+                    // H_Value = (yOrigin + (graph.Width / xDistance * H_Value));
+                    H_Value = (yOrigin + (graph.Width / numberOfXTicks * H_Value));
                 }
                 if (K_Value == 0)
                 {
-                    K_Value = graph.Width / 2;
+                    //K_Value = graph.Width / 2;
+                    K_Value = xOrigin;
                 }
                 else
                 {
-                    K_Value = (graph.Width / 2 - (graph.Width / yDistance * K_Value));
+                    // K_Value = (xOrigin - (graph.Width / yDistance * K_Value));
+                    K_Value = (xOrigin - (graph.Width / numberOfYTicks * K_Value));
                 }
                 if (R_Value == 0)
                 {
@@ -782,7 +876,8 @@ namespace JennyCasey_Assign4
                 }
                 else
                 {
-                    R_Value = (graph.Width / xDistance * R_Value);
+                    //R_Value = (graph.Width / xDistance * R_Value);
+                    R_Value = ((graph.Width / numberOfXTicks) * R_Value);
                 }
                 Pen redPen = new Pen(Color.Red, 3);
                 Pen bluePen = new Pen(Color.Blue, 3);
