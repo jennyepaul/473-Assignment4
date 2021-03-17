@@ -1216,14 +1216,17 @@ namespace JennyCasey_Assign4
             isDown = true;
             testOutput.Clear();
             graph.Refresh();
+
+           
         }
 
         //when Mouse is up, it will reset the "isDown" bool variable
         private void graphButton_MouseUp(object sender, MouseEventArgs e)
         { 
             isDown = false;
-            
+
             //reset flags
+            isNormalGraph = false;
             isYMinGreat0 = false;
             isYMaxSmall0 = false;
             isXMinGreat0 = false;
@@ -1232,7 +1235,7 @@ namespace JennyCasey_Assign4
             isLowerRightQuad = false;
             isUpperLeftQuad = false;
             isLowerLeftQuad = false;
-
+            
             //graph.Refresh();
         }
 
