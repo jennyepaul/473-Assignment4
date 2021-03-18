@@ -571,7 +571,7 @@ namespace JennyCasey_Assign4
 
 
                 double x, y;
-                Point[] Point = new Point[10000];
+                Point[] Point = new Point[2000];
                 int n = 0;
 
                 if (isNormalGraph)
@@ -630,7 +630,7 @@ namespace JennyCasey_Assign4
 
                 
                //get point, two to the left and two to the right of the vertex and put them in an array
-               for (int i = (H_Value - 4); i <= (H_Value + 4); i += 1)
+               for (int i = (H_Value - 1000); i <= (H_Value + 1000); i += 1)
                 {
 
                     x = i;
@@ -657,8 +657,8 @@ namespace JennyCasey_Assign4
                         //y = (graph.Height / 2 - (graph.Height / yDistance * (int)y));
                         y = (yOrigin - (graph.Height / numberOfYTicks * (int)y));
                     }
-
-                    Point[n] = new Point((int)x, (int)y);
+                    if(n < Point.Length)
+                        Point[n] = new Point((int)x, (int)y);
                     n++;
                 }
                  
