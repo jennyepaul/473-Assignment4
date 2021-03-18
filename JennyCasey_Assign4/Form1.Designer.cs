@@ -115,6 +115,14 @@ namespace JennyCasey_Assign4
             this.quadA_toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.quadB_toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.quadC_toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.coordinateLabel2 = new System.Windows.Forms.Label();
+            this.coordinateLabel5 = new System.Windows.Forms.Label();
+            this.coordinateLabel4 = new System.Windows.Forms.Label();
+            this.coordinateLabel7 = new System.Windows.Forms.Label();
+            this.coordinateLabel1 = new System.Windows.Forms.Label();
+            this.coordinateLabel3 = new System.Windows.Forms.Label();
+            this.coordinateLabel6 = new System.Windows.Forms.Label();
+            this.coordinateLabel8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.graph)).BeginInit();
             this.linearEquation.SuspendLayout();
             this.cubicEquation.SuspendLayout();
@@ -760,7 +768,6 @@ namespace JennyCasey_Assign4
             this.xMinValue.Name = "xMinValue";
             this.xMinValue.Size = new System.Drawing.Size(49, 22);
             this.xMinValue.TabIndex = 16;
-            this.xMinValue.ValueChanged += new System.EventHandler(this.xMinValue_ValueChanged);
             // 
             // xMinLabel
             // 
@@ -799,7 +806,6 @@ namespace JennyCasey_Assign4
             this.xMaxValue.Name = "xMaxValue";
             this.xMaxValue.Size = new System.Drawing.Size(50, 22);
             this.xMaxValue.TabIndex = 19;
-            this.xMaxValue.ValueChanged += new System.EventHandler(this.xMaxValue_ValueChanged);
             // 
             // label8
             // 
@@ -830,7 +836,6 @@ namespace JennyCasey_Assign4
             this.yMinValue.Name = "yMinValue";
             this.yMinValue.Size = new System.Drawing.Size(49, 22);
             this.yMinValue.TabIndex = 22;
-            this.yMinValue.ValueChanged += new System.EventHandler(this.yMinValue_ValueChanged);
             // 
             // yMaxValue
             // 
@@ -843,7 +848,6 @@ namespace JennyCasey_Assign4
             this.yMaxValue.Name = "yMaxValue";
             this.yMaxValue.Size = new System.Drawing.Size(49, 22);
             this.yMaxValue.TabIndex = 23;
-            this.yMaxValue.ValueChanged += new System.EventHandler(this.yMaxValue_ValueChanged);
             // 
             // yIntervalValue
             // 
@@ -967,11 +971,91 @@ namespace JennyCasey_Assign4
             this.quadC_toolTip.InitialDelay = 100;
             this.quadC_toolTip.ReshowDelay = 100;
             // 
+            // coordinateLabel2
+            // 
+            this.coordinateLabel2.AutoSize = true;
+            this.coordinateLabel2.Location = new System.Drawing.Point(369, 9);
+            this.coordinateLabel2.Name = "coordinateLabel2";
+            this.coordinateLabel2.Size = new System.Drawing.Size(16, 17);
+            this.coordinateLabel2.TabIndex = 28;
+            this.coordinateLabel2.Text = "0";
+            // 
+            // coordinateLabel5
+            // 
+            this.coordinateLabel5.AutoSize = true;
+            this.coordinateLabel5.Location = new System.Drawing.Point(749, 316);
+            this.coordinateLabel5.Name = "coordinateLabel5";
+            this.coordinateLabel5.Size = new System.Drawing.Size(16, 17);
+            this.coordinateLabel5.TabIndex = 29;
+            this.coordinateLabel5.Text = "0";
+            // 
+            // coordinateLabel4
+            // 
+            this.coordinateLabel4.AutoSize = true;
+            this.coordinateLabel4.Location = new System.Drawing.Point(7, 316);
+            this.coordinateLabel4.Name = "coordinateLabel4";
+            this.coordinateLabel4.Size = new System.Drawing.Size(16, 17);
+            this.coordinateLabel4.TabIndex = 30;
+            this.coordinateLabel4.Text = "0";
+            // 
+            // coordinateLabel7
+            // 
+            this.coordinateLabel7.AutoSize = true;
+            this.coordinateLabel7.Location = new System.Drawing.Point(369, 695);
+            this.coordinateLabel7.Name = "coordinateLabel7";
+            this.coordinateLabel7.Size = new System.Drawing.Size(16, 17);
+            this.coordinateLabel7.TabIndex = 31;
+            this.coordinateLabel7.Text = "0";
+            // 
+            // coordinateLabel1
+            // 
+            this.coordinateLabel1.AutoSize = true;
+            this.coordinateLabel1.Location = new System.Drawing.Point(7, 9);
+            this.coordinateLabel1.Name = "coordinateLabel1";
+            this.coordinateLabel1.Size = new System.Drawing.Size(16, 17);
+            this.coordinateLabel1.TabIndex = 32;
+            this.coordinateLabel1.Text = "0";
+            // 
+            // coordinateLabel3
+            // 
+            this.coordinateLabel3.AutoSize = true;
+            this.coordinateLabel3.Location = new System.Drawing.Point(745, 9);
+            this.coordinateLabel3.Name = "coordinateLabel3";
+            this.coordinateLabel3.Size = new System.Drawing.Size(16, 17);
+            this.coordinateLabel3.TabIndex = 33;
+            this.coordinateLabel3.Text = "0";
+            // 
+            // coordinateLabel6
+            // 
+            this.coordinateLabel6.AutoSize = true;
+            this.coordinateLabel6.Location = new System.Drawing.Point(7, 698);
+            this.coordinateLabel6.Name = "coordinateLabel6";
+            this.coordinateLabel6.Size = new System.Drawing.Size(16, 17);
+            this.coordinateLabel6.TabIndex = 34;
+            this.coordinateLabel6.Text = "0";
+            // 
+            // coordinateLabel8
+            // 
+            this.coordinateLabel8.AutoSize = true;
+            this.coordinateLabel8.Location = new System.Drawing.Point(749, 698);
+            this.coordinateLabel8.Name = "coordinateLabel8";
+            this.coordinateLabel8.Size = new System.Drawing.Size(16, 17);
+            this.coordinateLabel8.TabIndex = 35;
+            this.coordinateLabel8.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1299, 724);
+            this.Controls.Add(this.coordinateLabel8);
+            this.Controls.Add(this.coordinateLabel6);
+            this.Controls.Add(this.coordinateLabel3);
+            this.Controls.Add(this.coordinateLabel1);
+            this.Controls.Add(this.coordinateLabel7);
+            this.Controls.Add(this.coordinateLabel4);
+            this.Controls.Add(this.coordinateLabel5);
+            this.Controls.Add(this.coordinateLabel2);
             this.Controls.Add(this.yIntervalLabel);
             this.Controls.Add(this.yMaxLabel);
             this.Controls.Add(this.yMinLabel);
@@ -1115,6 +1199,14 @@ namespace JennyCasey_Assign4
         private System.Windows.Forms.ToolTip quadC_toolTip;
         private System.Windows.Forms.ToolTip quadB_toolTip;
         private System.Windows.Forms.ToolTip quadA_toolTip;
+        private System.Windows.Forms.Label coordinateLabel2;
+        private System.Windows.Forms.Label coordinateLabel5;
+        private System.Windows.Forms.Label coordinateLabel4;
+        private System.Windows.Forms.Label coordinateLabel7;
+        private System.Windows.Forms.Label coordinateLabel1;
+        private System.Windows.Forms.Label coordinateLabel3;
+        private System.Windows.Forms.Label coordinateLabel6;
+        private System.Windows.Forms.Label coordinateLabel8;
     }
 }
 

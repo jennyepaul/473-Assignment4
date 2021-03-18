@@ -428,8 +428,7 @@ namespace JennyCasey_Assign4
                 int run = int.Parse(linear_runValue.Text);
                 int yPoint = int.Parse(linear_yPointVal.Text);
                 int xPoint = int.Parse(linear_xPointVal.Text);
-               
-
+              
                 int xValue = 0;
                 int yValue = 0;
                 int xOrigin = 0;
@@ -443,81 +442,52 @@ namespace JennyCasey_Assign4
                 {
                     xOrigin = graph.Width / 2;
                     yOrigin = graph.Height / 2;
-
-                    xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
-                    yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 }
                 else if(isYMinGreat0)
                 {
                     //we have upside down T graph
                     xOrigin = graph1xOrigin;
                     yOrigin = graph1yOrigin;
-
-                    xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
-                    yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 }
                 else if(isYMaxSmall0)
                 {
                     //we have regular T graph
                     xOrigin = graph2xOrigin;
                     yOrigin = graph2yOrigin;
-
-                    xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
-                    yValue = (yOrigin + (graph.Height / numberOfYTicks) * yPoint);
-
                 }
                 else if(isXMinGreat0)
                 {
-
                     xOrigin = graph3xOrigin;
                     yOrigin = graph3yOrigin;
-
-                    xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
-                    yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 }
                 else if(isXMaxSmall0)
                 {
                     xOrigin = graph4xOrigin;
                     yOrigin = graph4yOrigin;
-
-                    xValue = (xOrigin - (graph.Width / numberOfXTicks) * xPoint);
-                    yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
-                    //xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
-                    //yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 }      
                 else if(isUpperRightQuad)
                 {
                     xOrigin = 0;
-                    yOrigin = graph.Height;
-
-                    xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
-                    yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
-                   
+                    yOrigin = graph.Height;       
                 }
                 else if(isUpperLeftQuad)
                 {
                     xOrigin = graph.Width;
                     yOrigin = graph.Height;
-
-                    xValue = (xOrigin - (graph.Width / numberOfXTicks) * xPoint);
-                    yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
                 }
                 else if(isLowerLeftQuad)
                 {
                     xOrigin = graph.Width;
                     yOrigin = 0;
-
-                    xValue = (xOrigin - (graph.Width / numberOfXTicks) * xPoint);
-                    yValue = (yOrigin + (graph.Height / numberOfYTicks) * yPoint);
                 }
                 else if(isLowerRightQuad)
                 {
                     xOrigin = 0;
                     yOrigin = 0;
-
-                    xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
-                    yValue = (yOrigin + (graph.Height / numberOfYTicks) * yPoint);
                 }
+
+                xValue = (xOrigin + (graph.Width / numberOfXTicks) * xPoint);
+                yValue = (yOrigin - (graph.Height / numberOfYTicks) * yPoint);
 
                 Point yIntercept = new Point(xValue, yValue);
                 Point point1 = new Point(xValue + run, yValue - rise);
@@ -895,8 +865,6 @@ namespace JennyCasey_Assign4
                     testOutput.AppendText("Cubic equation is NOT being graphed\n");
                 }
             }
-
-
             //CIRCLE EQUATIONS GRAPHING
             if (Circle_HValue.Text.Length != 0 && Circle_KValue.Text.Length != 0 && Circle_RValue.Text.Length != 0)
             {
@@ -1036,10 +1004,136 @@ namespace JennyCasey_Assign4
             testOutput.Clear();
             graph.Refresh();
 
-           
+            //go through and label the mins, and maxes in the right areas
+            //on the graphing plane 
+            if ((yMin > 0 || yMax < 0) && (xMin < 0) && (xMax > 0))
+            {
+                if (yMin > 0)
+                {
+                    //upside down T graph
+                    coordinateLabel1.Text = "";
+                    coordinateLabel3.Text = "";
+                    coordinateLabel4.Text = "";
+                    coordinateLabel5.Text = "";
+
+                    coordinateLabel6.Text = xMinValue.Value.ToString();
+                    coordinateLabel8.Text = xMaxValue.Value.ToString();
+                    coordinateLabel7.Text = yMinValue.Value.ToString();
+                    coordinateLabel2.Text = yMaxValue.Value.ToString();
+                }
+                if (yMax < 0)
+                {
+                    //T shaped graph
+                    coordinateLabel1.Text = xMinValue.Value.ToString();
+                    coordinateLabel2.Text = yMaxValue.Value.ToString();
+                    coordinateLabel3.Text = xMaxValue.Value.ToString();
+                    coordinateLabel4.Text = "";
+                    coordinateLabel5.Text = "";
+                    coordinateLabel6.Text = "";
+                    coordinateLabel7.Text = yMinValue.Value.ToString();
+                    coordinateLabel8.Text = "";
+                
+                }
+            }
+            else if ((xMin > 0 || xMax < 0) && (yMin < 0) && (yMax > 0))
+            {
+                if (xMin > 0)
+                {
+                    //label the correct labels + blank the ones we don't need
+                    coordinateLabel1.Text = yMaxValue.Value.ToString();
+                    coordinateLabel2.Text = "";
+                    coordinateLabel3.Text = "";
+                    coordinateLabel4.Text = xMinValue.Value.ToString();
+                    coordinateLabel5.Text = xMaxValue.Value.ToString();
+                    coordinateLabel6.Text = yMinValue.Value.ToString();
+                    coordinateLabel7.Text = "";
+                    coordinateLabel8.Text = "";
+
+                }
+                if (xMax < 0 && yMax > 0)
+                {
+                    //label the correct labels + blank the ones we don't need
+                    coordinateLabel1.Text = "";
+                    coordinateLabel2.Text = "";
+                    coordinateLabel3.Text = yMaxValue.Value.ToString();
+                    coordinateLabel4.Text = xMinValue.Value.ToString();
+                    coordinateLabel5.Text = xMaxValue.Value.ToString();
+                    coordinateLabel6.Text = "";
+                    coordinateLabel7.Text = "";
+                    coordinateLabel8.Text = yMinValue.Value.ToString();
+                }
+            }
+            else if ((xMin > 0 && yMin > 0) || (xMax < 0 && yMin > 0) || (xMax < 0 && yMax < 0) || (xMin > 0 && yMax < 0))
+            {
+                //right upper quadrant labels
+                if (xMin > 0 && yMin > 0)
+                {
+                    //label the correct labels + blank the ones we don't need
+                    coordinateLabel1.Text = yMaxValue.Value.ToString();
+                    coordinateLabel2.Text = "";
+                    coordinateLabel3.Text = "";
+                    coordinateLabel4.Text = "";
+                    coordinateLabel5.Text = "";
+                    coordinateLabel6.Text = "";
+                    coordinateLabel7.Text = "";
+                    coordinateLabel8.Text = xMaxValue.Value.ToString();
+                }
+                //left upper quadrant labels
+                else if (xMax < 0 && yMin > 0)
+                {
+                    //label the correct labels + blank the ones we don't need
+                    coordinateLabel1.Text = "";
+                    coordinateLabel2.Text = "";
+                    coordinateLabel3.Text = yMaxValue.Value.ToString();
+                    coordinateLabel4.Text = "";
+                    coordinateLabel5.Text = "";
+                    coordinateLabel6.Text = xMinValue.Value.ToString();
+                    coordinateLabel7.Text = "";
+                    coordinateLabel8.Text = "";
+                }
+                //lower left quadrant labels
+                else if (xMax < 0 && yMax < 0)
+                {
+                    //label the correct labels + blank the ones we don't need
+                    coordinateLabel1.Text = xMinValue.Value.ToString();
+                    coordinateLabel2.Text = "";
+                    coordinateLabel3.Text = "";
+                    coordinateLabel4.Text = "";
+                    coordinateLabel5.Text = "";
+                    coordinateLabel6.Text = "";
+                    coordinateLabel7.Text = "";
+                    coordinateLabel8.Text = yMinValue.Value.ToString();
+                }
+                //lower right quadrant labels
+                else if (xMin > 0 && yMax < 0)
+                {
+                    //label the correct labels + blank the ones we don't need
+                    coordinateLabel1.Text = "";
+                    coordinateLabel2.Text = "";
+                    coordinateLabel3.Text = xMaxValue.Value.ToString();
+                    coordinateLabel4.Text = "";
+                    coordinateLabel5.Text = "";
+                    coordinateLabel6.Text = yMinValue.Value.ToString();
+                    coordinateLabel7.Text = "";
+                    coordinateLabel8.Text = "";
+                }
+            }
+            //normal graph and normal label areas
+            else 
+            {
+                coordinateLabel4.Text = xMinValue.Value.ToString();
+                coordinateLabel5.Text = xMaxValue.Value.ToString();
+                coordinateLabel2.Text = yMaxValue.Value.ToString();
+                coordinateLabel7.Text = yMinValue.Value.ToString();
+
+                coordinateLabel1.Text = "";
+                coordinateLabel3.Text = "";
+                coordinateLabel6.Text = "";
+                coordinateLabel8.Text = "";
+            }
         }
 
-        //when Mouse is up, it will reset the "isDown" bool variable
+        //when Mouse is up, it will reset flags
         private void graphButton_MouseUp(object sender, MouseEventArgs e)
         { 
             isDown = false;
@@ -1056,34 +1150,6 @@ namespace JennyCasey_Assign4
             isLowerLeftQuad = false;
             
             //graph.Refresh();
-        }
-
-        //changes the x minimum value on the graph depending what user enters
-        private void xMinValue_ValueChanged(object sender, EventArgs e)
-        {
-            string xMin = xMinValue.Value.ToString();
-            //xLabelMin.Text = xMin;
-        }
-
-        //changes the x max value on the graph depending what user enters
-        private void xMaxValue_ValueChanged(object sender, EventArgs e)
-        {
-            string xMax = xMaxValue.Value.ToString();
-            //xLabelMax.Text = xMax;
-
-        }
-
-        //changes y min value on the graph depending what user enteres
-        private void yMinValue_ValueChanged(object sender, EventArgs e)
-        {
-            string yMin = yMinValue.Value.ToString();
-            //yLabelMin.Text = yMin;
-        }
-        //changes y max value on the graph depending what user enters
-        private void yMaxValue_ValueChanged(object sender, EventArgs e)
-        {
-            string yMax = yMaxValue.Value.ToString();
-            //yLabelMax.Text = yMax;
         }
 
         //the following 4 functions adjust the color options availble for when linear colors are selected
@@ -1225,7 +1291,6 @@ namespace JennyCasey_Assign4
         }
 
         //the following 4 functions adjust the color options available for when quadratic colors are selected
-
         private void BlueColorRadioButton_Quadratic_CheckedChanged(object sender, EventArgs e)
         {
             if (BlueColorRadioButton_Quadratic.Checked)
