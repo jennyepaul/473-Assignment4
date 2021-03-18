@@ -19,20 +19,31 @@ using System.Windows.Forms;
 
 namespace JennyCasey_Assign4
 {
-/**************************************************************************************************************************
-* Class - Form1
-* 
-* The purpose of the Form1 class was to give functionality to the buttons on the form used for this assignment.
-* 
-* - Form1 Class Methods: 
-*                       graph_paint => This function first determines where the x, y axis, and tick marks are going to be located
-*                                      based on the infomation provided by the user. Then based on whether the user entered a 
-*                                      linear, quadratic, cubic or circle equation, this function with preform the math based 
-*                                      on which function is being graphed and the graph graph the given equation. 
-*                                      
-*                       Form1 => This function adds the Unicode symbols to the squared and cubic equations 
-*                                                    
-**************************************************************************************************************************/
+    /**************************************************************************************************************************
+    * Class - Form1
+    * 
+    * The purpose of the Form1 class was to give functionality to the buttons on the form used for this assignment.
+    * 
+    * - Form1 Class Methods: 
+    *                       graph_paint => This function first determines where the x, y axis, and tick marks are going to be located
+    *                                      based on the infomation provided by the user. Then based on whether the user entered a 
+    *                                      linear, quadratic, cubic or circle equation, this function with preform the math based 
+    *                                      on which function is being graphed and the graph graph the given equation. 
+    *                                      
+    *                       Form1 => This function adds the Unicode symbols to the squared and cubic equations 
+    *                       graphButton_MouseDown => This event will draw the graph itself when the user clicks down on the "graph"
+    *                                                 button. It also will add in the labels for the x & y axis depending on 
+    *                                                 what type of graph is being drawn and what the values are for those.
+    *                       private void graphButton_MouseUp => when the user MouseUp's, all flags will be reset so that if
+    *                                                           the user chooses to graph again right away, the graph will 
+    *                                                           change. 
+    *                       RadioButton_CheckedChanged => There are 16 of these events, and these events will gray out
+    *                                                     the radio button for the other graphs if it is chosen on one. 
+    *                                                     For example, if we choose to draw the linear graph in RED, that option
+    *                                                     will be disabled for all other graphs. 
+    *                                                 
+    *                                                    
+    **************************************************************************************************************************/
     public partial class Form1 : Form
     {
         //the following are the 4 colors that we can use to draw
@@ -103,6 +114,7 @@ namespace JennyCasey_Assign4
 
             xInterval = (int)xIntervalValue.Value;
             yInterval = (int)yIntervalValue.Value;
+
 
             //error output if user tries to make min > max
             if(xMin > xMax)
@@ -253,8 +265,6 @@ namespace JennyCasey_Assign4
                             graphics.DrawLine(graphPen, 0 + numberOfYTicks, i * (graph.Height) / numberOfYTicks,
                                                        0 - numberOfYTicks, i * (graph.Height) / numberOfYTicks);
                         }
-
-
                     }
                     if (xMax < 0 && yMax > 0)
                     {
@@ -440,8 +450,7 @@ namespace JennyCasey_Assign4
                                                        (graph.Width / 2) - numberOfYTicks, i * (graph.Height) / numberOfYTicks);
                         }
                     }
-                }
-                
+                }      
             }
             //LINEAR EQUATION GRAPHING
             if (linear_riseValue.TextLength != 0 && linear_runValue.TextLength != 0 && linear_yPointVal.TextLength != 0 && linear_xPointVal.TextLength != 0)
@@ -950,9 +959,7 @@ namespace JennyCasey_Assign4
                 else if (isLowerRightQuad)
                 {
                     xOrigin = 0;
-                    yOrigin = 0;
-                    
-                  
+                    yOrigin = 0;     
                 }
 
                 if (H_Value == 0)
@@ -1172,8 +1179,6 @@ namespace JennyCasey_Assign4
             isLowerRightQuad = false;
             isUpperLeftQuad = false;
             isLowerLeftQuad = false;
-            
-            //graph.Refresh();
         }
 
         //the following 4 functions adjust the color options availble for when linear colors are selected
