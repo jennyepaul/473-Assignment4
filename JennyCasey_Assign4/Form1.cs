@@ -785,11 +785,11 @@ namespace JennyCasey_Assign4
                 int y;
                 int xPoint = 0;
                 int yPoint = 0;
-                Point[] cubicPoints = new Point[10000];
+                Point[] cubicPoints = new Point[200];
 
                 int n = 0;
 
-                for (int i = (yintercept_x - 5); i <= (yintercept_x + 5); i++)
+                for (int i = (yintercept_x - 100); i <= (yintercept_x + 100); i++)
                 {
                     x = i;
 
@@ -816,7 +816,8 @@ namespace JennyCasey_Assign4
                     }
 
                     //creating a new point
-                    cubicPoints[n] = new Point(xPoint, yPoint);
+                    if (n < cubicPoints.Length)
+                        cubicPoints[n] = new Point(xPoint, yPoint);
                     n++;
 
                 }
