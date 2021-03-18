@@ -1,4 +1,13 @@
-﻿using System;
+﻿/* CSCI473 
+ * Assignment 
+ * DATE: 3/18/2021
+ * TEAM: JennyCasey
+ * Contributors: Jennifer Paul (z1878099) and Casey McDermott (z1878096)
+ * PURPOSE: The purpose of this assignment is to design a graphing calculator that can graph 
+ *          linear equations, quadratic equations, cubic equations, and circle equations. 
+ *          
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +19,20 @@ using System.Windows.Forms;
 
 namespace JennyCasey_Assign4
 {
+/**************************************************************************************************************************
+* Class - Form1
+* 
+* The purpose of the Form1 class was to give functionality to the buttons on the form used for this assignment.
+* 
+* - Form1 Class Methods: 
+*                       graph_paint => This function first determines where the x, y axis, and tick marks are going to be located
+*                                      based on the infomation provided by the user. Then based on whether the user entered a 
+*                                      linear, quadratic, cubic or circle equation, this function with preform the math based 
+*                                      on which function is being graphed and the graph graph the given equation. 
+*                                      
+*                       Form1 => This function adds the Unicode symbols to the squared and cubic equations 
+*                                                    
+**************************************************************************************************************************/
     public partial class Form1 : Form
     {
         //the following are the 4 colors that we can use to draw
